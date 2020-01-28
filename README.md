@@ -1,6 +1,6 @@
 # Introduction to exercises
 
-This repository conatins the exercises for the University of Copenhagen Population Genetics master course blabla
+This repository conatins the exercises for the University of Copenhagen Population Genetics master course and blabla
 
 ## Index
 
