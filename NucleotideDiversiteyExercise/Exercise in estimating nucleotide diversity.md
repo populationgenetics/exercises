@@ -138,7 +138,7 @@ In your ‘apeDiversity’ directory, you will find twenty different PLINK files
 **Table 1  Sample overview**     
 
 | **Population**                                                                                    | **File name prefix** | **n** |
-|---------------------------------------------------------------------------------------------------|----------------------|-------|
+|---------------------------------------------------------------------------------------------------|----------------------|-------:|
 | Chimpanzee (*Pan troglodytes)*                                                                    | Pan\_troglodytes     | 59    |
 | Central chimpanzee (*Pan troglodytes troglodytes*)                                                | Pt\_troglo           | 18    |
 | Eastern chimpanzee (*Pan troglodytes schweinfurtii*)                                              | Pt\_scwein           | 19    |
@@ -366,15 +366,10 @@ This will produce output files with the extension “.het”. Take a look at the
 The headings of .het files are:
 
 FID Family ID
-
 IID Individual ID
-
 O(HOM) Observed number of homozygotes
-
 E(HOM) Expected number of homozygotes
-
 N(NM) Number of non-missing genotypes
-
 F F inbreeding coefficient estimate
 
 **Q16:** Is there a sign of inbreeding in some of the humans?
