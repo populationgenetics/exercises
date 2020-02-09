@@ -46,7 +46,7 @@ Change the directory to the exercise directory and copy your data:
 
 ```
 cd ~/exercises
-cp ~/groupdirs/SCIENCE-BIO-Popgen\_Course/exercises/apeDiversity/apeGenDiv.tar.gz .
+cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/apeDiversity/apeGenDiv.tar.gz .
 tar -zxvf apeGenDiv.tar.gz
 rm apeGenDiv.tar.gz
 cd apeDiversity
