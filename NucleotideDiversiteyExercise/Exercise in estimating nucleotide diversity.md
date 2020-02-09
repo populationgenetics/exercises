@@ -366,10 +366,15 @@ This will produce output files with the extension “.het”. Take a look at the
 The headings of .het files are:
 
 FID Family ID
+
 IID Individual ID
+
 O(HOM) Observed number of homozygotes
+
 E(HOM) Expected number of homozygotes
+
 N(NM) Number of non-missing genotypes
+
 F F inbreeding coefficient estimate
 
 **Q16:** Is there a sign of inbreeding in some of the humans?
