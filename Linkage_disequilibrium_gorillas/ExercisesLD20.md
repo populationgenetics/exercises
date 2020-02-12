@@ -32,7 +32,7 @@ estimate
 
 6)  *D<sub>min</sub>*
 
-7)  *D´* = *D/D<sub>max</sub>* if *D* is positive
+7)  *D´* = *D/D<sub>max</sub>* if *D* is positive      
     *D´* = *D/D<sub>min</sub>* if *D* is negative
 
 8)  *r*<sup>2</sup>
