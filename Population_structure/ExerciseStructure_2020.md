@@ -292,7 +292,7 @@ things) in humans. An allele (A) in this gene is associated with light
 skin. The SNP varies in frequency in populations in the Americas with
 mixed African and Native American ancestry. A sample from Mexico had 38%
 A and 62% G; in Puerto Rico the frequencies were 59% A and 41% G, and a
-sample of Africans had 19% A with 81% G.
+sample of Africans had 2% A with 98% G.
 
 Calculate *F<sub>st</sub>* in this example. Start by calculating
 heterozygosity, then H<sub>s</sub> and then H<sub>T</sub>
