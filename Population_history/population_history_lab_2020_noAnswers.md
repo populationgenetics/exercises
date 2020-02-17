@@ -36,13 +36,13 @@ the ‘exercises/populationHistory’ folder** (/home/
 /groupdirs/SCIENCE-BIO-Popgen_Course/exercises/populationHistory/). Please copy
 this entire folder to your home directory by writing this:
 
-```
+```bash
 cp -r groupdirs/SCIENCE-BIO-Popgen_Course/exercises/populationHistory ./exercises/*
 ```
 
 Now move to the new folder location:
 
-```
+```bash
 cd exercises/populationHistory
 ```
 
@@ -54,7 +54,7 @@ at them together.
 Now, navigate to the ‘populationHistory’ folder in your home directory and run
 the following command:
 
-```
+```bash
 fsc26 -i constant1.par -n10 -X -s0 -I -T -d
 ```
 
@@ -69,7 +69,7 @@ declining and expanding population sizes. We will plot the sfs files and compare
 among the histories. Navigate to the output folder (/constant1/ first, after
 that /decline1/ and /expansion1/). Go to the constant1 folder and Open R:
 
-```
+```bash
 cd constant1
 
 R
@@ -77,7 +77,7 @@ R
 
 Now paste this code:
 
-```
+```R
 constant<-read.table("constant1_DAFpop0.obs", skip=2) #read in the constant.sfs.
 constant1.sfs<-as.matrix(constant[,2:10]) #extract the variable sites from the ten sfs.
 norm1.constant<-apply(constant1.sfs,1,function(x) x/sum(x)) #getting proportions instead of counts.
@@ -90,7 +90,7 @@ Question: What do you think determines how different the SFS's are?
 
 Now we look at the decline1 scenario. Without closing your R session do this:
 
-```
+```R
 setwd("../decline1/") #navigates to the decline1 simulation folder.
 dev.new() #lets you open a new graphic device while keeping the other open.
 decline<-read.table("decline1_DAFpop0.obs", skip=2) #next three lines as above.
@@ -101,7 +101,7 @@ barplot(norm1.decline, be=T, main="10 SFS's from a declining population, simulat
 
 And the expand1 scenario:
 
-```
+```R
 setwd("../expand1/") #navigates to the appropriate simulation folder.
 dev.new()
 expand<-read.table("expand1_DAFpop0.obs", skip=2) #next three lines as above.
@@ -123,7 +123,7 @@ trees among histories.
 
 Run the following R code to load the 1000 trees from the constant1 scenario:
 
-```
+```R
 setwd("../constant1/") #navigates to the appropriate simulation folder.
 library(ape)
 conTrees<-read.nexus("constant1_1_true_trees.trees")
@@ -136,14 +136,14 @@ in each simulation? Are the trees identical? Similar?
 
 Next, we will plot just the first of the 1000 trees:
 
-```
+```R
 plot(conTrees[[1]], show.tip.label=F)
 add.scale.bar() #this adds a scale bar with units in numbers of mutations. 
 ```
 
 Now, run the following to view the first tree from the decline1 scenario:
 
-```
+```R
 setwd("../decline1/") #navigates to the appropriate simulation folder.
 dev.new()
 decTrees<-read.nexus("decline1_1_true_trees.trees")
@@ -156,7 +156,7 @@ you expected?
 
 Lastly, here is the code to plot the first tree from the expand1 simulation:
 
-```
+```R
 setwd("../expand1/") #navigates to the appropriate simulation folder.
 dev.new()
 expTrees<-read.nexus("expand1_1_true_trees.trees")
@@ -170,7 +170,7 @@ Are they as you expected?
 Next we will construct skyline plots of population size from the simulated
 trees. Let’s start by looking at one of the expansion trees:
 
-```
+```R
 dev.new()
 sky1<-skyline(expTrees[[1]], 200) #this takes only the 1st of 1000 expansion trees and makes the skyline plot calculations. The second parameter controls the smoothing and was chosen by us for this specific situation.
 plot(sky1, subst.rate=0.00001, main="Skyline plot, expansion tree 1") #plots the skyline object. The second parameter should equal the simulated mutation rate.
@@ -189,7 +189,7 @@ changed over time, and over which time scale. The following is R code to load
 and analyze a coalescent tree from HIV virus data using APE. It will give us
 various population trees and a skyline plot:
 
-```
+```R
 library(ape) #loads the package 'ape' ('install.packages("ape")' will install it if not present in local R packages.
 data("hivtree.newick") #get example data, Newick tree file.
 tree1<-read.tree(text = hivtree.newick) #reads in the data as a 'tree' object in R.
@@ -199,7 +199,7 @@ plot(tree1, show.tip.label=F) #plots the tree as a phylogram.
 Question: Pause here to look at the tree. What would you say about the population
 history of HIV from this tree?
 
-```
+```R
 sky2<-skyline(tree1, 0.0119) #constructs a 'skyline' object (generalized skyline plot) with estimated popsize for collapsed coalescent intervals.
 dev.new()
 plot(sky2, show.years=TRUE, subst.rate=0.0023, present.year = 1997) #plot generalized skyline plot.
@@ -239,7 +239,7 @@ actual data from the elephant population. This summary statistic is allelic
 richness (K), or the mean number of alleles in the population across 18 microsat
 loci. We plot the distribution of K from both simulated scenarios:
 
-```
+```R
 sulu<-read.table("sulu_outSumStats.txt", head=T)
 lgm<-read.table("lgm_outSumStats.txt", head=T)
 plot(density(sulu$K_1), xlim=c(2,4.5), main="Distribution of K in the introduction scenario")
