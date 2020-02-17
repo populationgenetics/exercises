@@ -83,7 +83,7 @@ your main terminal.
 
 ## LD blocks
 
-In this first part of the exercise we will explore a specific region of chromosome 4 in terms of blocks of LD. We have not chosen this region for any specific region and the emerging patterns should serve as a general comparison of LD in the two populations. First step will be to extract a pre-defined region using PLINK and run a LD anaysis with SnpMatrix in R. The results will be written to an .eps file that you can open with Adobe.
+In this first part of the exercise we will explore a specific region of chromosome 4 in terms of blocks of LD. We have not chosen this region for any specific reason and the emerging patterns should serve as a general comparison of LD in the two populations. First step will be to extract a pre-defined region using PLINK and run a LD anaysis with SnpMatrix in R. The results will be written to an .eps file that you can open with Adobe.
 
 ### Mountain Gorilla
 
