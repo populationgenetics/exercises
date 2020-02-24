@@ -22,6 +22,7 @@ This is a browser for selection for the 1000Genomes project. This is the largest
   
   - Zoom out a factor 10X 
   - The score is a rank based score for how extreme the loci is. The p-value can be interpreted as the fraction of the genome that is more extreme than this loci.  P-value = 10-RankScore
+  
   - The maximum value is 1.72405.  Is this an extreme loci?
   - Try to go to the LCT loci. How extreme is this?
   - Try to zoom out. Are the any sites in the genome that stick out
@@ -29,7 +30,6 @@ This is a browser for selection for the 1000Genomes project. This is the largest
 
 # Part 2
 
-Run Shiny app
 Open R and run the shiny app
 ## in R 
 ```R
@@ -37,16 +37,19 @@ Open R and run the shiny app
 shiny::runApp("groupdirs/SCIENCE-BIO-Popgen_Course/exercises/selection/selectionScan/")
 ```
 **be patient – a browser window will pop up after ~ 30 sec.**
+
 If you cannot copy paste then you can find the command in the Absalon module
 
 
 **Exercise**
+
 Let see if we can do better than the Tajima’s D by using the PBS statistics. First select 3 populations from 
   - NAT - Native Americans (PERU+Mexico)
   - CHB – East Asian - Han Chinese
   - CEU – Central Europeans
-  - YRI – African - Nigerians 
-  The first population is the one which branch you are investigating. The two others are the one you are comparing to. Chose CEU as the first and choose CHB and YRI as the two others. 
+  - YRI – African - Nigerians
+  
+The first population is the one which branch you are investigating. The two others are the one you are comparing to. Chose CEU as the first and choose CHB and YRI as the two others. 
 
 First lets get an overview of the whole genome by making a manhattan plot
   - Press “Run analysis”. 
@@ -63,6 +66,7 @@ Zoom in to the peak by changing start and end position.
   - What does the gene do?
   - Try the LCT gene (the mutations are locate in the adjacent MCM6 gene). See below on how to get the position
   - How does this compare with Tajima’s D
+  
 If you have time you can try other genes. Here are the top ones for Humans. You can find the find the location of the genes using for example the ucsc browser https://genome-euro.ucsc.edu/cgi-bin/hgGateway   (choose human GRCh37/hg19 genome). Note that there are some population that you cannot test because the populations are not represented in the data e.g. Tibetan, Ethiopian , Inuit, Siberians.
 
 
