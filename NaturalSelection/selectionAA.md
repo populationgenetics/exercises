@@ -16,6 +16,7 @@ This is a browser for selection for the 1000Genomes project. This is the largest
   <img  align="left" src="fig2.png" alt="" width=300 title="">
  </figure>
  
+ 
   - Look at the Rank Score of TajimasD in the gene
  <figure>
   <img  src="fig3.png" alt="" width=800 title="">
@@ -25,6 +26,7 @@ This is a browser for selection for the 1000Genomes project. This is the largest
 
 
  <figure>   <img  align="right" src="fig4.png" alt="" width=200 title="">  </figure>  
+ 
   - Zoom out a factor 10X 
   - The score is a rank based score for how extreme the loci is. The p-value can be interpreted as the fraction of the genome that is more extreme than this loci.  P-value = 10-RankScore
    <figure>
