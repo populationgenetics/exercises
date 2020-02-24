@@ -7,15 +7,11 @@ This is a browser for selection for the 1000Genomes project. This is the largest
 
   - Uncheck everything except Tajima’s D
   - Try the SLC45A2 gene in Europeans - this is one of the strongest selected genes in Europeans
- 
- <figure>
-  <img  align="left" src="fig1.png" alt="" width=300 title="">
- </figure>
- 
-  <figure>
-  <img  align="left" src="fig2.png" alt="" width=300 title="">
- </figure>
- ![Test Image 1](fig2.png)
+ <p align="center">
+   <img  align="left" src="fig1.png" alt="" width=300 title="">
+   <img  align="left" src="fig2.png" alt="" width=300 title="">
+ </p>
+
  
   - Look at the Rank Score of TajimasD in the gene
  <figure>
