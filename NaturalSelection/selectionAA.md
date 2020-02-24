@@ -32,6 +32,7 @@ This is a browser for selection for the 1000Genomes project. This is the largest
    <figure>
   <img  align="right" src="fig5.png" alt="" width=400 title="">
  </figure>
+ 
   - The maximum value is 1.72405.  Is this an extreme loci?
   - Try to go to the LCT loci. How extreme is this?
   - Try to zoom out. Are the any sites in the genome that stick out
