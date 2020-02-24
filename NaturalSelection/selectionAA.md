@@ -7,22 +7,30 @@ This is a browser for selection for the 1000Genomes project. This is the largest
 
   - Uncheck everything except Tajima’s D
   - Try the SLC45A2 gene in Europeans - this is one of the strongest selected genes in Europeans
-        ◦ 
+ 
+ <figure>
+  <img  align="right" src="fig1.png" alt="" width=200 title="">
+ </figure>
+  <figure>
+  <img  align="right" src="fig2.png" alt="" width=200 title="">
+ </figure>
+ 
   - Look at the Rank Score of TajimasD in the gene
-
-
-
-
-
-
+ <figure>
+  <img  src="fig3.png" alt="" width=200 title="">
+ </figure>
 
 
 
 
   
-  - Zoom out a factor 10X 
+  - Zoom out a factor 10X  <figure>
+  <img  align="right" src="fig4.png" alt="" width=200 title="">
+ </figure>
   - The score is a rank based score for how extreme the loci is. The p-value can be interpreted as the fraction of the genome that is more extreme than this loci.  P-value = 10-RankScore
-  
+   <figure>
+  <img  align="right" src="fig5.png" alt="" width=200 title="">
+ </figure>
   - The maximum value is 1.72405.  Is this an extreme loci?
   - Try to go to the LCT loci. How extreme is this?
   - Try to zoom out. Are the any sites in the genome that stick out
