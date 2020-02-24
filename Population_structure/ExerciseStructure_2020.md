@@ -228,6 +228,7 @@ less -S pruneddata.3.Q
 **Q7**: The number of columns indicate the number of K used and the rows
 indicate individuals and their ancestry proportion in each population.
 Look at individual no. 10, do you consider this individual to be
+recently (within the last two generations) admixed?
 
 Now we want to plot our ADMIXTURE results, to do this open R and pasting
 the following code in:
