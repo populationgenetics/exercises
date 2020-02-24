@@ -11,7 +11,7 @@ This is a browser for selection for the 1000Genomes project. This is the largest
    <img  align="left" src="fig1.png" alt="" width=300 title="">
    <img  align="left" src="fig2.png" alt="" width=300 title="">
  </p>
-
+<br/>
  
   - Look at the Rank Score of TajimasD in the gene
  <figure>
