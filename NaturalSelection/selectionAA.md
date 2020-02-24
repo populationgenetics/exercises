@@ -14,7 +14,7 @@ This is a browser for selection for the 1000Genomes project. This is the largest
    <img  align="left" src="fig2.png" alt="" width=300 title="">
  </p>  
  <br/><br/>
-
+![](exercises/NaturalSelection/fig2.png?raw=true)
   - Look at the Rank Score of TajimasD in the gene
  <figure>
   <img  src="fig3.png" alt="" width=800 title="">
