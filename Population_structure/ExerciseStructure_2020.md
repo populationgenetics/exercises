@@ -59,7 +59,8 @@ troglodytes* (from Frandsen & Fontsere *et al.* *in prep*).
 
 Consider two non-identical and separated populations of chimpanzees
 without genetic drift, natural selection, mutation or migration. Mating
-is random within each population. In population 1 the frequency of
+is random within each population. We analyze a variation at a biallelic locus.
+In population 1 the frequency of
 allele A is 0.1 and in population 2 the frequency of allele A is 0.9. A
 young researcher has collected a sample comprising 50% from each
 population (each population is assumed to be of equal size). Calculate
