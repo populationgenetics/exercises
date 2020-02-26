@@ -39,6 +39,11 @@ This is a browser for selection for the 1000Genomes project. This is the largest
   - What can you conclude on the performance of Tajima’s D
 
 # Part 2
+First mkdir a tmp directory 
+```R
+mkdir ~/tmp
+```
+
 
 Open R and run the shiny app
 ## in R 
