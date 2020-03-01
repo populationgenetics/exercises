@@ -31,7 +31,7 @@ Here is shown the IBD sharing between two individuals on chromosome 1.
 Here is a figure of two distantly related individuals both with the same rare disorder. They share 0.3% of their genome IBD=1
  
  <p align="center">
-   <img  align="left" src="fig2.png" alt="" width=800 title="">
+   <img  align="left" src="fig2.png" alt="" width=850 title="">
 <br />
  </p>  
 
