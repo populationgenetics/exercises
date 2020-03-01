@@ -1,3 +1,4 @@
+# Inbreeding
 You have gotten access to DNA from an individual and using genetic markers across the genome you estimate that the inbreeding coefficient to F=0.062
   - Is this high compared to what you would expect for a Human?
   - What the most simple pedigree that could give rise to such an estimate?
@@ -15,14 +16,20 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - If you infer the inbreeding tracks of your individuals the results will look like this. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
 
 
-Relatedness
+# Relatedness
 
 Here is shown the IBD sharing between two individuals on chromosome 1. 
 
+ <p align="center">
+   <img  align="left" src="fig1.png" alt="" width=300 title="">
+ </p>  
 
   - Assuming no previous inbreeding in the population what is the only relationship that can produce such IBD patterns?
   - Assuming both individuals has a rare recessive disorder, where on the chromosome might the disease gene be located?
 Here is a figure of two distantly related individuals both with the same rare disorder. They share 0.3% of their genome IBD=1
+ <p align="center">
+   <img  align="left" src="fig2.png" alt="" width=300 title="">
+ </p>  
 
   - These individuals share two regions IBD. What assumption do we have to have in order to conclude that the disease causing locus is in one of these regions?
   - For relatedness mapping do you think it is best to have close or distantly related individuals?
