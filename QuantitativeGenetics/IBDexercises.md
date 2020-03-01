@@ -24,6 +24,7 @@ Here is shown the IBD sharing between two individuals on chromosome 1.
    <img  align="left" src="fig1.png" alt="" width=800 title="">
  </p>  
 
+
   - Assuming no previous inbreeding in the population what is the only relationship that can produce such IBD patterns?
   - Assuming both individuals has a rare recessive disorder, where on the chromosome might the disease gene be located?
 Here is a figure of two distantly related individuals both with the same rare disorder. They share 0.3% of their genome IBD=1
@@ -31,6 +32,7 @@ Here is a figure of two distantly related individuals both with the same rare di
  <p align="center">
    <img  align="left" src="fig2.png" alt="" width=800 title="">
  </p>  
+
 
   - These individuals share two regions IBD. What assumption do we have to have in order to conclude that the disease causing locus is in one of these regions?
   - For relatedness mapping do you think it is best to have close or distantly related individuals?
