@@ -22,6 +22,7 @@ Here is shown the IBD sharing between two individuals on chromosome 1.
 
  <p align="center">
    <img  align="left" src="fig1.png" alt="" width=800 title="">
+ <br> 
  </p>  
 
 
@@ -31,6 +32,7 @@ Here is a figure of two distantly related individuals both with the same rare di
  
  <p align="center">
    <img  align="left" src="fig2.png" alt="" width=800 title="">
+   <br> 
  </p>  
 
 
