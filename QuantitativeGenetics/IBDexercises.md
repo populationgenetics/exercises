@@ -32,7 +32,7 @@ Here is a figure of two distantly related individuals both with the same rare di
  
  <p align="center">
    <img  align="left" src="fig2.png" alt="" width=800 title="">
-   <br> 
+<br />
  </p>  
 
 
