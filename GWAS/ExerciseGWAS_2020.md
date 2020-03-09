@@ -133,9 +133,12 @@ This should give you several plots. For now just look at the Manhattan plot, whi
 display plink.assoc.png
 ```
 
-A bonferroni corrected p-value threshold based on an initial p-value threshold of 0.05, is shown as a dotted line on the plot. Explain how this threshold was reached and calculate the exact threshold using you knowledge of how many SNPs you have in your dataset (NB if you want to calculate log10 in R you can use the function log10).
+A bonferroni corrected p-value threshold based on an initial p-value threshold of 0.05, is shown as a dotted line on the plot. 
 
-Using this threshold, does any of the SNPs in your dataset seem to be associated with the disease? Do your results seem plausible? Why/why not?
+* Explain how this threshold was reached.
+* Calculate the exact threshold using you knowledge of how many SNPs you have in your dataset (NB if you want to calculate log10 in R you can use the function log10)
+* Using this threshold, does any of the SNPs in your dataset seem to be associated with the disease? 
+* Do your results seem plausible? Why/why not?
 
 
 #### Exercise 2B: checking if it went OK using QQ-plot
