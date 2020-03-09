@@ -113,7 +113,7 @@ Let's try to perform a GWAS of our data, i.e. test each SNP for association with
 plink  --bfile data/gwa --assoc --adjust
 ```
 
-Specifically "--bfile data/gwa" specifies that the data PLINK should analyse are the files in folder called "data" with the prefix gwa. "--assoc" specifies that we want to perform GWAS using the allelic test and "-—adjust" tells PLINK to output a file that includes p-values that are adjusted for multiple testing using Bonferroni correction as well as other fancier methods. Try to run the command and take a look at the text PLINK prints to your screen. Specifically, note the
+Specifically "--bfile data/gwa" specifies that the data PLINK should analyse are the files in folder called "data" with the prefix gwa. "--assoc" specifies that we want to perform GWAS using the allelic test and "--adjust" tells PLINK to output a file that includes p-values that are adjusted for multiple testing using Bonferroni correction as well as other fancier methods. Try to run the command and take a look at the text PLINK prints to your screen. Specifically, note the
 
 * number of SNPs
 * number of individuals
