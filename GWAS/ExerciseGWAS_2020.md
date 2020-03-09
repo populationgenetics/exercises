@@ -4,7 +4,7 @@
 
 The focus of these exercises is two simple tests for association and then perform a GWAS using one of these tests. The goal is to give you some hands on experience with GWAS. The exercises are to some extent copy-paste based, however this is one purpose. First it will provide you with some relevant commands if you later on want to perform a GWAs and second it allows us to spend more time on looking at and interpreting the output than if most tiem was spend on tryign to get the commands right. So please do not just simply copy-paste, but try to 
 
-1) make sure you understand what the command/code does (except the command line plotting commands which calls code in a script) 
+1) make sure you understand what the command/code does (except the command lines that start with "Rscript" since these just call code in an R script which you do not have to look at unless you are curious) 
 2) spend some time on looking at and trying to interpret the output you get when you run the code
 
 .
@@ -78,7 +78,7 @@ chisq.test(allelecountsSNP1,correct=F)
 # ... repeat the above with SNP 2 data
 ```
 
-Do these tests lead to the same conclusions as you reached in exercise 1A?
+* Do these tests lead to the same conclusions as you reached in exercise 1A?
 
 .
 
@@ -89,7 +89,9 @@ This exercise is about Genome-Wide Association Studies (GWAS): how to perform on
 
 #### Exercise 2A: getting data and running your first GWAS
 
-First close R if you have it open. Then make a folder called GWAS for this exercise, copy the relavant data into this folder and unpack the data by typing
+First close R if you have it open. 
+
+Then make a folder called GWAS for this exercise, copy the relavant data into this folder and unpack the data by typing
 
 ```bash
 cd ~/exercises
@@ -281,5 +283,30 @@ less assoc2.assoc.adjusted
 
 Note that PLINK adjusts p-values instead of the threshold (equivalent idea), so you should NOT change the threshold but stick to 0.05.
 
+.
+
+## Bonus exercise if there is any time left: another example of a GWAS caveat
+
+For the same individuals as above we also have another phenotype. This phenotype is strongly correlated with gender. The genotyping was done independently of this phenotype so there is no batch bias. To perform association on this phenotype type
+
+```bash
+plink --bfile data/gwa --assoc --pheno data/pheno3.txt --adjust --out pheno3
+Rscript data/plink.plot.R pheno3.assoc
+```
+
+* View the plots and results. Are any of the SNP significantly associated?
+
+Now try to perform the analysis using logistic regression (another association test) adjusted for sex, which is done by adding the option "--sex":
+
+```bash
+plink --bfile data/gwa --logistic --out pheno3_sexAdjusted --pheno data/pheno3.txt --sex
+Rscript data/plink.plot.R pheno3_sexAdjusted.assoc.logistic
+```
+
+* Are there any associated SNPs according to this analysis?
+
+Some of the probes used on the chip will hybridize with multiple loci on the genome. The associated SNPs in the previous analysis all cross-hybridize with the X chromosome. 
+
+* Could crosshybridization explain the difference in results from the two analyses?
 
 
