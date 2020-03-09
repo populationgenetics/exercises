@@ -1,10 +1,11 @@
-# Exercise in GWAS
+# Exercise in association testing and GWAS
 
 **Ida Moltke**
 
-The focus of these exercises is two simple tests for association and then perform a GWAS using one of these tests. The goal is to give you some hands on experience with GWAS. The exercises are to some extent copy-paste based, however this is one purpose. First it will provide you with some relevant commands if you later on want to perform a GWAs and second it allows us to spend more time on looking at and interpreting the output than if most tiem was spend on tryign to get the commands right. So please do not just simply copy-paste, but try to 
+The focus of these exercises is two simple tests for association and then perform a GWAS using one of these tests. The goal is to give you some hands on experience with GWAS. The exercises are to some extent copy-paste based, however this is on purpose so you can learn as much as possible within the limited time we have. The idea is that the exercises will provide you with some relevant commands you can use if you later on want to perform a GWAs and at the same they will allow you to spend more time on looking at and interpreting the output than you would have had if you had to try to build up the commands from scratch. However, this also means that to get the most out of the exercises you should not just quickly copy-paste everything, but also along the way try to 
 
 1) make sure you understand what the command/code does (except the command lines that start with "Rscript" since these just call code in an R script which you do not have to look at unless you are curious) 
+
 2) spend some time on looking at and trying to interpret the output you get when you run the code
 
 .
