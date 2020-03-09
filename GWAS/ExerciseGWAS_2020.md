@@ -103,7 +103,7 @@ tar -xf gwasdata.tar.gz
 rm gwasdata.tar.gz
 ```
 
-You folder GWAS should now contain a subfolder called data (you can check that this is true e.g. by typing ls, which is a command that gives you a list of the content in the folder you are working in). The folder "data" will contain the all files you will need in this exercise (both the data and a file called plink.plot.R, which contains R code for plotting your results). 
+Your folder called GWAS should now contain a subfolder called data (you can check that this is true e.g. by typing ls, which is a command that gives you a list of the content in the folder you are working in). The folder "data" will contain the all files you will need in this exercise (both the data and a file called plink.plot.R, which contains R code for plotting your results). 
 
 Briefly, the data consist of SNP genotyping data from 356 individuals some of which are have a certain disease (cases) and the rest do not (controls). To make sure the GWAS analyses will run fast the main data file (gwa.bed) is in a binary format, which is not very reader friendly. However, PLINK will print summary statistics about the data (number of SNPs, number of individuals, number of cases, number of controls etc) to the screen when you run an analysis. Also, there are two additional data files, gwa.bim and gwa.fam, which are not in binary format and which contain information about the SNPs in the data and the individuals in the data, respectively (you can read more about the data format in the manuals linked to above - but for now this is all you need to know).
 
