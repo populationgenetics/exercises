@@ -196,7 +196,7 @@ Do that and then take a look at the result by typing
 display plink.genomepairwise_relatedness_1.png
 ```
 
-The figure shows estimates of the relatedness for all pairs of individuals. For each pair k1 is the proportion of the genome where the pair shares 1 of their allele identical-by-descent (IBD) and k2 is the proportion of the genome where the pair shares both their alleles IBD. The expected (k1,k2) values for simple relationships are shown in the figure with MZ=monozygotic twins, PO=parent offspring, FS=full sibling, HS=half sibling, C1=first cousin (or avuncular pair), C2=cousin once removed. 
+The figure shows estimates of the relatedness for all pairs of individuals. For each pair k1 is the proportion of the genome where the pair shares 1 of their allele identical-by-descent (IBD) and k2 is the proportion of the genome where the pair shares both their alleles IBD. The expected (k1,k2) values for simple relationships are shown in the figure with MZ=monozygotic twins, PO=parent offspring, FS=full sibling, HS=half sibling (or avuncular or grandparent-granchild), C1=first cousin, C2=cousin once removed. 
 
 * Are any of the individuals in your dataset closely related? 
 * What assumption in association studies is violated when individuals are related?
