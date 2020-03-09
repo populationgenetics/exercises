@@ -4,7 +4,7 @@
 
 The focus of these exercises is two simple tests for association and then perform a GWAS using one of these tests. The goal is to give you some hands on experience with GWAS. The exercises are to some extent copy-paste based, however this is one purpose. First it will provide you with some relevant commands if you later on want to perform a GWAs and second it allows us to spend more time on looking at and interpreting the output than if most tiem was spend on tryign to get the commands right. So please do not just simply copy-paste, but try to 
 
-1) make sure you understand what the command/code does  
+1) make sure you understand what the command/code does (except the command line plotting commands which calls code in a script) 
 2) spend some time on looking at and trying to interpret the output you get when you run the code
 
 .
@@ -42,7 +42,8 @@ print(countsSNP1)
 chisq.test(countsSNP1)
 ```
 
-* Try to run this test and note the p-value. Does the test suggest that the SNP is associated with the disease (you can use a p-value threshold of 0.05 when answering this question)? 
+* Try to run this test and note the p-value. 
+* Does the test suggest that the SNP is associated with the disease (you can use a p-value threshold of 0.05 when answering this question)? 
 
 
 Now try to plot the proportions of cases in each genotype category in this SNP using the following R code:
@@ -172,11 +173,113 @@ NB you can use arrows to navigate up and down in the file and close the file vie
 
 * Do you see any problems?
 
-If you observe any problems then fix them by changing the gender in the file gwa.fam (5th colunm) in the folder data. You can use the editor gedit for this. To open the file in gedit type "gedit data/gwa.fam" in the terminal. (NB usually one would instead get rid of these individuals because wrong gender could indicate that the phenotypes you have do not belong to the genotyped individual. However, in this case the genders were changed on purpose for the sake of this exercises so you can safely just change them back).
+* If you observe any problems then fix them by changing the gender in the file gwa.fam (5th colunm) in the folder data. You can use the editor gedit for this. To open the file in gedit type "gedit data/gwa.fam" in the terminal. (NB usually one would instead get rid of these individuals because wrong gender could indicate that the phenotypes you have do not belong to the genotyped individual. However, in this case the genders were changed on purpose for the sake of this exercises so you can safely just change them back).
 
 
+#### Exercise 2D: doing initial QC of data part 2 (relatedness check)
+
+Another potential problem in association studies is spurious relatedness where some of the individuals in the sample are closely related. Closely related individuals can be inferred using PLINK as follows:
+
+```bash
+plink  --bfile data/gwa --genome
+```
+
+And you can plot the results by typing:
+
+```bash
+Rscript data/plink.plot.R plink.genome
+```
+
+Do that and then take a look at the result by typing
+
+```bash
+display plink.genomepairwise_relatedness_1.png
+```
+
+The figure shows estimates of the relatedness for all pairs of individuals. For each pair k1 is the proportion of the genome where the pair shares 1 of their allele identical-by-descent (IBD) and k2 is the proportion of the genome where the pair shares both their alleles IBD. The expected (k1,k2) values for simple relationships are shown in the figure with MZ=monozygotic twins, PO=parent offspring, FS=full sibling, HS=half sibling, C1=first cousin (or avuncular pair), C2=cousin once removed. 
+
+* Are any of the individuals in your dataset closely related? 
+* What assumption in association studies is violated when individuals are related?
+* And last but not least: how would you recognize if the same person is included twice (this actually happens!)
 
 
+#### Exercise 2E: doing initial QC of data part 3 (check for batch bias/non-random genotyping error)
+
+Check if there is a batch effect/non random genotyping error by using missingness as a proxy (missingness and genotyping error are highly correlated in SNP chip data). In other words, for each SNP test if there is a significantly different amount of missing data in the cases and controls (or equivalently if there is an association between the disease status and the missingness). Do this with PLINK by running the following command:
+
+```bash
+plink  --bfile data/gwa --test-missing
+```
+
+View the result in the file plink.missing where the p-value is given in the right most coloumn or generate a histogram of all the p-values using the Rscript data/plink.plot.R by typing this command
+
+```bash
+Rscript data/plink.plot.R plink.missing
+```
+
+The resulting p-value histogram can be found in the file plink.missing.png, which you can open using the png viewer display, so by typing
+
+```bash
+display plink.missing.png
+```
+
+If the missingness is random the p-value should be uniformly distributed between 0 and 1.
+
+* Is this the case?
+* Genotyping errors are often highly correlated with missingness. How do you think this will effect your association results?
+
+#### Exercise 2F: doing initial QC of data part 4 (check for batch bias/non-random genotyping error again)
+
+Principal component analysis (PCA) and a very similar methods called multidimensional scaling is also often used to reveal problems in the data. Such analyses can be used to project all the genotype information (e.g. 500,000 marker sites) down to a low number of dimensions e.g. two.
+
+Multidimensional scaling based on this can be performed with PLINK as follows (for all individuals except for a few which has more than 20% missingness):
+
+```bash
+plink --bfile data/gwa --cluster --mds-plot 2 --mind 0.2
+```
+
+Run the above command and plot the results by typing:
+
+```bash
+Rscript data/plink.plot.R plink.mds data/gwa.fam
+```
+
+The resulting plot should now be in the file plink.mds.pdf, which you can open with the pdf viewer evince (so by typing "evince plink.mds.pdf"). It shows the first two dimensions and each individual is represented by a point, which is colored according to the individual's disease status. 
+
+* Clustering of cases and controls is an indication of batch bias. Do you see such clustering?
+* What else could explain this clustering?
+
+
+#### Exercise 2G: try to rerun GWAS after quality filtering SNPs
+
+We can remove many of the error prone SNPs and individuals by removing
+
+* SNPs that are not in HWE within controls
+* the rare SNPs
+* the individuals and SNPs with lots of missing data (why?)
+
+Let us try to do rerun an association analysis where this is done:
+
+```bash
+plink --bfile data/gwa --assoc --adjust --out assoc2 --hwe 0.0001 --maf 0.05 --mind 0.55 --geno 0.05
+```
+
+Plot the results using
+
+```bash
+Rscript data/plink.plot.R assoc2.assoc
+```
+
+* How does QQ-plot look (in the file assoc2.assoc.QQ.png)? 
+* Did the analysis go better this time?
+* And what does the Manhattan plot suggest (in the file assoc2.assoc.png)? Are any of the SNPs associated? 
+* Does your answer change if you use other (smarter) methods to correct for multiple testing than Bonferroni (e.g. FDR), which PLINK provides. You can find them by typing:
+
+```bash
+less assoc2.assoc.adjusted
+```
+
+Note that PLINK adjusts p-values instead of the threshold (equivalent idea), so you should NOT change the threshold but stick to 0.05.
 
 
 
