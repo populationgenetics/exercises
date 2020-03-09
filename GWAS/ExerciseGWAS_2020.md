@@ -156,12 +156,6 @@ Here the red line is the x=y line.
 
 #### Exercise 2C: doing initial QC of data part 1 (sex check)
 
-Now look at the QQ-plot that you already generated in exercise 2A (the file called plink.assoc.QQ.png) by typing:
-
-```bash
-display plink.assoc.QQ.png
-```
-
 As you can see a lot can go wrong if you do not check the quality of your data! So if you want meaningful/useful output you always have to run a lot of quality checking (QC) and filtering before running the association tests. One check that is worth running is a check if the indicated genders are correct. You can check this using PLINK to calculate the inbreeding coefficient on the X chromosome under the assumption that it is an autosomal chromosome. The reason why this is interesting is that, for technical reasons PLINK represents haploid chromosomes, such as X for males, as homozygotes. So assuming the X is an autosomal chromosome will make the males look very inbred on the X where as the woman wont (since they are diploid on the X chromosome). This means that the inbreeding coefficient estimates you get will be close to 1 for men and close to 0 for women. This gender check can be performed in PLINK using the following command:
 
 ```bash
