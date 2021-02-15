@@ -41,8 +41,14 @@ During this exercise you will be introduced to population genetic analysis of SN
 
 ## Getting started
 
-Change the directory to the exercise directory and copy your data:
+Change the directory to the exercises directory and copy your data:
 
+We assume that you have the dirctory exercises in your home folder. If not, make one 
+
+```bash
+mkdir exercises
+```
+If the directory exists, start here
 
 ```bash
 cd ~/exercises
