@@ -46,7 +46,7 @@ Change the directory to the exercises directory and copy your data:
 We assume that you have the dirctory exercises in your home folder. If not, make one 
 
 ```bash
-mkdir exercises
+mkdir ~/exercises
 ```
 If the directory exists, start here
 
