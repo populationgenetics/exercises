@@ -37,7 +37,7 @@ the ‘exercises/populationHistory’ folder** (/home/
 this entire folder to your home directory by writing this:
 
 ```bash
-cp -r groupdirs/SCIENCE-BIO-Popgen_Course/exercises/populationHistory ./exercises/*
+cp -r groupdirs/SCIENCE-BIO-Popgen_Course/exercises/populationHistory ./exercises/
 ```
 
 Now move to the new folder location:
