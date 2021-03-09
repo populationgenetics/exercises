@@ -49,7 +49,7 @@ Open R and run the shiny app
 ## in R 
 ```R
 .libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
-shiny::runApp("groupdirs/SCIENCE-BIO-Popgen_Course/exercises/selection/selectionScan/")
+shiny::runApp("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/selection/selectionScan/")
 ```
 **be patient – a browser window will pop up after ~ 30 sec.**
 
