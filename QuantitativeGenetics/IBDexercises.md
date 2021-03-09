@@ -24,6 +24,10 @@ log into popgen servers and open R. Then run
   shiny::runApp("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/IBD/popgenCourse/Fgenome/")
  <br> 
  </p>  
+ 
+ 
+ 
+ 
 # Relatedness
 
 Here is shown the IBD sharing between two individuals on chromosome 1. 
