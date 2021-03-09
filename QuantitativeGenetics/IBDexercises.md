@@ -19,11 +19,11 @@ You have gotten access to DNA from an individual and using genetic markers acros
 
 ## run locally 
 log into popgen servers and open R. Then run
- <p align="center">
+```R
   .libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
   shiny::runApp("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/IBD/popgenCourse/Fgenome/")
- <br> 
- </p>  
+```
+  
  
  
  
@@ -62,8 +62,7 @@ Here is shown the IBD sharing between two individuals on chromosome 1.
 
 ## run locally 
 log into popgen servers and open R. Then run
- <p align="center">
+```R
   .libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
   shiny::runApp("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/IBD/popgenCourse/Rgenome/")
- <br> 
- </p>  
+```
