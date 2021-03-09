@@ -5,7 +5,8 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - - Hint 1: Look at the “Estimation of inbreeding coefficient from pedigrees” slides from earlier
   - - Hint 2: use if you give up
 
-  - Go to http://popgen.dk:3838/anders/popgen2016/Fgenome/ to simulate the 22 autosomes for a Human
+  - Go to http://popgen.dk:3838/anders/popgen2016/Fgenome/ to simulate the 22 autosomes for a Human. 
+  - - If it is slow to respond you can use a local version(see below)
   - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
   - Note the simulated inbreeding coefficient for this individual. Why is it not the same as the F you entered?
   - Note the length of the inbreeding tracts. What determines how long they are?
@@ -16,6 +17,13 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - If you infer the inbreeding tracks of your individuals the results will look like this. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
 
 
+## run locally 
+log into popgen servers and open R. Then run
+ <p align="center">
+  .libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
+  shiny::runApp("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/IBD/popgenCourse/Fgenome/")
+ <br> 
+ </p>  
 # Relatedness
 
 Here is shown the IBD sharing between two individuals on chromosome 1. 
@@ -43,4 +51,15 @@ Here is shown the IBD sharing between two individuals on chromosome 1.
   - For relatedness mapping do you think it is best to have close or distantly related individuals?
   - Try to guess the number of generations that separate these two individuals?
   - They are actually separated by 14 generations. Try to see if you can get a similar pattern using simulations http://popgen.dk:3838/anders/popgen2016/Rgenome/
+  - - If slow then run locally (see below)
   - What explains the difference between your simulations and above plot?
+
+
+
+## run locally 
+log into popgen servers and open R. Then run
+ <p align="center">
+  .libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
+  shiny::runApp("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/IBD/popgenCourse/Rgenome/")
+ <br> 
+ </p>  
