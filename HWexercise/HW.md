@@ -25,6 +25,15 @@ The focus of these exercises is to
         according to the null hypothesis
 
  
+**Note 1:** It is advisable to do all the calculations by hand to get used to it. 
+
+**Note 2:** Once you are familiar with R you can redo exercise 2 and 3 and do exercise 4 using 
+Jan Graffelman’s "HardyWeinberg" R package described in the
+paper “Exploring Diallelic Genetic Markers: The HardyWeinberg Package”,
+which is available from the Comprehensive R Archive Network (CRAN) at
+<http://CRAN.R-project.org/package=HardyWeinberg>. NB This package is already installed on the popgen server! 
+So, please do not reinstall it. It takes some time, and we don't need 50 independent copies for all users.
+
 
 <!---
 your comment goes here
@@ -79,7 +88,7 @@ are given
 
 ||||||
 |--|--|--|--|--|
-||11| 12| 22| Sum|
+||AA| AB| BB| Sum|
 |Seedlings O| 79 |43 |21 |143|
 |Seedlings E|    |   |   |   |
 |Adults    O| 70 |60 |13 |143|
@@ -88,7 +97,8 @@ are given
   <figure>
   <img  align="right" src="HW2Sn.png" alt="Silene" width=75 title="Silene">
  </figure>
-  1)  Estimate the allele frequencies in the two groups.
+
+1)  Estimate the allele frequencies in the two groups.
 
 2)  Do the allele frequencies differ between the groups?
 
@@ -105,20 +115,17 @@ are given
 
 6)  What is happening among the seedling stage and the adult life stage?
 
-**Note 1:** It is advisable to do the calculations by hand to get used to it. You
+<!---**Note 1:** It is advisable to do the calculations by hand to get used to it. 
+You
 can in addition use the “Hardy Weinberg Test” sheet in “Hardy Weinberg
 test, LD test.xls” file to estimate the various parameters. (There is a
 link to it in Absalon under “The Hardy-Weinberg law”.)
-
-**Note 2:** If you have R installed on your computer, you can do the
-tests by using Jan Graffelman’s "HardyWeinberg" R package described in the
+**Note 2:** Once you are familiar with R you can redo the exercise using 
+Jan Graffelman’s "HardyWeinberg" R package described in the
 paper “Exploring Diallelic Genetic Markers: The HardyWeinberg Package”,
 which is available from the Comprehensive R Archive Network (CRAN) at
-<http://CRAN.R-project.org/package=HardyWeinberg>. A part of the paper
-has been copied further below in this exercise.
-
-**Important note: On the popgen server this package is already installed.
-So, please do not reinstall it. It takes some time, and we don't need 50 independent copies for all users.**
+<http://CRAN.R-project.org/package=HardyWeinberg>. On the popgen server this package is already installed.
+So, please do not reinstall it. It takes some time, and we don't need 50 independent copies for all users.
 
 *If you want to install it on your own computer:*
 
@@ -155,7 +162,7 @@ q()
 n
 
 ```
-
+-->
 **Exercise 3**
 A young unexperienced biologist has collected data for the human SNP
 rs16891982 for Europeans (EUR) and Africans (AFR). He found the
@@ -180,7 +187,7 @@ following variation at this SNP:
 
 4)  What could have caused a possible deviation from Hardy-Weinberg
     proportions?
-
+<!---
 Hint for question 4
 
 Estimate the inbreeding coefficient for each population. The student has
@@ -219,17 +226,18 @@ The European population consists of the following subpopulations
 |GBR| British in England and Scotland|
 |IBS| Iberian populations in Spain|
 |TSI| Toscani in Italy|
+-->
 
 5)  In which gene is the SNP found?
 
 6)  Does the variation have an effect on the phenotype?
 
-Among the AFR subpopulations, two (ACB, ASW) seem to differ from the
+7)  Among the AFR subpopulations, two (ACB, ASW) seem to differ from the
 others, which seem to be homogeneous. This is also the case for one
-European subpopulation (IBS).
+European subpopulation (IBS). What could the reason for this be?
 
-7)  What could the reason for this be?
 
+<!---
 **Analyzing the SNP rs16891982 data**
 
 Open R and copy the following in the command line
@@ -250,7 +258,7 @@ HW.test.EUR
 HWChisq reports the allele frequency of the rarest allele. So please,
 don’t get confused when you interpret “AA”, “AB” and “BB” for the two
 samples. They have been swapped in the African sample
-
+-->
 **Exercise 4**
 In this exercise, we will analyze datasets that consists of a larger
 number of loci. For this purpose we will use the HardyWeinberg R
