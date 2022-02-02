@@ -187,14 +187,13 @@ following variation at this SNP:
 
 4)  What could have caused a possible deviation from Hardy-Weinberg
     proportions?
-<!---
-Hint for question 4
 
-Estimate the inbreeding coefficient for each population. The student has
+**Hint**
+
+The student has
 taken the data from the
 [Ensembl](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=5:33951088-33952088;v=rs16891982;vdb=variation;vf=575051879)
-data base. Here, it turns out that the African population consists of
-the following subpopulations:
+database. Here, it turns out that the African population consists of the following subpopulations:
 
 
 <figure>
@@ -226,7 +225,7 @@ The European population consists of the following subpopulations
 |GBR| British in England and Scotland|
 |IBS| Iberian populations in Spain|
 |TSI| Toscani in Italy|
--->
+
 
 5)  In which gene is the SNP found?
 
