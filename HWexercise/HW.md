@@ -173,7 +173,7 @@ following variation at this SNP:
 ||CC |CG| GG |Sum|
 | AFR O| 617| 41 |&nbsp; &nbsp;3 |661|
 | AFR E|||||
-| EUR O| &nbsp; &nbsp;  4 |54 |445| 899|
+| EUR O| &nbsp; &nbsp;  4 |54 |445| 503|
 | EUR E|||||
 
 
