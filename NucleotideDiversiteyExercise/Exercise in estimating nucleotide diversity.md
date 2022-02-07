@@ -139,7 +139,7 @@ With a starting point in these two file format, the PLINK toolset offers a long 
 
 ## The PLINK files in this exercise
 
-In your ‘apeDiversity’ directory, you will find twenty different PLINK files arranged to include variable sites from chromosome 22 in each of the four subspecies of chimpanzee (separately and combined), and the two human populations, for an overview, see Table 1.
+In your ‘apeDiversity’ directory, you will find seven different PLINK files arranged to include variable sites from chromosome 22 in each of the four subspecies of chimpanzee (separately and combined), and the two human populations, for an overview, see Table 1.
 
 **Table 1  Sample overview**     
 
