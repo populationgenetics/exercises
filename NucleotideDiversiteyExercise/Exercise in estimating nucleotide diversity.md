@@ -1,6 +1,6 @@
 # Exercise in estimating nucleotide diversity
 
-Casper-Emil Pedersen, Peter Frandsen and Hans R. Siegismund
+Genís Garcia-Erill, Patrícia Chrzanová Pečnerová, Casper-Emil Pedersen, Peter Frandsen and Hans R. Siegismund
 
 ## Program
 
@@ -33,11 +33,19 @@ See [*Prado-Martinez et al. 2013*](https://www.nature.com/articles/nature12228) 
 During this exercise you will be introduced to population genetic analysis of SNP data. The datasets used here consist of the variable sites found on chromosome 22 in chimpanzees. The data set contains genotypes from all four subspecies of chimpanzee (*Pan troglodytes*, see Figure 1), two human populations, one  with European ancestry (CEU) and one with African ancestry (YRI). The data has been filtered to reduce the size of your working data set and includes only SNP’s with exactly two different bases (bi-allelic).
 
 
-<img src="ex1nucdivfigure1.png" alt="figures/ex1nucdivfigure1.png" width="664" height="413" />
+<img src="chimp_distribution.png " alt="figures/chimp_distribution.png " width="664" height="413" />
 
-**Figure 1 | Geographical distribution ranges for the *Pan troglodytes* subspecies.** The range borders of each subspecies; yellow for *Pan troglodytes verus* (western chimpanzee), orange for *Pan troglodytes ellioti* (Nigerian-Cameroon chimpanzee)*,* pink for *Pan troglodytes troglodytes* (central chimpanzee)*,* and blue for *Pan troglodytes schweinfurthii* (eastern chimpanzee). Reprint from [https://www.unenvironment.org/](https://www.unenvironment.org/) modified by C. Hvilsom.
+**Figure 1** Geographical distribution of the common chimpanzee *Pan troglodytes* (from Frandsen & Fontsere *et al.* 2020. [https://www.nature.com/articles/s41437-020-0313-0 ]).
 
 **Q1:** Before we get started, why do you think we chose chromosome 22?
+
+<details><summary>click to see answer (please think a bit before)</summary>
+<p>
+	
+*Chromosome 22 was chosen because it is one of the smallest autosomal chromosomes. We would not be able to complete this exercise if we had chosen whole genomes or even one of the largest chromosomes.*
+	
+</p>
+</details>
 
 ## Getting started
 
@@ -60,78 +68,39 @@ cd apeDiversity
 
 Now you have all the data in the correct folder so you can proceed to the exercise but first, have a look at the different files and the file format.
 
-The **PLINK format** was originally designed for genotype/phenotype data analyses in association studies but also has a range of features applicable to other disciplines within population genetics. The two main **PLINK files** are the *MAP* and the *PED* files, which often serves as the starting point for any analysis in PLINK. These two files are the standard output from a file conversion from another widely used file format, the Variant Call Format (VCF). Many large-scale genome studies, like the 1000 genome project, use the *VCF* format when they publish their data. This format holds all the information about the variant call (*e.g.* ‘read-depth’, ‘quality’). A large range of analyses can be handled with tools designed for the *VCF* format but most often, this toolset only serves to apply a number of standard filters, while downstream analysis are performed in other formats, like PLINK.
+The **PLINK format** was originally designed for genotype/phenotype data analyses in association studies but also has a range of features applicable to other disciplines within population genetics. The most widely used **PLINK format** is the binary Plink format, which consists of three files ending with the suffixes **.bed**, **.bim** and **.fam**. These three files are ofthen the output from a file conversion from another widely used file format, the Variant Call Format (VCF). Many large-scale genome studies, like the 1000 genome project, use the *VCF* format when they publish their data. This format holds all the information about the variant call (*e.g.* ‘read-depth’, ‘quality’). A large range of analyses can be handled with tools designed for the *VCF* format but most often, this toolset only serves to apply a number of standard filters, while downstream analysis are performed in other formats, like PLINK.
 
-In concert, the *MAP* and *PED* files contains a bi-allelic extraction of the genotype information from the *VCF*. The two files are structured slightly different but together, they hold information about each called variant or SNP in each genotyped individual.
+In concert, the **.bed**, **.bim** and **.fam** files contains a bi-allelic extraction of the genotype information from the *VCF*. The three files have different structure and together they hold information about each called variant or SNP in each genotyped individual.
 
-## PLINK Flat files (MAP/PED)
+## PLINK binary format (.bed/.bim/.fam)
 
-**(Copy from “Genome Wide Association Study pipeline [GWASpi](https://github.com/GWASpi/GWASpi))**
+The genotype information is contained in the **.bed** file, which is in binary format. The binary format is more efficient because it takes less disk space and makes it faster to be read and written by the computer, but it has the downside that we cannot read it with stantard text viewing programs. The **.bed** file must be accompanied by two other plain text files (i.e. files we can read), the **.bim** format that contains information about the genetic variants, and the **.fam** file that contains informaiton about the samples.
 
-PLINK is a very widely used application for analyzing genotypic data. It can be considered the “de-facto” standard of the field, although newer formats are starting to be widespread as well.
-The standard PLINK fromat provides sufficient information for a straight-forward association study. You may use the sex and affection fields for GWASpi to perform GWS studies.
+If we have a dataset with 100 individuals and 100.000 samples, the **.bed** file will be the binary representation of an 100 x 100.000 genotype matrix, that indicates which genotype each individual carries at each position. 
 
-### MAP files
+The **.bim** file will contain 100.000 lines, one for each variant, and has 6 column that for each variant indicate:
 
-The fields in a MAP file are:
 
--   Chromosome
+1.  Chromosome code (either an integer, or 'X'/'Y'/'XY'/'MT'; '0' indicates unknown) or name
+2.  Variant identifier
+3   Position in morgans or centimorgans (safe to use dummy value of '0')
+4.  Base-pair coordinate (1-based)
+5.  Allele 1 (usually minor)
+6.  Allele 2 (usually major)
 
--   Marker ID
 
--   Genetic distance
+The **.fam** file will contain 100 lines, one for each sample, and has 6 column that for each sample indicate:
 
--   Physical position
 
-**Example of a MAP file of the standard PLINK format:**
+ 1.  Family ID ('FID')
+ 2.  Within-family ID ('IID'; cannot be '0')
+ 3.  Within-family ID of father ('0' if father isn't in dataset)
+ 4.  Within-family ID of mother ('0' if mother isn't in dataset)
+ 5.  Sex code ('1' = male, '2' = female, '0' = unknown)
+ 6.  Phenotype value ('1' = control, '2' = case, '-9'/'0'/non-numeric = missing data if case/control)
 
-|||||
-|---------------------------------------------------------|------------|-----|-------|
-| 21                                                      | rs11511647 | 0   | 26765 |
-| X                                                       | rs3883674  | 0   | 32380 |
-| X                                                       | rs12218882 | 0   | 48172 |
-| 9                                                       | rs10904045 | 0   | 48426 |
-| 9                                                       | rs10751931 | 0   | 49949 |
-| 8                                                       | rs11252127 | 0   | 52087 |
-| 10                                                      | rs12775203 | 0   | 52277 |
-| 8                                                       | rs12255619 | 0   | 52481 |
 
-**(Note: We do not have information about the physical map (Genetic distance – in centiMorgans) for the data used in this exercise)**
-
-### PED files
-
-The fields in a PED file are
-
--   Family ID
-
--   Sample ID
-
--   Paternal ID
-
--   Maternal ID
-
--   Sex (1=male; 2=female; 0=unknown)
-
--   Affection (0=unknown; 1=unaffected; 2=affected)
-
--   Genotypes (space or tab separated, 2 for each marker. 0=missing)
-
-**Example of a PED file of the standard PLINK format:**
-
-|||||||||||||||||||||||
-|---------------------------------------------------------|---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| FAM1                                                    | NA06985 | 0   | 0   | 1   | 1   | A   | T   | T   | T   | G   | G   | C   | C   | A   | T   | T   | T   | G   | G   | C   | C   |
-| FAM1                                                    | NA06991 | 0   | 0   | 1   | 1   | C   | T   | T   | T   | G   | G   | C   | C   | C   | T   | T   | T   | G   | G   | C   | C   |
-| 0                                                       | NA06993 | 0   | 0   | 1   | 1   | C   | T   | T   | T   | G   | G   | C   | T   | C   | T   | T   | T   | G   | G   | C   | T   |
-| 0                                                       | NA06994 | 0   | 0   | 1   | 1   | C   | T   | T   | T   | G   | G   | C   | C   | C   | T   | T   | T   | G   | G   | C   | C   |
-| 0                                                       | NA07000 | 0   | 0   | 2   | 1   | C   | T   | T   | T   | G   | G   | C   | T   | C   | T   | T   | T   | G   | G   | C   | T   |
-| 0                                                       | NA07019 | 0   | 0   | 1   | 1   | C   | T   | T   | T   | G   | G   | C   | C   | C   | T   | T   | T   | G   | G   | C   | C   |
-| 0                                                       | NA07022 | 0   | 0   | 2   | 1   | C   | T   | T   | T   | G   | G   | 0   | 0   | C   | T   | T   | T   | G   | G   | 0   | 0   |
-| 0                                                       | NA07029 | 0   | 0   | 1   | 1   | C   | T   | T   | T   | G   | G   | C   | C   | C   | T   | T   | T   | G   | G   | C   | C   |
-| FAM2                                                    | NA07056 | 0   | 0   | 0   | 2   | C   | T   | T   | T   | A   | G   | C   | T   | C   | T   | T   | T   | A   | G   | C   | T   |
-| FAM2                                                    | NA07345 | 0   | 0   | 1   | 1   | C   | T   | T   | T   | G   | G   | C   | C   | C   | T   | T   | T   | G   | G   | C   | C   |
-
-(Note: For our data, the Family ID and the Sample ID are the same. Furthermore, the Paternal ID and Maternal ID is not included. Neither is the Sex or Affection)
+PLINK is a very widely used application for analyzing genotypic data. It can be considered the “de-facto” standard of the field, although newer formats are starting to be widespread as well. 
 
 For a complete breakdown of the structure of the file formats [see here](https://www.cog-genomics.org/plink2/formats#ped).
 
@@ -139,7 +108,7 @@ With a starting point in these two file format, the PLINK toolset offers a long 
 
 ## The PLINK files in this exercise
 
-In your ‘apeDiversity’ directory, you will find seven different PLINK files arranged to include variable sites from chromosome 22 in each of the four subspecies of chimpanzee (separately and combined), and the two human populations, for an overview, see Table 1.
+In your ‘apeDiversity’ directory, you will find PLINK files for 7 different populations arranged to include variable sites from chromosome 22 in each of the four subspecies of chimpanzee (separately and combined), and the two human populations, for an overview, see Table 1.
 
 **Table 1  Sample overview**     
 
@@ -153,26 +122,78 @@ In your ‘apeDiversity’ directory, you will find seven different PLINK files 
 | Utah residents with ancestry in Europe (CEU)                                                      | CEU                  | 7     |
 | Yoruba ethnic group in North and Central Nigeria (YRI)                                            | YRI                  | 7     |
 
-**For each population there is a corresponding MAP and PED file in the ‘apeDiversity’ directory**
+**For each of the seven population there is a .bed, .bim and .fam file in the ‘apeDiversity’ directory**
 
 To look at the PLINK-files, in turn type (for the CEU or the YRI samples)
 
 ```bash
-less -S FILENAME.map # type q to quit
+less -S FILENAME.bed # type q to quit
 
-less -S FILENAME.ped
+less -S FILENAME.bim # 
+
+less -S FILENAME.fam
 ```
 
-Now, try to look at the *MAP* file containing all chimpanzees (“Pan\_troglodytes.map”).
+**Q2:** What do you see when you open the **.bed** file? Why is that? 
+
+<details><summary>click to see answer (please think a bit before)</summary>
+<p>
+	
+*You should see some illegible characters, because it is a binary file made to be easily read by a computer but not so easily by humans.*
+	
+</p>
+</details>
+
+
+Let's take a look at the **.bim** file containing all chimpanzees (“Pan\_troglodytes.bim”)
 
 **Q2:** What is the position of the first SNP? (Confer with link above about file format)
 
-**Q3:** What information is in the two file formats (*MAP* and *PED*)? (Again, look at the file and confer with the link above.)
 
-**Q4**: How many SNPs are there in total for the chimpanzees and the human populations? Remember the command `wc -l filename` gives the total number of lines in the file. Now should you count the lines in the *MAP* or the *PED* file?
+<details><summary>click to see answer</summary>
+<p>
+	
+*14436989 (first line, 4th column of .bim file)*
+	
+</p>
+</details>
+
+
+
+**Q3:** What information is in the **.bim** and **.fam** files)? (Again, look at the file and confer with the link above.)
+
+<details><summary>click to see answer</summary>
+<p>
+
+Variant information (chromosome, ID, position and alleles...) in .bim and sample information (ID, family ID, sex...) in .fam.
+
+</p>
+</details>
+
+
+**Q4**: How many SNPs are there in total for the chimpanzees and the human populations? Remember the command `wc -l filename` gives the total number of lines in the file. Now from what files should you count the lines?
+
+<details><summary>click to see answer</summary>
+<p>
+
+Chimpanzees: 509051
+Human: 494328 
+	
+</p>
+</details>
+
 
 **Q5:** In this format, we will have no information about the certainty of SNP calls. Is it reasonable to assume that *e.g.* read depth might influence the identified number of SNPs? Why / why not ? And would you expect more or less SNPs to be identified, than the true number of SNPs, when using low depth data?
 
+
+<details><summary>click to see answer</summary>
+<p>
+
+ Read depth influences the certainty of the SNP calls, often you exclude SNPs based on sites where you only have a limited read depth. 
+
+</p>
+</details>
+		
 ## Using PLINK to find the nucleotide diversity in chimpanzees and humans
 
 Now, having an overview of the different data sets along with a brief idea of what the PLINK format looks like, we can start to analyze our data.
