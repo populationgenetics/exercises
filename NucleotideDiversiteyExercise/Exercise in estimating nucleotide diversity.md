@@ -76,7 +76,7 @@ In concert, the **.bed**, **.bim** and **.fam** files contains a bi-allelic extr
 
 The genotype information is contained in the **.bed** file, which is in binary format. The binary format is more efficient because it takes less disk space and makes it faster to be read and written by the computer, but it has the downside that we cannot read it with stantard text viewing programs. The **.bed** file must be accompanied by two other plain text files (i.e. files we can read), the **.bim** format that contains information about the genetic variants, and the **.fam** file that contains informaiton about the samples.
 
-If we have a dataset with 100 individuals and 100.000 samples, the **.bed** file will be the binary representation of an 100 x 100.000 genotype matrix, that indicates which genotype each individual carries at each position. 
+If we have a dataset with 100 individuals and 100.000 variants, the **.bed** file will be the binary representation of an 100 x 100.000 genotype matrix, that indicates which genotype each individual carries at each position. 
 
 The **.bim** file will contain 100.000 lines, one for each variant, and has 6 column that for each variant indicate:
 
@@ -104,7 +104,7 @@ PLINK is a very widely used application for analyzing genotypic data. It can be 
 
 For a complete breakdown of the structure of the file formats [see here](https://www.cog-genomics.org/plink2/formats#ped).
 
-With a starting point in these two file format, the PLINK toolset offers a long list of different ways to analyze your data, for a complete list [see here](https://www.cog-genomics.org/plink2/basic_stats).
+With a starting point in these two file formats, the PLINK toolset offers a long list of different ways to analyze your data, for a complete list [see here](https://www.cog-genomics.org/plink2/basic_stats).
 
 ## The PLINK files in this exercise
 
