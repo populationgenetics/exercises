@@ -51,7 +51,7 @@ During this exercise you will be introduced to population genetic analysis of SN
 
 Change the directory to the exercises directory and copy your data:
 
-We assume that you have the dirctory exercises in your home folder. If not, make one 
+We assume that you have the directory exercises in your home folder. If not, make one 
 
 ```bash
 mkdir ~/exercises
@@ -60,10 +60,10 @@ If the directory exists, start here
 
 ```bash
 cd ~/exercises
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/apeDiversity/apeGenDiv.tar.gz .
-tar -zxvf apeGenDiv.tar.gz
-rm apeGenDiv.tar.gz
-cd apeDiversity
+cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/apeDiversity/apeGenDiv2022.tar.gz .
+tar -zxvf apeGenDiv2022.tar.gz
+rm apeGenDiv2022.tar.gz
+cd apeGenDiv
 ```
 
 Now you have all the data in the correct folder so you can proceed to the exercise but first, have a look at the different files and the file format.
@@ -108,28 +108,29 @@ With a starting point in these two file formats, the PLINK toolset offers a long
 
 ## The PLINK files in this exercise
 
-In your ‘apeDiversity’ directory, you will find PLINK files for 7 different populations arranged to include variable sites from chromosome 22 in each of the four subspecies of chimpanzee (separately and combined), and the two human populations, for an overview, see Table 1.
+In your ‘apeGenDiv’ directory, you will find 2 PLINK files, one with variable sites from chromosome 22 from the 4 chimpanzee subspecies and another with variable sites from chromosome 22 for 2 different human populations. See  Table 1 for an overview of the samples included.
 
 **Table 1  Sample overview**     
 
 | **Population**                                                                                    | **File name prefix** | **n** |
 |---------------------------------------------------------------------------------------------------|----------------------|-------|
-| Chimpanzee (*Pan troglodytes)*                                                                    | Pan\_troglodytes     | 59    |
-| Central chimpanzee (*Pan troglodytes troglodytes*)                                                | Pt\_troglo           | 18    |
-| Eastern chimpanzee (*Pan troglodytes schweinfurtii*)                                              | Pt\_scwein           | 19    |
-| Western chimpanzee (*Pan troglodytes verus*)                                                      | Pt\_verus            | 12    |
-| Nigerian-Cameroon chimpanzee (*Pan troglodytes ellioti*)                                          | Pt\_ellioti          | 10    |
-| Utah residents with ancestry in Europe (CEU)                                                      | CEU                  | 7     |
-| Yoruba ethnic group in North and Central Nigeria (YRI)                                            | YRI                  | 7     |
+| Chimpanzee total (*Pan troglodytes)*                                                              | pan\_troglodytes     | 59    |
+| Central chimpanzee (*Pan troglodytes troglodytes*)                                                |            | 18    |
+| Eastern chimpanzee (*Pan troglodytes schweinfurtii*)                                              |            | 19    |
+| Western chimpanzee (*Pan troglodytes verus*)                                                      |             | 12    |
+| Nigerian-Cameroon chimpanzee (*Pan troglodytes ellioti*)                                          |           | 10    |
+| Human total (*Homo sapiens*)									    | homo_sapiens	   | 14    |
+| Utah residents with ancestry in Europe (CEU)                                                      |                   | 7     |
+| Yoruba ethnic group in North and Central Nigeria (YRI)                                            |                   | 7     |
 
-**For each of the seven population there is a .bed, .bim and .fam file in the ‘apeDiversity’ directory**
+**For each of the two species there is a .bed, .bim and .fam file in the ‘apeGenDiv’ directory**
 
-To look at the PLINK-files, in turn type (for the CEU or the YRI samples)
+To look at the PLINK-files, in turn type (for either of the species)
 
 ```bash
 less -S FILENAME.bed # type q to quit
 
-less -S FILENAME.bim # 
+less -S FILENAME.bim 
 
 less -S FILENAME.fam
 ```
@@ -145,7 +146,7 @@ less -S FILENAME.fam
 </details>
 
 
-Let's take a look at the **.bim** file containing all chimpanzees (“Pan\_troglodytes.bim”)
+Let's take a look at the **.bim** file containing all chimpanzees (“pan\_troglodytes.bim”)
 
 **Q2:** What is the position of the first SNP? (Confer with link above about file format)
 
@@ -153,7 +154,7 @@ Let's take a look at the **.bim** file containing all chimpanzees (“Pan\_trogl
 <details><summary>click to see answer</summary>
 <p>
 	
-*14436989 (first line, 4th column of .bim file)*
+*14438985 (first line, 4th column of .bim file)*
 	
 </p>
 </details>
@@ -176,8 +177,8 @@ Variant information (chromosome, ID, position and alleles...) in .bim and sample
 <details><summary>click to see answer</summary>
 <p>
 
-Chimpanzees: 509051
-Human: 494328 
+Chimpanzees: 369471
+Human: 154499
 	
 </p>
 </details>
@@ -189,7 +190,7 @@ Human: 494328
 <details><summary>click to see answer</summary>
 <p>
 
- Read depth influences the certainty of the SNP calls, often you exclude SNPs based on sites where you only have a limited read depth. 
+ Read depth reduces the certainty of the SNP calls, often you exclude SNPs based on sites where you only have a limited read depth. In general low depth will lead to identifying less SNPs.
 
 </p>
 </details>
@@ -205,74 +206,46 @@ Since we only included bi-allelic SNPs (i.e. SNPs with two bases), we can estima
 Paste in the following command but make sure to look through each command option and try to understand each called operation.
 
 ```bash
-plink --noweb --file Pan_troglodytes --freq --out Pan_troglodytes
-plink --noweb --file Pt_ellioti --freq --out Pt_ellioti
-plink --noweb --file Pt_schwein --freq --out Pt_schwein
-plink --noweb --file Pt_troglo --freq --out Pt_troglo
-plink --noweb --file Pt_verus --freq --out Pt_verus
-plink --noweb --file CEU --freq --out CEU
-plink --noweb --file YRI --freq --out YRI
-
-cat Pan_troglodytes.frq |grep -v NA > Pan_troglodytes_noNA.frq
-cat Pt_ellioti.frq |grep -v NA > Pt_ellioti_noNA.frq
-cat Pt_schwein.frq |grep -v NA > Pt_schwein_noNA.frq
-cat Pt_troglo.frq |grep -v NA > Pt_troglo_noNA.frq
-cat Pt_verus.frq |grep -v NA > Pt_verus_noNA.frq
-cat CEU.frq |grep -v NA > CEU_noNA.frq
-cat YRI.frq |grep -v NA > YRI_noNA.frq
+plink --bfile pan_troglodytes --freq --out pan_troglodytes
+plink --bfile homo_sapiens --freq --out homo_sapiens
 ```
 
-**Q6:** Try and look in the Pan\_troglodytes.frq file, what information do you get?
+**Q6:** Try and look in the pan\_troglodytes.frq file, what information do you get?
 
-**Q7:** We use the command “grep -v NA” and write the output to a new file, what does this command do, and why do you think we do this? (to get an idea, try comparing the number of lines in the Pan\_troglodytes.frq file with the number of lines in the Pan\_troglodytes\_noNA.frq file)
+<details><summary>click to see answer</summary>
+<p>
 
-Now open **R**. Paste in the following commands to read in the frequency output from PLINK (again, try to understand the code, do not hesitate to ask an instructor, or Google, if in doubt):
+*Chromosome, SNP ID, Allele 1, Allele 2, Minor Allele Frequency, Number of chromosomes*
+
+</p>
+</details>
+
+
+**Q7:** COME UP NEW QUESTION
+
+Now open **R**. Paste in the following commands to read in the frequency output from PLINK (try to understand the code, do not hesitate to ask an instructor, or Google, if in doubt):
 
 
 ```R
 # Read in each of the frequency files
-pt<-read.table("Pan_troglodytes_noNA.frq",h=T)
-ellio<-read.table("Pt_ellioti_noNA.frq",h=T)
-schwein<-read.table("Pt_schwein_noNA.frq",h=T)
-troglo<-read.table("Pt_troglo_noNA.frq",h=T)
-verus<-read.table("Pt_verus_noNA.frq",h=T)
-ceu<-read.table("CEU_noNA.frq",h=T)
-yri<-read.table("YRI_noNA.frq",h=T)
+pan <- read.table("pan_troglodytes.frq",h=T)
+homo <- read.table("homo_sapiens.frq",h=T)
 
 # Function for estimating the expected heterozygosity 
 het<-function(x){2*x*(1-x)}
 
-# Remove all fixed alleles in each population
-verus <- verus[verus[,"MAF"]>0,]
-ellio <- ellio[ellio[,"MAF"]>0,]
-schwein <- schwein[schwein[,"MAF"]>0,]
-troglo <- troglo[troglo[,"MAF"]>0,]
-pt <- pt[pt[,"MAF"]>0,]
-yri <- yri[yri[,"MAF"]>0,]
-ceu <- ceu[ceu[,"MAF"]>0,]
-
-# Add columns with the position on the chromosome 
-# and the pi-values for each polymorphic SNP
-verus <- cbind(verus,position= as.numeric(gsub("22:",'',verus[,"SNP"])))
-verus <- cbind(verus, pi=het(verus$MAF) *(length(verus$MAF)/(verus[length(verus[,"position"]),"position"] - verus [1,"position"])))
-# Pan troglodytes elliotti
-ellio <- cbind(ellio,position= as.numeric(gsub("22:",'',ellio[,"SNP"])))
-ellio <- cbind(ellio, pi=het(ellio$MAF) *(length(ellio$MAF)/(ellio [length(ellio[,"position"]),"position"] - ellio [1,"position"])))
-# Pan troglodytes schweinfurthii
-schwein <- cbind(schwein,position= as.numeric(gsub("22:",'',schwein[,"SNP"])))
-schwein <- cbind(schwein, pi=het(schwein$MAF) *(length(schwein$MAF)/(schwein [length(schwein[,"position"]),"position"] - schwein [1,"position"])))
-# Pan troglodytes troglodytes
-troglo <- cbind(troglo,position= as.numeric(gsub("22:",'',troglo[,"SNP"])))
-troglo <- cbind(troglo, pi=het(troglo$MAF) *(length(troglo$MAF)/(troglo [length(troglo[,"position"]),"position"] - troglo [1,"position"])))
-# Pan troglodytes 
-pt <- cbind(pt,position= as.numeric(gsub("22:",'',pt[,"SNP"])))
-pt <- cbind(pt, pi=het(pt$MAF) *(length(pt$MAF)/(pt [length(pt[,"position"]),"position"] - pt [1,"position"])))
-
-# No obvious positions for yri and ceu plus a guestimate 
-# on the length of the included chromosome
-yri <- cbind(yri, pi=het(yri$MAF)*(length(yri$MAF)/(35191058)))
-ceu <- cbind(ceu, pi=het(ceu$MAF)*(length(ceu$MAF)/(35191950)))
+pan_h <- mean(het(pan$MAF))
+pan_h
+homo_h <- mean(het(homo$MAF))
+homo_h
 ```
+
+**Q8:** In the R function (het), explain what `2*x*(1-x)` calculates.
+
+
+**Q9:** In the R function (het), explain what `2*x*(1-x)` calculates
+
+
 
 Plotting the results in R
 
