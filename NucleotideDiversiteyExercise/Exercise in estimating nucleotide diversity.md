@@ -329,7 +329,7 @@ barplot(mean_hets, names.arg=c("Nigerian_Camerron", "Eastern", "Central", "Weste
 </details>
 
 
-<img src="chimp_distribution.png " alt="figures/chimp_distribution.png " width="664" height="413" />
+<img src="Selection_020.png " alt="figures/Selection_020.png " width="664" height="413" />
 
 **Figure 2** Estimates of genome-wide heterozygosity for great apes and humans (from Prado-Martinez *et al.* 2013. [https://www.nature.com/articles/nature12228]).
 
