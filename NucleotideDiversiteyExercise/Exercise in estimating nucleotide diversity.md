@@ -302,9 +302,10 @@ ceu$het <- het(ceu$MAF)
 
 # plot mean expected heterozygosity across variants for each population
 mean_hets <- sapply(list(ellioti$het, schwein$het, troglo$het, verus$het, yri$het, ceu$het), mean)
-par(mar=c(7,4,4,2))
-barplot(mean_hets, names.arg=c("Nigerian_Camerron", "Eastern", "Central", "Western", "YRI", "CEU"), las=2, cex.names=0.8)
+par(mar=c(7.5,4,4,2))
+barplot(mean_hets, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfurtii", "Central\ntroglodytes", "Western\nverus", "YRI", "CEU"), las=2, cex.names=0.8)
 ```
+
 **Q11:** In the R function (het), explain what `2*x*(1-x)` calculates.
 
 
@@ -357,7 +358,7 @@ getPi <- function(x) sum(x$het) / (x$pos[nrow(x)] - x$pos[1])
 all_pi <- sapply(list(ellioti, schwein, troglo, verus, yri, ceu), getPi)
 names(all_pi) <- c("ellioti", "schwein", "troglo", "verus", "yri", "ceu")
 par(mar=c(7,5,4,2))
-barplot(all_pi, names.arg=c("Nigerian_Camerron", "Eastern", "Central", "Western", "YRI", "CEU"), las=2, cex.names=0.8)
+barplot(all_pi, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfurtii", "Central\ntroglodytes", "Western\nverus", "YRI", "CEU"), las=2, cex.names=0.8)
 ```
 
 **Q13:** Why do you think the two human populations differ in heterozygosity?
@@ -426,11 +427,14 @@ slidingwindowPiplot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, st
 }
 
 
-par(mfrow=c(3,2))
+# funciton to define window size as a funciton of the number of snps, so all populaitons have windows of equal size in bp
 winsize <- function(nsnp, nwin=75){round(nsnp/nwin/100) * 100}
 steps<- 100
-# Pan troglodytes verus
 
+# do multipanel plot (6 plots arranged in 3 rows, 2 columns)
+par(mfrow=c(3,2))
+
+# Pan troglodytes verus
 windowsize <- winsize(nrow(verus))
 mainvv = paste("verus pi = ",format(all_pi["verus"], digits=3), "SNPs =", nrow(verus), "Win: ", windowsize, "Step: ", steps)	
 slidingwindowPiplot(mainv=mainvv, xlab="Position", ylab=expression(paste("pi")), window.size=windowsize, step.size=steps, input_x_data=verus$pos,input_y_data=verus$het)
