@@ -491,8 +491,8 @@ Now, instead of comparing diversity measures in different population, we will no
 ```bash
 plink --bfile verus --het --out verus
 plink --bfile ellioti --het --out ellioti
-plink --bfile schwein --het --out schwein
-plink --bfile troglo --het --out troglo
+plink --bfile schweinfurthii --het --out schweinfurthii
+plink --bfile troglodytes --het --out troglodytes
 plink --bfile YRI --het --out YRI
 plink --bfile CEU --het --out CEU
 plink --bfile pan_troglodytes --het --out pan_troglodytes
@@ -538,7 +538,7 @@ Start by looking at the four different chimpanzee subspecies and the two human p
 	
 	Troglodytes: Three with an F of 0.062 or more
 	
-	Schwein: Five with an F of 0.062 or more.
+	Schweinfurthii: Five with an F of 0.062 or more.
 	
 </p>
 </details>
