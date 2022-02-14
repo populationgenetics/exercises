@@ -411,9 +411,9 @@ slidingwindowPiplot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, st
 	means_x <- numeric(n) 
 	means_y <- numeric(n) 
 	for (i in 1:n) {
-		chunk_x <- input_x_data[(step.positions[i]-window.size/2):(step.positions[i]+window.size-1)]
+		chunk_x <- input_x_data[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
         		means_x[i] <-  mean(chunk_x,na.rem=TRUE)
-		chunk_y <- input_y_data[(step.positions[i]-window.size/2):(step.positions[i]+window.size-1)]
+		chunk_y <- input_y_data[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
         		means_y[i] <-  sum(chunk_y,na.rem=TRUE)/dist(range(chunk_x))
 		}
 
@@ -427,8 +427,8 @@ slidingwindowPiplot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, st
 }
 
 
-# funciton to define window size as a funciton of the number of snps, so all populaitons have windows of equal size in bp
-winsize <- function(nsnp, nwin=75){round(nsnp/nwin/100) * 100}
+# funciton to define window size as a funciton of the number of snps and number of windows to do, so all populaitons have windows of equal size in bp
+winsize <- function(nsnp, nwin=100){round(nsnp/nwin/100) * 100}
 steps<- 100
 
 # do multipanel plot (6 plots arranged in 3 rows, 2 columns)
