@@ -156,7 +156,7 @@ ind<-ncol(geno)
 freq<-avg/2
 M <- (geno-avg)/sqrt(freq*(1-freq))
 
-# Get covariance matrix 
+# Get sample covariance matrix 
 X<-t(M)%*%M
 X<-X/(sum(diag(X))/(snp-1))
 
