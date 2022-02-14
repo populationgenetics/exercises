@@ -41,7 +41,8 @@ During this exercise you will be introduced to population genetic analysis of SN
 <details><summary>click to see answer (please think a bit before)</summary>
 <p>
 	
-	Chromosome 22 was chosen because it is one of the smallest autosomal chromosomes. We would not be able to complete this exercise if we had chosen whole genomes or even one of the largest chromosomes.
+	Chromosome 22 was chosen because it is one of the smallest autosomal chromosomes. 
+	We would not be able to complete this exercise if we had chosen whole genomes or even one of the largest chromosomes.
 	
 </p>
 </details>
@@ -324,7 +325,7 @@ barplot(mean_hets, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfu
 <details><summary>click to see answer</summary>
 <p>
 	
-	The expected heterozygosity we have estimated is based only in variable sites, which will increase a lot the proporiton of heterozygous and will necessarily be representative of the genetic diversity in the population. The estimates in Prado-Martinez et al. are proportion of heterozygosity per bp, including positions that are equal across all samples which will always be homozygous and are the majority of the genome.
+	The expected heterozygosity we have estimated is based only in variable sites, which will increase a lot the proporiton of heterozygous sites and will not necessarily be representative of the genetic diversity in the population. The estimates in Prado-Martinez et al. are proportion of heterozygosity per bp, including positions that are equal across all samples which will always be homozygous and are the majority of the genome.
 	
 </p>
 </details>
@@ -565,12 +566,12 @@ Now take a look at the total sample of the combined set of chimpanzees and human
 </p>
 </details>
 
-**Q22:** This effect is more pronounced in some populaiton (CEU in humans, verus, ellioti and scweinfurhii in chimpanzees), can you guess why is that?
+**Q22:** This effect is more pronounced in some populaitons (CEU in humans, verus, ellioti and scweinfurhii in chimpanzees), can you guess why is that?
 
 <details><summary>click to see answer</summary>
 <p>
 
-	These popualtions have less diversity, so the increase in the actual number of observed heterozygotes with respect to the expected when pooled together with the more diverse populations is higher than in the more diverse YRI and troglodytes populations in humans and chimpanzees, respectively.
+	These popualtions have less diversity, so the increase in the actual number of observed homozygous sites with respect to the expected when pooled together with the more diverse populations is higher than in the more diverse populations (YRI and troglodytes populations in humans and chimpanzees, respectively).
 	
 	
 </p>
