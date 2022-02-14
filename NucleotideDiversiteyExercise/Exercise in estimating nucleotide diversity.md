@@ -83,10 +83,10 @@ The **.bim** file will contain 100.000 lines, one for each variant, and has 6 co
 
 1.  Chromosome code (either an integer, or 'X'/'Y'/'XY'/'MT'; '0' indicates unknown) or name
 2.  Variant identifier
-3   Position in morgans or centimorgans (safe to use dummy value of '0')
+3.  Position in morgans or centimorgans (safe to use dummy value of '0')
 4.  Base-pair coordinate (1-based)
-5.  Allele 1 (usually minor)
-6.  Allele 2 (usually major)
+6.  Allele 1 (usually minor)
+7.  Allele 2 (usually major)
 
 
 The **.fam** file will contain 100 lines, one for each sample, and has 6 column that for each sample indicate:
