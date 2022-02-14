@@ -132,24 +132,38 @@ Q4: Look at column PC1 and PC2, how much of the variation is
 explained if you were to use these two principal components?
 
 Now we want to plot our genotyped data, we do that, first, by pasting
-the following code into R:  
+the following code into R (which is the code for doing PCA):  
 
 #### \>R
 ```R
 eigenstrat<-function(geno){
+
+# Get rid of sites with missing data
 nMis<-rowSums(is.na(geno))
 geno<-geno[nMis==0,]
+
+# Get rid of non-polymorphic sites
 avg<-rowSums(geno)/ncol(geno)
 keep<-avg!=0&avg!=2
 avg<-avg[keep]
 geno<-geno[keep,]
+
+# Get number of remaining SNPs iand individuals
 snp<-nrow(geno)
 ind<-ncol(geno)
+
+# Make normalized genotype matrix
 freq<-avg/2
 M <- (geno-avg)/sqrt(freq*(1-freq))
+
+# Get covariance matrix 
 X<-t(M)%*%M
 X<-X/(sum(diag(X))/(snp-1))
+
+# Do eigenvalue decomposition
 E<-eigen(X)
+
+# Calculate stuff relevant for number of components to look at
 mu<-(sqrt(snp-1)+sqrt(ind))^2/snp
 sigma<-(sqrt(snp-1)+sqrt(ind))/snp*(1/sqrt(snp-1)+1/sqrt(ind))^(1/3)
 E$TW<-(E$values[1]*ind/sum(E$values)-mu)/sigma
@@ -163,6 +177,8 @@ plot(x$vectors[,1:2],col=col,...)
 print.eigenstrat<-function(x)
 cat("statistic",x$TW,"n")
 e<-eigenstrat(geno)
+
+
 #And then using the next lines of code to make a plot in R:
 plot(e,col=rep(c("lightblue","Dark red","lightgreen"),c(11,12,6)),xlab="PC1 21% of variance",ylab="PC2 12% of variance",pch=16,main="PCA plot")
 ```
