@@ -383,7 +383,7 @@ barplot(all_pi, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfurti
 </p>
 </details>
 
-**Q15:** From your knowledge and from the amount of average heterozygosity, what population would you expect to have the highest *N<sub>e</sub>*? And the lowest?
+**Q15:** From your knowledge and from the amount of average heterozygosity, what population would you expect to have the highest *N<sub>e</sub>* (effective population size)? And the lowest?
 
 <details><summary>click to see answer</summary>
 <p>
