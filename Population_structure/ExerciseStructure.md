@@ -132,7 +132,7 @@ Q4: Look at column PC1 and PC2, how much of the variation is
 explained if you were to use these two principal components?
 
 Now we want to plot our genotyped data, we do that, first, by pasting
-the following code into R (which is the code for doing PCA):  
+the following code into R (which is first function that does PCA and then a call to this to run PCA on your data):  
 
 #### \>R
 ```R
@@ -178,14 +178,12 @@ print.eigenstrat<-function(x)
 cat("statistic",x$TW,"n")
 e<-eigenstrat(geno)
 
-
-#And then using the next lines of code to make a plot in R:
-plot(e,col=rep(c("lightblue","Dark red","lightgreen"),c(11,12,6)),xlab="PC1 21% of variance",ylab="PC2 12% of variance",pch=16,main="PCA plot")
 ```
-Try typing the following code into R:
+And then use the next lines of code to make a plot in R:
 
 #### \>R
 ```R
+plot(e,col=rep(c("lightblue","Dark red","lightgreen"),c(11,12,6)),xlab="PC1 21% of variance",ylab="PC2 12% of variance",pch=16,main="PCA plot")
 text(0, 0.18, "troglodytes")
 text(0.05, -0.2, "schweinfurthii")
 text(-0.32,-0.07,"verus")
