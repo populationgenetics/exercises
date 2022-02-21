@@ -4,18 +4,12 @@
 
 ## Program
 
-  - Understanding genetic structure in populations
-
-  - Construction of a Principal Component Analysis (PCA) and ADMIXTURE
-    plot using SNP data
-
-  - Understanding the effect of population structure in genetic analyses
-    
-## Aim
+  - Construction and interpretation of a Principal Component Analysis (PCA) plot using SNP data
+  - Running and interpreting ADMIXTURE analyse using SNP data
+  
+## Learning objectives 
 
   - Introduce command-line based approach to structure analyses
-
-  - Introduction to ADMIXTURE
 
   - Learn to interpret results from structure analyses and put these in
     a biological context
@@ -55,7 +49,7 @@ natural distributional area (Figure 1).
 **Figure 1** Geographical distribution of the common chimpanzee *Pan
 troglodytes* (from Frandsen & Fontsere *et al.* 2020. [https://www.nature.com/articles/s41437-020-0313-0 ]).
 
-### Warm-up exercise
+### Warm-up exercise (to remind you of Hardy-Weinberg)
 
 Consider two non-identical and separated populations of chimpanzees
 without genetic drift, natural selection, mutation or migration. Mating
