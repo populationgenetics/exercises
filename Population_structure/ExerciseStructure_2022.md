@@ -74,26 +74,26 @@ and a separate file containing assumed population info for each sample.
 
 First, we want to look at the data (like you always should *before* doing any analyses). The command `wc -l [FILENAME]` counts the number of lines in a file.
 
-<br/>
+<br />
 
 **Q1: How many samples and variants does the downloaded PLINK file-set consist of?**
 
-<br/>
+<br />
 
 Open R in the exercise directory (don’t close it before this manual states that you should) and type:
 ```R
-popinfo = read.table("pop.info")
+popinfo <- read.table("pop.info")
 table(popinfo[,1])
 ```
 
-<br/>
+<br />
 
 **Q2**
-  - **Q2.1. Which subspecies are represented in the data?**
-  - **Q2.2. How many sampels are there from each subspecies?**
-  - **Q2.3. Does the total number of samples match what you found in Q1?**
+  - **Q2.1: Which subspecies are represented in the data?**
+  - **Q2.2: How many sampels are there from each subspecies?**
+  - **Q2.3: Does the total number of samples match what you found in Q1?**
 
-<br/>
+<br />
 
 Now we want to import our genotype data into R. 
 
@@ -102,12 +102,28 @@ Now we want to import our genotype data into R.
 library(snpMatrix)
 data <- read.plink("pruneddata")
 geno <- t(matrix(as.integer(data@.Data),nrow=nrow(data@.Data)))
-geno[geno==0]<- NA
-geno<-geno-1
+geno[geno==0] <- NA
+geno <- geno-1
 
-# Should the number of rows and columns
+# Shows the number of rows and columns
 dim(geno)
+
+# Show counts of genotypes for SNP/variant 17
+table(geno[17,], useNA='a')
+
+# Show counts of genotypes for sample 1 
+table(geno[,1], useNA='a')
 ```
+
+<br />
+
+**Q3**
+  - **Q3.1: How many SNPs and samples have you loaded into *geno*? and does it match what you found in Q1 and Q2?**
+  - **Q3.2: How many samples are heterozygous for SNP 17 (*what does the 0, 1, and 2 mean*)?
+  - **Q3.3: How many SNPs is missing data (*NA*) for sample 8 (*you need to change the code to find the information for sample 8*)**
+
+<br />
+
 
 **Q3**: The genotype format are of the type 0, 1, 2, explain what 0, 1
 and 2 means? At the fist SNP: How many homozygotes are there? And how
