@@ -54,9 +54,7 @@ mkdir ~/exercises
 cd ~/exercises
 mkdir structure
 cd structure
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa.zip . 
-unzip pa.zip
-rm pa.zip
+cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
 ```
 
 First, we want to look at the data (like you always should *before*
