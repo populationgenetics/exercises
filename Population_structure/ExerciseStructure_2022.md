@@ -141,7 +141,7 @@ summary(pca)
 # Extract importance of PCs.
 pca_importance <- summary(pca)$importance
 plot(pca_importance[2,], type='b', xlab='PC', ylab='Proportion of variance', las=1,
-  pch=19, col='darkred', bty='L', main='Proportion of variance explained per PC')
+	pch=19, col='darkred', bty='L', main='Proportion of variance explained per PC')
 ```
 
 <br />
@@ -163,7 +163,8 @@ pcs <- as.data.frame(pca$x)
 
 # Custom colors matching the original colors on the map.
 palette(c('#E69F00', '#D55E00', '#56B4E9'))
-plot(pcs$PC1, pcs$PC2, col=popinfo$V1, pch=19,
+plot(pcs$PC1, pcs$PC2, col=popinfo$V1, pch=19, las=1, bty='L',
+	main='PCA on 29 wild born chimpanzees',
 	xlab=paste0('PC1 (', PC1_explained, '% of variance)'),
 	ylab=paste0('PC2 (', PC2_explained, '% of variance)'))
 
