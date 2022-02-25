@@ -1,6 +1,6 @@
 # Exercise in structured populations
 
-Today we will
+## Program
 
   - Construction and interpret a Principal Component Analysis (PCA) plot using SNP data
   - Running and interpreting ADMIXTURE analyse using SNP data
