@@ -171,8 +171,10 @@ legend('topleft', legend=levels(popinfo$V1), col=1:length(levels(popinfo$V1)), p
 ```
 <br />
 
-**Q5: When looking at the PCA-plot, does the number of clusters fit with what you saw in the pop.info file? And does it make sense when looking
-at Figure 1 at the top of this document?**
+**Q5**
+	- **Q5.1 How many separate PCA-clusters are found in the first two PCs?**
+	- **Q5.2 Which populations are separated by PC1? How does this match the geography from Figure 1 (top of document)**
+	- **Q5.3 Does the PCs calculated only from genetic data match the information from the pop.info file (i.e. do any of the samples cluster with a different population than specified by the sample-info/color)?**
 
 <br />
 
