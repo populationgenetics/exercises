@@ -12,16 +12,17 @@
   - Learn to interpret results from structure analyses and put these in
     a biological context
     
-## References
+## Recommended reading
 
-  - See Chapter 4 in ”An introduction to Population Genetics” and
+  - Chapter 4 in ”An introduction to Population Genetics” and
     chapter 5 page 99-103
 
-  - See Hvilsom et al. 2013. Heredity
+## Referneces related to the data
+  - Hvilsom et al. 2013. Heredity
     
     http://www.nature.com/hdy/journal/v110/n6/pdf/hdy20139a.pdf
 
-  - See Prado-Martinez et al. 2013. Nature
+  - Prado-Martinez et al. 2013. Nature
     
     http://www.nature.com/nature/journal/v499/n7459/pdf/nature12228.pdf
 
