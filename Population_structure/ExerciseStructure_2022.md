@@ -66,16 +66,18 @@ We have downloaded a *plink* file-set consisitng of
 
 - pruneddata.**fam**: Information of each individual
 - pruneddata.**bim**: Information of each SNP/variant
-- pruneddata.**bed**: A not-human-readable *binary* file-format of the all variants for all individuals.
+- pruneddata.**bed**: A non-human-readable *binary* file-format of the all variants for all individuals.
 
 and a separate file containing assumed population info for each sample.
 
 - pop.info
 
+First, we want to look at the data (like you always should *before* doing any analyses). Using the command `wc -l [FILENAME]` count the number of samples and SNPs in the downloaded dataset.
 
-First, we want to look at the data (like you always should *before*
-doing any analyses) by opening R in the exercise directory (don’t close
-it before this manual states that you should) and typing:
+**Q1**: How many samples and variants does the *plink* file-set consist of?
+
+
+Open R in the exercise directory (don’t close it before this manual states that you should) and typing:
 
 #### \>R
 
