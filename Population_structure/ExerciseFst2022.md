@@ -1,45 +1,31 @@
+# Exercise on measuring population differentiation with F<sub>ST</sub>
 
-We start by downloading the exome data to the folder
-`~/exercises/structure_fst`. To do this you can use the following command.
-Open a terminal and type:
+
+We will use the same dataset that you use for the Monday exercise on analyzing population structure. 
+The following commands will make a new folder and copy again the dataset to that new folder,
+but you are free to work in the `structure` folder you created in the last exercise (and in that
+case you don't need to copy the data again).
 
 ```bash
 cd ~/exercises   # if you do not have a directory called exercises, make one:  mkdir ~/exercises 
-mkdir structure 
-cd structure 
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa.zip . 
-unzip pa.zip 
-rm pa.zip 
+mkdir structure_fst 
+cd structure_fst
+
+# Download data (remember the . in the end)
+cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
+
+# Show the dowloaded files
+ls -l
 ```
 
 
-Next, we are going to calculate the fixation index between subspecies
+Today, we are going to calculate the fixation index between subspecies
 (*F<sub>st</sub>*), which is a widely used statistic in population
 genetics. This is a measure of population differentiation and thus, we
-can use it to distinguish populations in a quantitative way. To get you
-started, we calculate *F<sub>st</sub>* by hand and then later using a
-script. It is worth noticing that what *F<sub>st</sub>* measures is the
+can use it to distinguish populations in a quantitative way.
+It is worth noticing that what *F<sub>st</sub>* measures is the
 reduction in heterozygosity compared to a pooled population.
 
-Here we will calculate the population differentiation in the gene
-(***SLC24A5***) which contributes to skin pigmentation (among other
-things) in humans. An allele (A) in this gene is associated with light
-skin. The SNP varies in frequency in populations in the Americas with
-mixed African and Native American ancestry. A sample from Mexico had 38%
-A and 62% G; in Puerto Rico the frequencies were 59% A and 41% G, and a
-sample of Africans had 2% A with 98% G.
-
-Calculate *F<sub>st</sub>* in this example. Start by calculating
-heterozygosity, then H<sub>s</sub> and then H<sub>T</sub>
-
-|                | African        | Mexican         | Puerto Rican    |
-| -------------- | -------------- | --------------- | --------------- |
-|                | A (2%) G (98%) | A (38%) G (62%) | A (59%) G (41%) |
-| Heterozygosity |                |                 |                 |
-
-**Q11**: What is *F<sub>st</sub>* in this case?
-
-**Q12**: Why is this allele not lost in Africans? What happened?
 
 Here we use the Weir and Cockerham *Fst* calculator from 1984 to
 calculate *F<sub>st</sub>* on the chimpanzees. Open R and copy/paste the
@@ -93,14 +79,34 @@ Now read in our data. We want to make three comparisons.
 #### \>R
 ```R
 library(snpMatrix)
+
+# read genotype data using read.plink function form snpMatrix package
 data <- read.plink("pruneddata")
+
+# extract genotype matrix, convert to normal R integer matrix
 geno <- matrix(as.integer(data@.Data),nrow=nrow(data@.Data))
-geno <- t(geno)
-geno[geno==0]<- NA
-geno<-geno-1
-g<-geno[complete.cases(geno),]
-pop<-c(rep(1,11),rep(2,12),rep(3,6))
+
+# original format is 0: missing, 1: hom minor, 2: het, 3: hom major
+# convert to NA: missing, 0: hom minor, 1: het, 2: hom major
+geno[geno==0] <- NA
+geno <- geno - 1
+
+# keep only SNPs without missing data
+g <- geno[,complete.cases(t(geno))]
+
+# load population infomration
+popinfo <- read.table("pop.info", stringsAsFactors=F, col.names=c("pop", "ind"))
+
+# get names of the three subspecies
+subspecies <- unique(popinfo$pop)
+
+# get all pairs of subspecies
+subsppairs <- t(combn(populations, 2))
+
+fsts <- apply(subsppairs, 1, function(x) WC84(g[popinfo$pop %in% x,], popinfo$pop[popinfo$pop %in% x]))
+
 ### HERE WE HAVE OUR THREE COMPARISONS
+
 pop12<-pop[ifelse(pop==1,TRUE,ifelse(pop==2,TRUE,FALSE))]
 pop13<-pop[ifelse(pop==1,TRUE,ifelse(pop==3,TRUE,FALSE))]
 pop23<-pop[ifelse(pop==2,TRUE,ifelse(pop==3,TRUE,FALSE))]
