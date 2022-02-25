@@ -74,39 +74,39 @@ and a separate file containing assumed population info for each sample.
 
 First, we want to look at the data (like you always should *before* doing any analyses). The command `wc -l [FILENAME]` counts the number of lines in a file.
 
-**Q1**: How many samples and variants does the downloaded PLINK file-set consist of?
+<br/>
 
-Open R in the exercise directory (don’t close it before this manual states that you should) and typing:
+**Q1: How many samples and variants does the downloaded PLINK file-set consist of?**
 
-#### \>R
+<br/>
 
+Open R in the exercise directory (don’t close it before this manual states that you should) and type:
 ```R
 popinfo = read.table("pop.info")
 table(popinfo[,1])
 ```
 
+<br/>
+
 **Q2**
+  - **Q2.1. Which subspecies are represented in the data?**
+  - **Q2.2. How many sampels are there from each subspecies?**
+  - **Q2.3. Does the total number of samples match what you found in Q1?**
 
-  1. Which subspecies are represented in the data?
-  2. How many sampels are there from each subspecies?
-  3. Does the total number of samples match what you found in Q1?
+<br/>
 
-Now we want to import our genotyped data into R. 
-#### \>R
+Now we want to import our genotype data into R. 
 
 ```R
+# Load data
 library(snpMatrix)
 data <- read.plink("pruneddata")
-geno <- matrix(as.integer(data@.Data),nrow=nrow(data@.Data))
-geno <- t(geno)
+geno <- t(matrix(as.integer(data@.Data),nrow=nrow(data@.Data)))
 geno[geno==0]<- NA
 geno<-geno-1
-###Let’s take a look at the first SNP (across populations)
-table(geno[1,])
-###Let’s take a look at the first individual (across all SNPs)
-table(geno[,1])
-###Let’s take a look at the last individual (across all SNPs)
-table(geno[,29])
+
+# Should the number of rows and columns
+dim(geno)
 ```
 
 **Q3**: The genotype format are of the type 0, 1, 2, explain what 0, 1
