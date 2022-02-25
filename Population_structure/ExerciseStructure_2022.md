@@ -134,8 +134,11 @@ geno <- geno[nMis==0,]
 
 # Perform PCA
 pca <- prcomp(t(geno), scale=T, center=T)
+
+# Show summary
 summary(pca)
 
+# Extract importance of PCs.
 pca_importance <- summary(pca)$importance
 plot(pca_importance[2,], type='b', xlab='PC', ylab='Proportion of variance', las=1,
   pch=19, col='darkred', bty='L', main='Proportion of variance explained per PC')
@@ -146,6 +149,25 @@ plot(pca_importance[2,], type='b', xlab='PC', ylab='Proportion of variance', las
 **Q4: Which principal components (PCs) are most important in terms of variance explained and how much variance do they explain together (cumulative)?**
 
 <br />
+
+
+Now we plot the first two principal components.
+
+```R
+# Extract variance explained for PC1 and PC2
+PC1_explained <- round(pca_importance[2,1]*100, 1)
+PC2_explained <- round(pca_importance[2,2]*100, 1)
+
+# Extract the PCs
+pcs <- as.data.frame(pca$x)
+
+# Custom colors matching the original colors on the map.
+palette(c('#E69F00', '#D55E00', '#56B4E9'))
+plot(pcs$PC1, pcs$PC2, col=popinfo$V1, pch=19,
+	xlab=paste0('PC1 (', PC1_explained, '% of variance)'),
+	ylab=paste0('PC2 (', PC2_explained, '% of variance)'))
+
+```
 
 
 
