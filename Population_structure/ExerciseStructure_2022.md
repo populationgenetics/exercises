@@ -1,10 +1,8 @@
 # Exercise in structured populations
 
-**Peter Frandsen and Casper-Emil Tingskov Pedersen**
+Today we will
 
-## Program
-
-  - Construction and interpretation of a Principal Component Analysis (PCA) plot using SNP data
+  - Construction and interpret a Principal Component Analysis (PCA) plot using SNP data
   - Running and interpreting ADMIXTURE analyse using SNP data
   
 ## Learning objectives 
