@@ -68,14 +68,11 @@ We have downloaded a PLINK file-set consisitng of
 - pruneddata.**bim**: Information of each SNP/variant (one line per SNP/variant)
 - pruneddata.**bed**: A non-human-readable *binary* file-format of the all variants for all individuals.
 
-<hr style="background-color: #FF0000;"></hr>
-
 and a separate file containing assumed population info for each sample.
 
 - pop.info
 
 First, we want to look at the data (like you always should *before* doing any analyses). The command `wc -l [FILENAME]` counts the number of lines in a file.
-
 
 **Q1**: How many samples and variants does the downloaded PLINK file-set consist of?
 
@@ -88,8 +85,11 @@ popinfo = read.table("pop.info")
 table(popinfo[,1])
 ```
 
-**Q2**: Which subspecies are represented in the data and how many
-individuals are there from each?
+**Q2**
+
+  1. Which subspecies are represented in the data?
+  2. How many sampels are there from each subspecies?
+  3. Does the total number of samples match what you found in Q1?
 
 Now we want to import our genotyped data into R. 
 #### \>R
