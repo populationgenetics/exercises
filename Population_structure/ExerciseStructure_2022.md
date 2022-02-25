@@ -47,20 +47,6 @@ natural distributional area (Figure 1).
 **Figure 1** Geographical distribution of the common chimpanzee *Pan
 troglodytes* (from Frandsen & Fontsere *et al.* 2020. [https://www.nature.com/articles/s41437-020-0313-0 ]).
 
-### Warm-up exercise (to remind you of Hardy-Weinberg)
-
-Consider two non-identical and separated populations of chimpanzees
-without genetic drift, natural selection, mutation or migration. Mating
-is random within each population. We analyze a variation at a biallelic locus.
-In population 1 the frequency of
-allele A is 0.1 and in population 2 the frequency of allele A is 0.9. A
-young researcher has collected a sample comprising 50% from each
-population (each population is assumed to be of equal size). Calculate
-the proportion of heterozygous individuals in the pooled population.
-Then, calculate the expected heterozygosity in the pooled population
-
-**Q1:** Is there a difference between expected and observed
-
 ## PCA
 
 We start by downloading the exome data to the folder
