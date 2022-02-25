@@ -45,17 +45,18 @@ troglodytes* (from [Frandsen & Fontsere *et al.* 2020](https://www.nature.com/ar
 
 ## PCA
 
-We start by downloading the exome data to the folder
-`~/exercises/structure`. To do this you can use the following command.
+We start by creating a directory for this exercise and download the exome data to the folder.
+
 Open a terminal and type:
 
 ```bash
-cd ~/exercises   # if you do not have a directory called exercises, make one:  mkdir ~/exercises 
-mkdir structure 
-cd structure 
+mkdir ~/exercises
+cd ~/exercises
+mkdir structure
+cd structure
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa.zip . 
-unzip pa.zip 
-rm pa.zip 
+unzip pa.zip
+rm pa.zip
 ```
 
 First, we want to look at the data (like you always should *before*
