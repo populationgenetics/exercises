@@ -137,7 +137,7 @@ pca <- prcomp(t(geno), scale=T, center=T)
 summary(pca)
 
 pca_importance <- summary(pca)$importance
-plot(pca_importance[2,], type='b', xlab='PC', ylab='Proportion of variance', las=1, pch=19, col='darkred')
+plot(pca_importance[2,], type='b', xlab='PC', ylab='Proportion of variance', las=1, pch=19, col='darkred', bty='L', main='Proportion of variance explained per PC')
 ```
 
 <br />
