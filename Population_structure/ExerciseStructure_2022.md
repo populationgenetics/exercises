@@ -58,7 +58,20 @@ cd structure
 
 # Download data (remember the . in the end)
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
+
+# Show the dowloaded files
+ls -l
 ```
+We have downloaded a *plink* file-set consisitng of
+
+- pruneddata.**fam**: Information of each individual
+- pruneddata.**bim**: Information of each SNP/variant
+- pruneddata.**bed**: A not-human-readable *binary* file-format of the all variants for all individuals.
+
+and a separate file containing assumed population info for each sample.
+
+- pop.info
+
 
 First, we want to look at the data (like you always should *before*
 doing any analyses) by opening R in the exercise directory (don’t close
