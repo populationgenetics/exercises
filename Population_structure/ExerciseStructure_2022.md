@@ -118,16 +118,35 @@ table(geno[,1], useNA='a')
 
 **Q3**
   - **Q3.1: How many SNPs and samples have you loaded into *geno*? and does it match what you found in Q1 and Q2?**
-  - **Q3.2: How many samples are heterozygous for SNP 17 (*what does the 0, 1, and 2 mean*)?
+  - **Q3.2: How many samples are heterozygous for SNP 17 (*what does the 0, 1, and 2 mean*)?**
   - **Q3.3: How many SNPs is missing data (*NA*) for sample 8 (*you need to change the code to find the information for sample 8*)**
 
 <br />
 
+Specialized software (ex. [PCAngsd](https://doi.org/10.1534/genetics.118.301336)) can handle missing information in a clever way, but for now we will simply remove all sites that have missing information and then perform PCA with the standard R-function `prcomp`. 
 
-**Q3**: The genotype format are of the type 0, 1, 2, explain what 0, 1
-and 2 means? At the fist SNP: How many homozygotes are there? And how
-many heterozygotes? For the first and last individual: How many
-homozygotes are there? And how many heterozygotes?
+```R
+# Number of missing samples per site
+nMis <- rowSums(is.na(geno))
+
+# Only keep sites with 0 missing samples.
+geno <- geno[nMis==0,]
+
+# Perform PCA
+pca <- prcomp(t(geno), scale=T, center=T)
+summary(pca)
+
+pca_importance <- summary(pca)$importance
+plot(pca_importance[2,], type='b', xlab='PC', ylab='Proportion of variance', las=1, pch=19, col='darkred')
+```
+
+<br />
+
+**Q4: Which principal components (PCs) are most important in terms of variance explained and how much variance do they explain together (cumulative)?**
+
+<br />
+
+
 
 Now we want to look at the principal components, type the following into
 R:
