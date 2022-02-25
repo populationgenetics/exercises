@@ -164,88 +164,19 @@ pcs <- as.data.frame(pca$x)
 # Custom colors matching the original colors on the map.
 palette(c('#E69F00', '#D55E00', '#56B4E9'))
 plot(pcs$PC1, pcs$PC2, col=popinfo$V1, pch=19, las=1, bty='L',
-	main='PCA on 29 wild born chimpanzees',
+	main='PCA on 29 wild-born chimpanzees',
 	xlab=paste0('PC1 (', PC1_explained, '% of variance)'),
 	ylab=paste0('PC2 (', PC2_explained, '% of variance)'))
-
+legend('topleft', legend=levels(popinfo$V1), col=1:length(levels(popinfo$V1)), pch=19)
 ```
+<br />
 
+**Q5: When looking at the PCA-plot, does the number of clusters fit with what you saw in the pop.info file? And does it make sense when looking
+at Figure 1 at the top of this document?**
 
+<br />
 
-Now we want to look at the principal components, type the following into
-R:
-
-#### \>R
-```R
-summary(prcomp(na.omit(geno)))
-```
-Q4: Look at column PC1 and PC2, how much of the variation is
-explained if you were to use these two principal components?
-
-Now we want to plot our genotyped data, we do that, first, by pasting
-the following code into R (which is first function that does PCA and then a call to this to run PCA on your data):  
-
-#### \>R
-```R
-eigenstrat<-function(geno){
-
-# Get rid of sites with missing data
-nMis<-rowSums(is.na(geno))
-geno<-geno[nMis==0,]
-
-# Get rid of non-polymorphic sites
-avg<-rowSums(geno)/ncol(geno)
-keep<-avg!=0&avg!=2
-avg<-avg[keep]
-geno<-geno[keep,]
-
-# Get number of remaining SNPs iand individuals
-snp<-nrow(geno)
-ind<-ncol(geno)
-
-# Make normalized genotype matrix
-freq<-avg/2
-M <- (geno-avg)/sqrt(freq*(1-freq))
-
-# Get sample covariance matrix 
-X<-t(M)%*%M
-X<-X/(sum(diag(X))/(snp-1))
-
-# Do eigenvalue decomposition
-E<-eigen(X)
-
-# Calculate stuff relevant for number of components to look at
-mu<-(sqrt(snp-1)+sqrt(ind))^2/snp
-sigma<-(sqrt(snp-1)+sqrt(ind))/snp*(1/sqrt(snp-1)+1/sqrt(ind))^(1/3)
-E$TW<-(E$values[1]*ind/sum(E$values)-mu)/sigma
-E$mu<-mu
-E$sigma<-sigma
-class(E)<-"eigenstrat"
-E
-}
-plot.eigenstrat<-function(x,col=1,...)
-plot(x$vectors[,1:2],col=col,...)
-print.eigenstrat<-function(x)
-cat("statistic",x$TW,"n")
-e<-eigenstrat(geno)
-
-```
-And then use the next lines of code to make a plot in R:
-
-#### \>R
-```R
-plot(e,col=rep(c("lightblue","Dark red","lightgreen"),c(11,12,6)),xlab="PC1 21% of variance",ylab="PC2 12% of variance",pch=16,main="PCA plot")
-text(0, 0.18, "troglodytes")
-text(0.05, -0.2, "schweinfurthii")
-text(-0.32,-0.07,"verus")
-```
-
-
-**Q5**: When looking at the plot, does the number of clusters fit with
-what you saw in the pop.info file? And does it make sense when looking
-at Figure 1?
-Now close R by typing `quit()` and hit `Enter` (it is up to you if you
-wish to safe the workspace).
+Now close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 
 ## Admixture
