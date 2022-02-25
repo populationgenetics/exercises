@@ -50,10 +50,13 @@ We start by creating a directory for this exercise and download the exome data t
 Open a terminal and type:
 
 ```bash
+# Make a directory for this exercise
 mkdir ~/exercises
 cd ~/exercises
 mkdir structure
 cd structure
+
+# Download data (remember the . in the end)
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
 ```
 
