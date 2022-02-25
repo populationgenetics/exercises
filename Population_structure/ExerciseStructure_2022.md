@@ -1,22 +1,22 @@
-# Exercise in structured populations
+# Exercise in inference of population structure and admixture
 
 ## Program
 
-  - Construction and interpret a Principal Component Analysis (PCA) plot using SNP data
-  - Running and interpreting ADMIXTURE analyse using SNP data
+  - Constructing and interpretating of a Principal Component Analysis (PCA) plot using SNP data
+  - Running and interpreting ADMIXTURE analyses using SNP data
   
 ## Learning objectives 
 
-  - Introduce command-line based approach to structure analyses
+  - Learn how to perform PCA and ADMIXTURE analyses of SNP data
 
-  - Learn to interpret results from structure analyses and put these in
+  - Learn how to interpret results from such analyses and to put these in
     a biological context
     
 ## Recommended reading
 
   - ”An introduction to Population Genetics” page 99-103
 
-## Clarifying chimpanzee population structure and admixture using exome data
+## Inferring chimpanzee population structure and admixture using exome data
 
 Disentangling the chimpanzee taxonomy has been surrounded with much
 attention, and with continuously newly discovered populations of
@@ -49,8 +49,7 @@ We start by creating a directory for this exercise and download the exome data t
 Open a terminal and type:
 
 ```bash
-# Make a directory for this exercise
-mkdir ~/exercises
+# Make a directory for this exercise in your exercises folder
 cd ~/exercises
 mkdir structure
 cd structure
@@ -61,10 +60,10 @@ cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
 # Show the dowloaded files
 ls -l
 ```
-We have downloaded a PLINK file-set consisitng of
+You have now downloaded a PLINK file-set consisting of
 
-- pruneddata.**fam**: Information of each individual (one line per individual)
-- pruneddata.**bim**: Information of each SNP/variant (one line per SNP/variant)
+- pruneddata.**fam**: Information about each individual (one line per individual)
+- pruneddata.**bim**: Information about each SNP/variant (one line per SNP/variant)
 - pruneddata.**bed**: A non-human-readable *binary* file-format of the all variants for all individuals.
 
 and a separate file containing assumed population info for each sample.
@@ -75,11 +74,11 @@ First, we want to look at the data (like you always should *before* doing any an
 
 <br />
 
-**Q1: How many samples and variants does the downloaded PLINK file-set consist of?**
+**Q1: How many samples and variants do the downloaded PLINK file-set consist of?**
 
 <br />
 
-Open R in the exercise directory (don’t close it before this manual states that you should) and type:
+Now open R in the exercises directory (don’t close it before this manual states that you should) and type:
 ```R
 popinfo <- read.table("pop.info")
 table(popinfo[,1])
@@ -89,7 +88,7 @@ table(popinfo[,1])
 
 **Q2**
   - **Q2.1: Which subspecies are represented in the data?**
-  - **Q2.2: How many sampels are there from each subspecies?**
+  - **Q2.2: How many samples are there from each subspecies?**
   - **Q2.3: Does the total number of samples match what you found in Q1?**
 
 <br />
@@ -104,7 +103,7 @@ geno <- t(matrix(as.integer(data@.Data),nrow=nrow(data@.Data)))
 geno[geno==0] <- NA
 geno <- geno-1
 
-# Shows the number of rows and columns
+# Show the number of rows and columns
 dim(geno)
 
 # Show counts of genotypes for SNP/variant 17
@@ -151,10 +150,10 @@ plot(pca_importance[2,], type='b', xlab='PC', ylab='Proportion of variance', las
 <br />
 
 
-Now we plot the first two principal components.
+Now let's plot the first two principal components.
 
 ```R
-# Extract variance explained for PC1 and PC2
+# Extract percentage of the variance that is explained by PC1 and PC2
 PC1_explained <- round(pca_importance[2,1]*100, 1)
 PC2_explained <- round(pca_importance[2,2]*100, 1)
 
@@ -175,7 +174,7 @@ legend('topleft', legend=levels(popinfo$V1), col=1:length(levels(popinfo$V1)), p
 
 - **Q5.1 How many separate PCA-clusters are found in the first two PCs?**
 - **Q5.2 Which populations are separated by PC1? How does this match the geography from Figure 1 (top of document)**
-- **Q5.3 Does the PCs calculated only from genetic data match the information from the pop.info file (i.e. do any of the samples cluster with a different population than specified by the sample-info/color)?**
+- **Q5.3 Do the PCs calculated only from genetic data match the information from the pop.info file (i.e. do any of the samples cluster with a different population than specified by the sample-info/color)?**
 
 <br />
 
