@@ -17,15 +17,6 @@
   - Chapter 4 in ”An introduction to Population Genetics” and
     chapter 5 page 99-103
 
-## Referneces related to the data
-  - Hvilsom et al. 2013. Heredity
-    
-    http://www.nature.com/hdy/journal/v110/n6/pdf/hdy20139a.pdf
-
-  - Prado-Martinez et al. 2013. Nature
-    
-    http://www.nature.com/nature/journal/v499/n7459/pdf/nature12228.pdf
-
 ## Clarifying chimpanzee population structure and admixture using exome data
 
 Disentangling the chimpanzee taxonomy has been surrounded with much
@@ -46,7 +37,11 @@ natural distributional area (Figure 1).
  </figure>
 
 **Figure 1** Geographical distribution of the common chimpanzee *Pan
-troglodytes* (from Frandsen & Fontsere *et al.* 2020. [https://www.nature.com/articles/s41437-020-0313-0 ]).
+troglodytes* (from [Frandsen & Fontsere *et al.* 2020](https://www.nature.com/articles/s41437-020-0313-0)).
+
+*If you want to read more about chimpanzee population structure*
+  - [Hvilsom et al. 2013. Heredity](http://www.nature.com/hdy/journal/v110/n6/pdf/hdy20139a.pdf)
+  - [Prado-Martinez et al. 2013. Nature](http://www.nature.com/nature/journal/v499/n7459/pdf/nature12228.pdf)
 
 ## PCA
 
