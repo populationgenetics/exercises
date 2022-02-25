@@ -14,8 +14,7 @@
     
 ## Recommended reading
 
-  - Chapter 4 in ”An introduction to Population Genetics” and
-    chapter 5 page 99-103
+  - ”An introduction to Population Genetics” page 99-103
 
 ## Clarifying chimpanzee population structure and admixture using exome data
 
