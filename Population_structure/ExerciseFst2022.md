@@ -1,7 +1,7 @@
 # Exercise on measuring population differentiation with F<sub>ST</sub>
 
 
-We will use the same dataset that you use for the Monday exercise on analyzing population structure. 
+We will use the same dataset that you used for the Monday exercise on analyzing population structure. 
 The following commands will make a new folder and copy again the dataset to that new folder,
 but you are free to work in the `structure` folder you created in the last exercise (and in that
 case you don't need to copy the data again).
@@ -20,20 +20,30 @@ ls -l
 
 
 Today, we are going to calculate the fixation index between subspecies
-(*F<sub>st</sub>*), which is a widely used statistic in population
+(*F<sub>ST</sub>*), which is a widely used statistic in population
 genetics. This is a measure of population differentiation and thus, we
 can use it to distinguish populations in a quantitative way.
-It is worth noticing that what *F<sub>st</sub>* measures is the
+It is worth noticing that what *F<sub>ST</sub>* measures is the
 reduction in heterozygosity compared to a pooled population.
 
 
-Here we use the Weir and Cockerham *Fst* calculator from 1984 to
-calculate *F<sub>st</sub>* on the chimpanzees. Open R and copy/paste the
-following:
+There are several methods for estimating *F<sub>ST</sub>* from genotype data. We will not
+cover them in the course, but if you are interested in getting an overview of some of these
+estiamtors and the how they differ you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
+
+Here we use the [Weir and Cockerham *F<sub>ST</sub>* calculator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
+calculate *F<sub>ST</sub>* on the chimpanzees. Again, the theory behind it and the estimator itself are
+not directly part of the course, but if you are interested you can see the formula that is implemented in the following R function in either
+the Weir and Cockerham 1984 article, or in equation 6 from the Bhatia 2011 article linked above.
+
+
+Open R and copy/paste the following function:
 
 #### \>R
 ```R
 WC84<-function(x,pop){
+  # function to estimate Fst using Weir and Cockerham estimators.
+
   #number ind each population
   n<-table(pop)
   ###number of populations
@@ -74,7 +84,8 @@ WC84<-function(x,pop){
 }
 ```
 
-Now read in our data. We want to make three comparisons.
+Now we will read in our data and apply to the three pairs of subspecies the funciton above to estiamte their
+*F<sub>ST</sub>*. We want to make three comparisons.
 
 #### \>R
 ```R
@@ -101,25 +112,114 @@ popinfo <- read.table("pop.info", stringsAsFactors=F, col.names=c("pop", "ind"))
 subspecies <- unique(popinfo$pop)
 
 # get all pairs of subspecies
-subsppairs <- t(combn(populations, 2))
+subsppairs <- t(combn(subspecies, 2))
 
+# apply fsts funciton to each of the three subspecies pairs
 fsts <- apply(subsppairs, 1, function(x) WC84(g[popinfo$pop %in% x,], popinfo$pop[popinfo$pop %in% x]))
 
-### HERE WE HAVE OUR THREE COMPARISONS
+# name each fst 
+names(fsts) <- apply(subsppairs, 1, paste, collapse="_")
 
-pop12<-pop[ifelse(pop==1,TRUE,ifelse(pop==2,TRUE,FALSE))]
-pop13<-pop[ifelse(pop==1,TRUE,ifelse(pop==3,TRUE,FALSE))]
-pop23<-pop[ifelse(pop==2,TRUE,ifelse(pop==3,TRUE,FALSE))]
-g12<-g[,ifelse(pop==1,TRUE,ifelse(pop==2,TRUE,FALSE))]
-g13<-g[,ifelse(pop==1,TRUE,ifelse(pop==3,TRUE,FALSE))]
-g23<-g[,ifelse(pop==2,TRUE,ifelse(pop==3,TRUE,FALSE))]
-result12<-WC84(t(g12),pop12)
-result13<-WC84(t(g13),pop13)
-result23<-WC84(t(g23),pop23)
-mean(result12$theta,na.rm=T)
-mean(result13$theta,na.rm=T)
-mean(result23$theta,na.rm=T)
+# get global fsts for each pair
+lapply(fsts, function(x) mean(x$theta, na.rm=T))
+
 ```
 
 **Q13:** Does population differentiation fit with the geographical
 distance between subspecies and their evolutionary history?
+
+
+
+
+# Scanning for loci under selection using an *F<sub>ST</sub>* outlier approach
+
+In the previous section, we have estimated *F<sub>ST</sub>* across all SNPs for which we have data, and then estiamted
+a global *F<sub>ST</sub>* as the average across all SNPs. Now we will visualize local *F<sub>ST</sub>* in sliding windows across
+the genome, with the aim of finding regions with outlying large *F<sub>ST</sub>*, that are candidate for regions under recent
+positive selection in one of the populations.
+
+We will now calculate and plot *F<sub>ST</sub>* values across the genome in sliding windows.
+This is a common approach to scan the genome for candidate genes to have been under positive
+selection in different populations.
+
+First of all, we will copy the function we will use for plotting  a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows in R:
+
+``` R
+
+manhattanWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, step.size,chrom,input_y_data, colpal = c("lightblue", "darkblue")){
+
+    k <- ! is.na(input_y_data)
+    input_y_data <- input_y_data[k]
+    chrom <- chrom[k]
+    
+    chroms <- unique(chrom)
+    step.positions <- c()
+    win.chroms <- c()
+    
+    for(c in chroms){
+        whichpos <- which(chrom==c)
+        chrom.steps <- seq(whichpos[1] + window.size/2, whichpos[length(whichpos)] - window.size/2, by=step.size)
+        step.positions <- c(step.positions, chrom.steps)
+        win.chroms <- c(win.chroms, rep(c, length(chrom.steps)))
+    }
+    
+    n <- length(step.positions)
+    means_y <- numeric(n)
+    
+    for (i in 1:n) {
+        chunk_y <- input_y_data[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
+        means_y[i] <-  mean(chunk_y,na.rem=TRUE)
+    }
+
+    
+    plot(x=1:length(means_y),y=means_y,main=mainv,xlab=xlabv,ylab=ylabv,cex=1,
+         pch=20, cex.main=1.25, col=colpal[win.chroms %% 2 + 1], xaxt="n")
+
+    yrange <- range(means_y)
+
+    text(y=yrange[1] - c(0.05, 0.07) * diff(yrange) * 2, x=tapply(1:length(win.chroms), win.chroms, mean), labels=unique(win.chroms), xpd=NA)
+
+	zz <- means_y[!is.na(means_y)]
+	abline(h=quantile(zz,0.999,na.rem=TRUE),col="red", lty=2, lwd=2)
+	abline(h=mean(input_y_data), lty=2, lwd=2)
+}
+
+
+pairnames <- apply(subsppairs, 1, paste, collapse=" ")
+
+windowsize <- 10
+steps <- 1
+
+par(mfrow=c(3,1))
+for(pair in 1:3){
+  mainvv = paste("Sliding window Fst:", pairnames[pair], "SNPs =", length(fsts[[pair]]$theta), "Win: ", windowsize, "Step: ", steps)	
+  manhattanWindowPlot(mainvv, "Chromosome", "Fst", window.size=windowsize, step.size=steps, input_y_data =fsts[[pair]]$theta, chrom=snpinfo$chr)
+}
+
+```
+
+Using this function, we will now produce a Manhattan plot for each of the three sub species pairs:
+
+
+``` R
+# read bim file to get info on snp location
+bim <- read.table("pruneddata.bim", h=F, stringsAsFactors=F)
+
+# keep only sites without missing data (to get same sites we used for fst)
+bim <- bim[,complete.cases(t(geno))]
+# keep chromosome and bp coordinate of eachsnp
+snpinfo <- data.frame(chr=bim$V1, pos=bim$V4)
+
+pairnames <- apply(subsppairs, 1, paste, collapse=" ")
+
+windowsize <- 10
+steps <- 1
+
+par(mfrow=c(3,1))
+for(pair in 1:3){
+  mainvv = paste("Sliding window Fst:", pairnames[pair], "SNPs =", length(fsts[[pair]]$theta), "Win: ", windowsize, "Step: ", steps)	
+  manhattanWindowPlot(mainvv, "Chromosome", "Fst", window.size=windowsize, step.size=steps, input_y_data =fsts[[pair]]$theta, chrom=snpinfo$chr)
+}
+```
+
+
