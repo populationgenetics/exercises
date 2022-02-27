@@ -148,12 +148,11 @@ selection in different populations.
 First of all, we will copy the function we will use for plotting  a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows in R:
 
 ``` R
+manhattanFstWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, step.size,chrom, fst, colpal = c("lightblue", "darkblue")){
 
-manhattanWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, step.size,chrom,input_y_data, colpal = c("lightblue", "darkblue")){
-
-    k <- ! is.na(input_y_data)
-    input_y_data <- input_y_data[k]
-    chrom <- chrom[k]
+    #k <- ! is.na(input_y_data)
+    #input_y_data <- input_y_data[k]
+    #chrom <- chrom[k]
     
     chroms <- unique(chrom)
     step.positions <- c()
@@ -167,38 +166,27 @@ manhattanWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, st
     }
     
     n <- length(step.positions)
-    means_y <- numeric(n)
-    
+    fsts <- numeric(n)
+    # estiamte per window weighted fst
     for (i in 1:n) {
-        chunk_y <- input_y_data[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
-        means_y[i] <-  mean(chunk_y,na.rem=TRUE)
+        chunk_a <- fst$a[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
+        chunk_b <- fst$b[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
+        chunk_c <- fst$c[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
+        fsts[i] <-  sum(chunk_a) / sum(chunk_a + chunk_b + chunk_c)
     }
 
     
-    plot(x=1:length(means_y),y=means_y,main=mainv,xlab=xlabv,ylab=ylabv,cex=1,
+    plot(x=1:length(fsts),y=fsts,main=mainv,xlab=xlabv,ylab=ylabv,cex=1,
          pch=20, cex.main=1.25, col=colpal[win.chroms %% 2 + 1], xaxt="n")
 
-    yrange <- range(means_y)
+    yrange <- range(fsts)
 
     text(y=yrange[1] - c(0.05, 0.07) * diff(yrange) * 2, x=tapply(1:length(win.chroms), win.chroms, mean), labels=unique(win.chroms), xpd=NA)
 
-	zz <- means_y[!is.na(means_y)]
+	zz <- fsts[!is.na(fsts)]
 	abline(h=quantile(zz,0.999,na.rem=TRUE),col="red", lty=2, lwd=2)
-	abline(h=mean(input_y_data), lty=2, lwd=2)
+	abline(h=mean(fsts), lty=2, lwd=2)
 }
-
-
-pairnames <- apply(subsppairs, 1, paste, collapse=" ")
-
-windowsize <- 10
-steps <- 1
-
-par(mfrow=c(3,1))
-for(pair in 1:3){
-  mainvv = paste("Sliding window Fst:", pairnames[pair], "SNPs =", length(fsts[[pair]]$theta), "Win: ", windowsize, "Step: ", steps)	
-  manhattanWindowPlot(mainvv, "Chromosome", "Fst", window.size=windowsize, step.size=steps, input_y_data =fsts[[pair]]$theta, chrom=snpinfo$chr)
-}
-
 ```
 
 Using this function, we will now produce a Manhattan plot for each of the three sub species pairs:
@@ -209,7 +197,7 @@ Using this function, we will now produce a Manhattan plot for each of the three 
 bim <- read.table("pruneddata.bim", h=F, stringsAsFactors=F)
 
 # keep only sites without missing data (to get same sites we used for fst)
-bim <- bim[,complete.cases(t(geno))]
+bim <- bim[complete.cases(t(geno)),]
 # keep chromosome and bp coordinate of eachsnp
 snpinfo <- data.frame(chr=bim$V1, pos=bim$V4)
 
@@ -218,11 +206,13 @@ pairnames <- apply(subsppairs, 1, paste, collapse=" ")
 windowsize <- 10
 steps <- 1
 
+
 par(mfrow=c(3,1))
 for(pair in 1:3){
-  mainvv = paste("Sliding window Fst:", pairnames[pair], "SNPs =", length(fsts[[pair]]$theta), "Win: ", windowsize, "Step: ", steps)	
-  manhattanWindowPlot(mainvv, "Chromosome", "Fst", window.size=windowsize, step.size=steps, input_y_data =fsts[[pair]]$theta, chrom=snpinfo$chr)
+    mainvv = paste("Sliding window Fst:", pairnames[pair], "SNPs =", length(fsts[[pair]]$theta), "Win: ", windowsize, "Step: ", steps)
+    manhattanFstWindowPlot(mainvv, "Chromosome", "Fst", window.size=windowsize, step.size=steps, fst =fsts[[pair]], chrom=snpinfo$chr)
 }
+
 ```
 
 
