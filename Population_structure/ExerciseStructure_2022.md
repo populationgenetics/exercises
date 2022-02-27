@@ -44,7 +44,7 @@ troglodytes* (from [Frandsen & Fontsere *et al.* 2020](https://www.nature.com/ar
 
 ## PCA
 
-We start by creating a directory for this exercise and download the exome data to the folder.
+We start by creating a directory for this exercise and downloading the exome data to the folder.
 
 Open a terminal and type:
 
