@@ -1,7 +1,7 @@
 # Exercise on measuring population differentiation with F<sub>ST</sub>
 
 
-We will use the same dataset that you used for the Monday exercise on analyzing population structure. 
+For this exercise, we will use the same dataset that you used for [the Monday exercise on analyzing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
 The following commands will make a new folder and copy again the dataset to that new folder,
 but you are free to work in the `structure` folder you created in the last exercise (and in that
 case you don't need to copy the data again).
@@ -26,7 +26,6 @@ can use it to distinguish populations in a quantitative way.
 It is worth noticing that what *F<sub>ST</sub>* measures is the
 reduction in heterozygosity compared to a pooled population.
 
-
 There are several methods for estimating *F<sub>ST</sub>* from genotype data. We will not
 cover them in the course, but if you are interested in getting an overview of some of these
 estiamtors and the how they differ you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
@@ -36,13 +35,14 @@ calculate *F<sub>ST</sub>* on the chimpanzees. Again, the theory behind it and t
 not directly part of the course, but if you are interested you can see the formula that is implemented in the following R function in either
 the Weir and Cockerham 1984 article, or in equation 6 from the Bhatia 2011 article linked above.
 
-
 Open R and copy/paste the following function:
 
 #### \>R
 ```R
 WC84<-function(x,pop){
   # function to estimate Fst using Weir and Cockerham estimators.
+  # x is NxM genotype matrix, pop is N length vector with population assignment for each sample
+  # returns list with fst between population per M snps (theta) and other stuff
 
   #number ind each population
   n<-table(pop)
@@ -120,15 +120,18 @@ fsts <- apply(subsppairs, 1, function(x) WC84(g[popinfo$pop %in% x,], popinfo$po
 # name each fst 
 names(fsts) <- apply(subsppairs, 1, paste, collapse="_")
 
-# get global fsts for each pair
-lapply(fsts, function(x) mean(x$theta, na.rm=T))
+# print global fsts for each pair
+lapply(fsts, function(x) x$theta_w)
 
 ```
 
-**Q13:** Does population differentiation fit with the geographical
+**Q1:** Does population differentiation fit with the geographical
 distance between subspecies and their evolutionary history?
 
 
+**Q2:** The troglodytes and schweinfurthii population have the same
+divergence time with verus, but based on *F<sub>ST</sub>* schweinfurthii has a slighlty higher differentiation from verus. Based on what we learned in the lecture, what factors do you think
+could explain the difference?
 
 
 # Scanning for loci under selection using an *F<sub>ST</sub>* outlier approach
