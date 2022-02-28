@@ -1,8 +1,8 @@
-# Exercise on measuring population differentiation and detecting signatures selection with F<sub>ST</sub>
+# Exercise on measuring population differentiation and detecting signatures selection using F<sub>ST</sub>
 
 ## Program
 
-- Read genotype data into R and apply R functions to estiamte F<sub>ST</sub> from the genotypes.
+- Read genotype data into R and apply R functions to estimate F<sub>ST</sub> from the genotypes.
 - Use F<sub>ST</sub> in windows across genome to detect local signatures of natural selection using a Manhattan plot.
 - Interpret and discuss the results form both analyses in a biological context.
 
@@ -16,8 +16,8 @@
 
 For this exercise, we will use the same dataset that you used for [the Monday exercise on analyzing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
 The following commands will make a new folder and copy again the dataset to that new folder,
-but you are free to work in the `structure` folder you created in the last exercise (and in that
-case you don't need to copy the data again).
+but you are free to work in the `structure` folder you created in the last exercise (in that
+case you can skip the following command).
 
 ```bash
 cd ~/exercises   # if you do not have a directory called exercises, make one:  mkdir ~/exercises 
@@ -32,8 +32,8 @@ ls -l
 ```
 
 
-Today, we are going to calculate the fixation index between subspecies
-(*F<sub>ST</sub>*), which is a widely used statistic in population
+Today, we are going to calculate the fixation index *F<sub>ST</sub>* between subspecies of chimpanzee
+, which is a widely used statistic in population
 genetics. This is a measure of population differentiation and thus, we
 can use it to distinguish populations in a quantitative way.
 It is worth noticing that what *F<sub>ST</sub>* measures is the
@@ -99,7 +99,7 @@ WC84<-function(x,pop){
 
 ## Measuring population differentiation with *F<sub>ST</sub>*
 
-Now we will read in our data and apply to the three pairs of subspecies the funciton above to estiamte their
+Now we will read in our data and apply to the three pairs of subspecies the function above to estimate their
 *F<sub>ST</sub>*. We want to make three comparisons.
 
 #### \>R
@@ -164,10 +164,6 @@ First of all, we will copy the function we will use for plotting  a Manhattan pl
 
 ``` R
 manhattanFstWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, step.size,chrom, fst, colpal = c("lightblue", "darkblue")){
-
-    #k <- ! is.na(input_y_data)
-    #input_y_data <- input_y_data[k]
-    #chrom <- chrom[k]
     
     chroms <- unique(chrom)
     step.positions <- c()
@@ -230,4 +226,88 @@ for(pair in 1:3){
 
 ```
 
+
+### EXTRA Explore genes in region candidates for selection (if there is time)
+
+We have now identified several SNPs that are candidates for having been positively selected in some
+populations. Now we can try to see in what genes are these SNPs covered (the genotype data we have been working with
+comes from exon sequencing, which mean it is warranteed SNPs will be located within genes).
+
+
+To do so, we need to know what are the coordiantes of the outlier windows in the Manhattan plot.
+Copy the following funtion, which will return the top n (default 20) windows with maximum FST for a given
+pairwise comparioson:
+
+
+```r
+topWindowFst <- function(window.size, step.size, chrom, pos, fst, n_tops = 20){
+    
+    chroms <- unique(chrom)
+    step.positions <- c()
+    win.chroms <- c()
+    
+    for(c in chroms){
+        whichpos <- which(chrom==c)
+        chrom.steps <- seq(whichpos[1] + window.size/2, whichpos[length(whichpos)] - window.size/2, by=step.size)
+        step.positions <- c(step.positions, chrom.steps)
+        win.chroms <- c(win.chroms, rep(c, length(chrom.steps)))
+    }
+    
+    n <- length(step.positions)
+    fsts <- numeric(n)
+    win.coord <- character(n)
+
+    # estiamte per window weighted fst
+    for (i in 1:n) {
+        chunk_a <- fst$a[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
+        chunk_b <- fst$b[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
+        chunk_c <- fst$c[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
+        fsts[i] <-  sum(chunk_a) / sum(chunk_a + chunk_b + chunk_c)
+       
+        c <- win.chroms[i]
+        win.coord[i] <- paste0(c, ":", pos[step.positions[i]-window.size/2], "-", pos[step.positions[i]+window.size/2])
+    }
+
+    ord <- order(fsts, decreasing=T)
+
+    return(data.frame(position=win.coord[ord][1:n_tops], fst=fsts[ord][1:n_tops]))
+}
+```
+
+
+Now we can use the function to identify where the top hits from the previous plot are located.
+Let's have a look the top 10 *F<sub>ST</sub>* windows between troglodytes and schweinfurthii:
+
+``` r
+
+topWindowFst(window.size=windowsize, step.size=steps, chrom=snpinfo$chr, pos=snpinfo$pos, fst=fsts[[1]], n=10)
+
+```
+
+**QN: Where is located the window with the highest *F<sub>ST</sub>*?**
+
+<details>
+  <summary>Answer</summary>
+It's locaten in chromosome 20, between base pair coordinates 43836444 and 44049202.
+</details>
+
+Now let's look at what is there in this top positions. Open the [chimpanzee genome assembly in the USCS genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosme and coordiantes in the format they are printed (chr:start-end) in the search tab.
+
+**QN: Is there any gene in the window? Can you figure out the name of the gene and its possible function? (Hint: click in the drawing on the gene on the RefSeq Non-Chimp tab, which contains genes identified in other organisms, with high sequence similarity to that region of the chimp genome, which is a strong suggestion the chimp also has that gene there)**
+
+
+<details>
+  <summary>Answer</summary>
+Yes, there is a gene called protein tyrosine phosphatase receptor type T (PTPRT). Protein tyrosine phosphatase are signalling molecules that
+	are involved in many different cellular functions.
+</details>
+
+
+**QN: Can we conclude that selection on this gene has driven biological differentiation between the troglodytes and schweinfurthii chimpanzee subspecies?**
+
+<details>
+  <summary>Answer</summary>
+No, we cannot. We can say a variant in the window is a candidate for postive selection, and in the case it had
+	been driven by selection, selection might be caused by the function of the PTPRT. But it is just a candidate region.
+</details>
 
