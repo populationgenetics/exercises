@@ -384,17 +384,9 @@ barplot(t(snp_k4_run4), col=c(3,2,1,4), names.arg=sample_names, cex.names=0.8,
 
 Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
-
-**Q8:** Looking at the plot, does it look like there has been any
-admixture when using a K value of 3? Does this mean that there has not
-been any admixture between any of the subspecies? Why / why not ?
-
-**Q9:** In the K=4 plot, *P.t.troglodytes* (central chimpanzee) is
-divided into two populations, have we overlooked a chimpanzee
-subspecies?
-
-**Q10:** Assuming you had no prior information about your data (e.g.
-imagine you have a lot of data sequences sampled from random chimpanzee
-individuals in a zoo) while using an ADMIXTURE analysis, would you be
-able to reveal whether there had been any admixture between any of the
-subspecies in nature? Why / why not?
+**Q11 Looking at all the results (PCA and admixture K=2, K=3, and K=4)**
+- **Q11.1 Do the admixture and PCA analysis correspond with the known geography?**
+- **Q11.2 Which number of ancestral populations do you find the most likely?**
+- **Q11.3 What are the possible explanaintions for the K=4 admixture results?**
+- **Q11.4 Does it look like we have admixed samples?**
+- **Q11.5 Can we conlcude anything about admixture between the subspecies?**
