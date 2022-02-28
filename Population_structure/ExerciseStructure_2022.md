@@ -264,7 +264,7 @@ barplot(t(snp_k3_run5), col=c(3,2,1), names.arg=sample_names, cex.names=0.8,
 	border=NA, main="K=3 - Run 5", las=2, ylab="Ancestry proportion")
 ```
 
-Save/screenshot the plot for later. Now close R by typing `q()` and hit `Enter` (no need to save the workspace).
+Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 <br />
 
@@ -278,6 +278,49 @@ Save/screenshot the plot for later. Now close R by typing `q()` and hit `Enter` 
 <br />
 
 Now, run admixture 10 times assuming only two ancestral populations (**K=2**).
+
+
+<br />
+
+**Q9**
+- **Q9.1 Did the model(s) converge?**
+- **Q9.2 Which model had the highest and which has the lowest loglikelihood?**
+
+<br />
+
+Open R again and let's plot the best and the worst fit.
+
+First we plot the best:
+
+```R
+# Margins and colors
+par(mar=c(7,3,2,1), mgp=c(2,0.6,0))
+palette(c("#E69F00", "#56B4E9", "#D55E00", "#999999"))
+
+# Load sample names
+popinfo <- read.table("pop.info")
+sample_names <- popinfo$V2
+
+# Read sample ancestral proportions
+snp_k2_run1 <- as.matrix(read.table("pruneddata_K2_run1.Q"))
+
+barplot(t(snp_k2_run1), col=c(2,1), names.arg=sample_names, cex.names=0.8,
+   border=NA, main="K=2 - Run 1 (best fit)", las=2, ylab="Ancestry proportion")
+```
+
+Save/screenshot the plot for later.
+
+Then we plot the worst:
+
+```R
+# Read sample ancestral proportions
+snp_k2_run4 <- as.matrix(read.table("pruneddata_K2_run4.Q"))
+
+barplot(t(snp_k2_run4), col=c(2,1), names.arg=sample_names, cex.names=0.8,
+   border=NA, main="K=2 - Run 4 (worst fit)", las=2, ylab="Ancestry proportion")
+```
+
+Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 
 
