@@ -180,7 +180,7 @@ legend('topleft', legend=levels(popinfo$V1), col=1:length(levels(popinfo$V1)), p
 
 Save/screenshot the plot for later. Now close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
-**BONUS(If you finish early)**: Very often we cannot load all the data into R, so we need to calculate PCA using software such as PLINK. Using google and/or `plink --help`, try to perform PCA on the data (remember to remove missingness `--geno 0`) and plot the results using R
+**BONUS(If you finish early)**: Very often we cannot load all the data into R, so we need to calculate PCA using software such as PLINK. Using google and/or `plink --help`, try to perform PCA on the data with PLINK (remember to remove missingness) and plot the results using R
 
 ## Admixture
 
