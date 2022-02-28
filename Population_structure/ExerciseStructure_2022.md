@@ -178,9 +178,7 @@ legend('topleft', legend=levels(popinfo$V1), col=1:length(levels(popinfo$V1)), p
 
 <br />
 
-Save/screenshot the plot for later.
-
-Now close R by typing `q()` and hit `Enter` (no need to save the workspace).
+Save/screenshot the plot for later. Now close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 
 ## Admixture
@@ -242,8 +240,8 @@ grep ^Loglikelihood: *K${K}*log | sort -k2
 <br />
 
 **Q7**
-- **Q7.1 Which run-numbers have the 3 highest Loglikelihood?**
-- **Q7.2 Has the model(s) converged? (*rule of thumb is that it's converged if we have 3 runs within ± 1 loglikelihood unit*)**
+- **Q7.1 Which run-numbers have the 3 highest Loglikelihoods?**
+- **Q7.2 Has the model(s) converged? (*rule of thumb: it's converged if we have 3 runs within ± 1 loglikelihood unit*)**
 - **Q7.3 Which run would you use as the result to plot?**
 
 <br />
@@ -266,7 +264,7 @@ barplot(t(snp_k3_run5), col=c(3,2,1), names.arg=sample_names, cex.names=0.8,
 	border=NA, main="K=3 - Run 5", las=2, ylab="Ancestry proportion")
 ```
 
-Save/screenshot the plot for later.
+Save/screenshot the plot for later. Now close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 <br />
 
@@ -279,7 +277,8 @@ Save/screenshot the plot for later.
 
 <br />
 
-Now, run admixture 10 times assuming only two ancestral populations (K=2).
+Now, run admixture 10 times assuming only two ancestral populations (**K=2**).
+
 
 
 
