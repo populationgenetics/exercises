@@ -45,7 +45,7 @@ estiamtors and the how they differ you can take a look at [this article](https:/
 
 Here we use the [Weir and Cockerham *F<sub>ST</sub>* calculator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
 calculate *F<sub>ST</sub>* on the chimpanzees. Again, the theory behind it and the estimator itself are
-not directly part of the course, but if you are interested you can see the formula that is implemented in the following R function in either
+not directly part of the course, but if you are interested you can find the formula that is implemented in the following R function in either
 the Weir and Cockerham 1984 article, or in equation 6 from the Bhatia 2011 article linked above.
 
 Open R and copy/paste the following function:
@@ -259,6 +259,56 @@ for(pair in 1:3){
 }
 
 ```
+
+In the plot we have just generated, the black dotted line indicates the mean FST value across all windows, and the red dotted line the 99.9%
+quantile (so only 0.1% of the windows have FST above that value). One way to define outlying windows is to consider as outlier a windows that has FST above the 99.9 % quantile (this value is necessarily arbitrary).
+
+<details>
+  <summary>click to see plot</summary>
+
+<figure>
+  <img  align="center" src="manhattanFst.png" alt="" width=800 title="">
+ </figure>
+	
+</details>
+
+**Q3:** Compare the peaks of high *F<sub>ST</sub>* in the three subspecies pairs, do they tend to be found in the same position? Would you expect this to be the case? Why/why not?
+
+<details>
+  <summary>click to see answer</summary>
+
+	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general we would not expect them to be the same,
+	since they are indicating signatures of recent selection that we would not expect to act in the same genes. However, we do expect, as observed, some peaks
+	to be the same, because the populations are repeated across pairs. So, for example, if a certain SNP had been under selection in schweinfurthii recently,
+	after the split with the other two populations, we would expect the regions around it to exhibit high differentiation with respect to the other two. 
+	
+ </details>
+
+
+
+**Q4:** Most of the top FST windows come in groups of nearby window with also high FST. Can you explain or guess why does that happen?
+
+
+
+<details>
+  <summary>click to see answer</summary>
+
+	Linkage disequilibrium; nearby positions in the genome are phisically linked in the chromosome, meaning allele frequencies will
+	be correlated between them, and therefore FST will also be correlated between nearby windows.
+	
+ </details>
+
+
+
+<details>
+  <summary>click to see answer</summary>
+
+	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general we would not expect them to be the same,
+	since they are indicating signatures of recent selection that we would not expect to act in the same genes. However, we do expect, as observed, some peaks
+	to be the same, because the populations are repeated across pairs. So, for example, if a certain SNP had been under selection in schweinfurthii recently,
+	after the split with the other two populations, we would expect the regions around it to exhibit high differentiation with respect to the other two. 
+	
+ </details>
 
 
 ### EXTRA Explore genes in region candidates for selection (if there is time)
