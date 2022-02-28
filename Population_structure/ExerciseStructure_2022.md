@@ -278,7 +278,7 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 
 <br />
 
-Now, run admixture 10 times assuming only two ancestral populations (**K=2**).
+Now, run admixture 10 times assuming only two ancestral populations (**K=2**). You can use the code from K=3, but changing K.
 
 
 <br />
