@@ -99,7 +99,7 @@ Now we want to import our genotype data into R.
 # Load data
 library(snpMatrix)
 data <- read.plink("pruneddata")
-geno <- t(matrix(as.integer(data@.Data),nrow=nrow(data@.Data)))
+geno <- matrix(as.integer(data@.Data),nrow=nrow(data@.Data))
 geno[geno==0] <- NA
 geno <- geno-1
 
@@ -107,10 +107,10 @@ geno <- geno-1
 dim(geno)
 
 # Show counts of genotypes for SNP/variant 17
-table(geno[17,], useNA='a')
+table(geno[,17], useNA='a')
 
 # Show counts of genotypes for sample 1 
-table(geno[,1], useNA='a')
+table(geno[1,], useNA='a')
 ```
 
 <br />
@@ -126,13 +126,13 @@ Specialized software (ex. [PCAngsd](https://doi.org/10.1534/genetics.118.301336)
 
 ```R
 # Number of missing samples per site
-nMis <- rowSums(is.na(geno))
+nMis <- colSums(is.na(geno))
 
 # Only keep sites with 0 missing samples.
-geno <- geno[nMis==0,]
+geno <- geno[,nMis==0]
 
 # Perform PCA
-pca <- prcomp(t(geno), scale=T, center=T)
+pca <- prcomp(geno, scale=T, center=T)
 
 # Show summary
 summary(pca)
