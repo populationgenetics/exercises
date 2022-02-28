@@ -247,10 +247,23 @@ grep ^Loglikelihood: *K${K}*log | sort -k2
 
 <br />
 
-Now let's plot the run with the best fit. **Open R**.
+Now let's plot the run ancestral proportions from the best fit for each sample. **Open R**.
 
 ```R
-plot()
+# Margins and colors
+par(mar=c(7,3,2,1), mgp=c(2,0.6,0))
+palette(c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#555555"))
+
+# Load sample names
+popinfo <- read.table("pop.info")
+sample_names <- popinfo$V2
+
+# Read sample ancestral proportions
+snp_k3_run5 <- as.matrix(read.table("pruneddata_K3_run5.Q"))
+
+barplot(t(snp_k3_run5), col=c(1,2,3), names.arg=sample_names, cex.names=0.8,
+	border=NA, main="K=3", las=2, ylab="Ancestry proportion")
+
 ```
 
 
