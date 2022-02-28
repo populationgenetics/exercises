@@ -322,8 +322,70 @@ barplot(t(snp_k2_run4), col=c(2,1), names.arg=sample_names, cex.names=0.8,
 
 Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
+<br />
 
+**Q10**
+- **Q10.1 Which two populations are grouped together in the *best* fit?
+- **Q10.2 Which two populations are grouped together in the *worst* fit?
+- **Q10.3 How does this match the geography?**
 
+<br />
+
+Run admixture 10 times assuming 4 ancestral populations (K=4).
+
+<br />
+
+**Q10**
+- **Q10.1 Did the model(s) converge?**
+- **Q10.2 Which model had the highest and which has the lowest loglikelihood?**
+
+<br />
+
+It turns out that the model(s) eventually converges with the best fit at seed i=52. Run that single seed:
+
+```bash
+# Assumed number of ancestral populations 
+K=4
+
+# Specific seed
+i=52
+
+# Run admixture and rename output files
+admixture -s ${i} pruneddata.bed ${K} > pruneddata_K${K}_run${i}.log
+cp pruneddata.${K}.Q pruneddata_K${K}_run${i}.Q
+cp pruneddata.${K}.P pruneddata_K${K}_run${i}.P
+
+grep ^Loglikelihood: *K${K}*log | sort -k2
+```
+
+Now plot this converged best fit:
+```R
+# Margins and colors
+par(mar=c(7,3,2,1), mgp=c(2,0.6,0))
+palette(c("#E69F00", "#56B4E9", "#D55E00", "#999999"))
+
+# Load sample names
+popinfo <- read.table("pop.info")
+sample_names <- popinfo$V2
+
+# Read sample ancestral proportions
+snp_k4_run52 <- as.matrix(read.table("pruneddata_K4_run52.Q"))
+
+barplot(t(snp_k4_run52), col=c(3,4,1,2), names.arg=sample_names, cex.names=0.8,
+   border=NA, main="K=4 - Run 52 (Best fit)", las=2, ylab="Ancestry proportion")
+```
+
+Save/screenshot the plot for later. Plot the worst fit:
+
+```R
+# Read sample ancestral proportions
+snp_k4_run4 <- as.matrix(read.table("pruneddata_K4_run4.Q"))
+
+barplot(t(snp_k4_run4), col=c(3,2,1,4), names.arg=sample_names, cex.names=0.8,
+   border=NA, main="K=4 - Run 4 (Worst fit, not converged)", las=2, ylab="Ancestry proportion")
+```
+
+Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 
 **Q8:** Looking at the plot, does it look like there has been any
