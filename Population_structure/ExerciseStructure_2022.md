@@ -191,8 +191,8 @@ ranges (Figure 1). The ADMIXTURE manual can be found
 [here](http://dalexander.github.io/admixture/admixture-manual.pdf).
 
 When running ADMIXTURE, we input a certain number of ancestral populations, *K*.
-Then ADMIXTURE picks a random startingpoint (the *seed*) and finds the best
-fit to the data. 
+Then ADMIXTURE picks a random startingpoint (the *seed*) and tries to find the 
+parameters (admixture proportions and ancestral frequencies) resulting in the highest likelihood. 
 
 First, lets try to run ADMIXTURE once assuming *K=3* ancestral populations.
 ```bash
