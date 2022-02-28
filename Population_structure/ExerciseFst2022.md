@@ -140,13 +140,47 @@ lapply(fsts, function(x) x$theta_w)
 
 ```
 
+<details>
+  <summary>click to see *F<sub>ST</sub>* estiamtes</summary>
+	
+	Schwein - Troglodytes: 0.09623364
+
+ 	Schwein - Verus: 0.2773412
+
+	Troglodytes - Verus:  0.2378409
+
+</details>
+
+
 **Q1:** Does population differentiation fit with the geographical
-distance between subspecies and their evolutionary history?
+distance between subspecies? (you can find the geographical distribution of each subspecies in [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data))
+
+<details>
+  <summary>click to see answer</summary>
+	
+	Yes, the closest subspecies geographically (troglodytes and schweinfurthii) are also the closest populations genetically.
+
+	
+</details>
 
 
 **Q2:** The troglodytes and schweinfurthii population have the same
-divergence time with verus, but based on *F<sub>ST</sub>* schweinfurthii has a slighlty higher differentiation from verus. Based on what we learned in the lecture, what factors do you think
-could explain the difference?
+divergence time with verus, but based on *F<sub>ST</sub>* schweinfurthii has a slighlty higher differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday 14th exercise; you can find them in [Figure 2 from that exercise](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans).)
+
+<details>
+  <summary>click to see answer</summary>
+	
+	Two potential explanations are differences in drift between the two subspecies, or differences in migration. 
+	
+	More drift in schweinfurthii due to having a lower population size than troglodytes would have increased the amount of genetic differentiation
+	with verus, and could explain the higher FST. This is supported by schweinfurthii having a lower genetic diversity than troglodytes, since more
+	genetic drift also causes less genetic diversity.
+	
+	Another potential factor is migration between verus and troglodytes, which is also plausible since verus and troglotyes are closer geographically
+	than verus and schweinfurthii. 
+	
+</details>
+
 
 
 ## Scanning for loci under selection using an *F<sub>ST</sub>* outlier approach
@@ -233,7 +267,6 @@ We have now identified several SNPs that are candidates for having been positive
 populations. Now we can try to see in what genes are these SNPs covered (the genotype data we have been working with
 comes from exon sequencing, which mean it is warranteed SNPs will be located within genes).
 
-
 To do so, we need to know what are the coordiantes of the outlier windows in the Manhattan plot.
 Copy the following funtion, which will return the top n (default 20) windows with maximum FST for a given
 pairwise comparioson:
@@ -286,10 +319,14 @@ topWindowFst(window.size=windowsize, step.size=steps, chrom=snpinfo$chr, pos=snp
 
 **QN: Where is located the window with the highest *F<sub>ST</sub>*?**
 
+
 <details>
-  <summary>Answer</summary>
-It's locaten in chromosome 20, between base pair coordinates 43836444 and 44049202.
+  <summary>click to see answer</summary>
+	
+	It's located in chromosome 20, between base pair coordinates 43836444 and 44049202.
+	
 </details>
+
 
 Now let's look at what is there in this top positions. Open the [chimpanzee genome assembly in the USCS genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosme and coordiantes in the format they are printed (chr:start-end) in the search tab.
 
@@ -297,17 +334,21 @@ Now let's look at what is there in this top positions. Open the [chimpanzee geno
 
 
 <details>
-  <summary>Answer</summary>
-Yes, there is a gene called protein tyrosine phosphatase receptor type T (PTPRT). Protein tyrosine phosphatase are signalling molecules that
+  <summary>click to see answer</summary>
+	
+	Yes, there is a gene called protein tyrosine phosphatase receptor type T (PTPRT). Protein tyrosine phosphatase are signalling molecules that
 	are involved in many different cellular functions.
+	
 </details>
 
 
 **QN: Can we conclude that selection on this gene has driven biological differentiation between the troglodytes and schweinfurthii chimpanzee subspecies?**
 
 <details>
-  <summary>Answer</summary>
-No, we cannot. We can say a variant in the window is a candidate for postive selection, and in the case it had
+  <summary>click to see answer</summary>
+	
+	No, we cannot. We can say a variant in the window or near the window is a candidate for postive selection, and in the case it had
 	been driven by selection, selection might be caused by the function of the PTPRT. But it is just a candidate region.
+	
 </details>
 
