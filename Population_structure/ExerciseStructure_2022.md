@@ -178,6 +178,8 @@ legend('topleft', legend=levels(popinfo$V1), col=1:length(levels(popinfo$V1)), p
 
 <br />
 
+Save/screenshot the plot for later.
+
 Now close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 
@@ -243,7 +245,6 @@ grep ^Loglikelihood: *K${K}*log | sort -k2
 - **Q7.1 Which run-numbers have the 3 highest Loglikelihood?**
 - **Q7.2 Has the model(s) converged? (*rule of thumb is that it's converged if we have 3 runs within ± 1 loglikelihood unit*)**
 - **Q7.3 Which run would you use as the result to plot?**
-- **Q7.4 If it was a better fit, could the model have assumed only 2 ancestral populations (*K*) in these runs?**
 
 <br />
 
@@ -252,7 +253,7 @@ Now let's plot the run ancestral proportions from the best fit for each sample. 
 ```R
 # Margins and colors
 par(mar=c(7,3,2,1), mgp=c(2,0.6,0))
-palette(c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#555555"))
+palette(c("#E69F00", "#56B4E9", "#D55E00", "#999999"))
 
 # Load sample names
 popinfo <- read.table("pop.info")
@@ -261,81 +262,27 @@ sample_names <- popinfo$V2
 # Read sample ancestral proportions
 snp_k3_run5 <- as.matrix(read.table("pruneddata_K3_run5.Q"))
 
-barplot(t(snp_k3_run5), col=c(1,2,3), names.arg=sample_names, cex.names=0.8,
-	border=NA, main="K=3", las=2, ylab="Ancestry proportion")
-
+barplot(t(snp_k3_run5), col=c(3,2,1), names.arg=sample_names, cex.names=0.8,
+	border=NA, main="K=3 - Run 5", las=2, ylab="Ancestry proportion")
 ```
 
+Save/screenshot the plot for later.
 
-This gives rise to two 
+<br />
+
+**Q8**
+- **Q8.1 Explain the plot - what is shown for each sample?**
+- **Q8.2 Does the assigned ancestral proportions match the subpecies classification for each sample?**
+- **Q8.3 Can you find any admixed samples (how does/would an admixed sample look)?**
+- **Q8.4 Does assuming 3 ancestral populations (K=3) seem to be a good fit to the data?**
+- **Q8.5 Could the model have assumed only 2 ancestral populations (*K*) in these runs?**
+
+<br />
+
+Now, run admixture 10 times assuming only two ancestral populations (K=2).
 
 
-First we want to know whether the separation in three distinct
-populations is the most true clustering given our data. We do this by
-running a cross-validation test, this will give us an error value for
-each K. We want to find the K with the lowest number of errors.
 
-To do this, run the following lines of code in the terminal (this may
-take some time \~3 mins):
-
-```bash
-for i in 2 3 4 5; do admixture --cv pruneddata.bed $i; done > cvoutput
-grep -i 'CV error' cvoutput
-```
-
-**Q6**: which K value has the lowest CV error?
-
-Try running ADMIXTURE using this K value, by typing this in the terminal
-(remember to change the K-value to the value with the lowest amount of
-errors):
-
-```bash
-admixture pruneddata.bed K-VALUE
-```
-
-Before we plot, we want a look at the results generated:
-
-```bash
-less -S pruneddata.3.Q
-```
-
-**Q7**: The number of columns indicate the number of K used and the rows
-indicate individuals and their ancestry proportion in each population.
-Look at individual no. 10, do you consider this individual to be
-recently (within the last two generations) admixed?
-
-Now we want to plot our ADMIXTURE results, to do this open R and pasting
-the following code in:
-
-#### \>R
-```R
-snpk2=read.table("pruneddata.2.Q")
-snpk3=read.table("pruneddata.3.Q")
-snpk4=read.table("pruneddata.4.Q")
-snpk5=read.table("pruneddata.5.Q")
-names=c("A872_17","A872_24","A872_25","A872_28","A872_35","A872_41",
-        "A872_53","Cindy","Sunday","EXOTA_11785","PAULA_11784","SUSI_11043",
-        "CINDY_11525","ABOUME","AMELIE","AYRTON","BAKOUMBA","BENEFICE",
-        "CHIQUITA","LALALA","MAKOKOU","MASUKU","NOEMIE","SITA_11262",
-        "SEPP_TONI_11300","A872_71","A872_72","AGNETA_11758","FRITS_11052")
-par(mfrow=c(4,1))
-barplot(t(as.matrix(snpk2)),
-        col= c("lightblue","Dark red"),
-         border=NA, main="K=2",
-         names.arg=(names), cex.names=0.8, las=2, ylab="ancestry")
-barplot(t(as.matrix(snpk3)),
-        col= c("lightgreen","Dark red","lightblue"),
-        border=NA, main="K=3",
-        names.arg=(names), cex.names=0.8, las=2, ylab="ancestry")
-barplot(t(as.matrix(snpk4)),
-        col= c("lightgreen","Dark red","lightblue","yellow"),
-        border=NA, main="K=4", names.arg=(names), cex.names=0.8, las=2,
-        ylab="ancestry")
-barplot(t(as.matrix(snpk5)),
-        col= c("lightgreen","Dark red","lightblue","yellow","pink"),
-        border=NA, main="K=5", names.arg=(names), cex.names=0.8, las=2,
-        ylab="ancestry")
-```
 
 **Q8:** Looking at the plot, does it look like there has been any
 admixture when using a K value of 3? Does this mean that there has not
