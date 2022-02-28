@@ -324,10 +324,7 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 
 <br />
 
-**Q10**
-- **Q10.1 Which two populations are grouped together in the *best* fit?
-- **Q10.2 Which two populations are grouped together in the *worst* fit?
-- **Q10.3 How does this match the geography?**
+**Q10 Would the conclusion be different if you used the worst compared to the best?**
 
 <br />
 
