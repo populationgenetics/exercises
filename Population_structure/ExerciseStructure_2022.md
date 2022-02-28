@@ -210,9 +210,10 @@ ls -l
 
 **Q6**
 - **Q6.1 What is in the pruneddata.3.Q, pruneddata.3.P, and pruneddata_K3_run1.log files? (*Hints: Use `less -S` to look in the files. Use `wc -l [FILE]` to count the number of lines in the files. Look in the manual*)**
-- **Q6.2 What is the ancestral proportions (of the three populations) of sample 10?**
-- **Q6.3 What is the final Loglikelihood of the fit?**
-- **Q6.4 Can we be sure that this is the best overall fit for this data - why/why not? (*hint: see next part of exercise, but remember to explain why*)**
+- **Q6.2 What is the ancestral proportions (of the three populations) of sample 4?**
+- **Q6.3 Is it admixed and can we say which subspecies its from?**
+- **Q6.4 What is the final Loglikelihood of the fit?**
+- **Q6.5 Can we be sure that this is the best overall fit for this data - why/why not? (*hint: see next part of exercise, but remember to explain why*)**
 
 <br />
 
@@ -324,7 +325,9 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 
 <br />
 
-**Q10 Would the conclusion be different if you used the worst compared to the best?**
+**Q10**
+- **Q10.1 Would the conclusion be different if you used the worst compared to the best?**
+- **Q10.2 How would an f1 sample (child of parents from two different subspecies) look?**
 
 <br />
 
@@ -332,9 +335,9 @@ Run admixture 10 times assuming 4 ancestral populations (K=4).
 
 <br />
 
-**Q10**
-- **Q10.1 Did the model(s) converge?**
-- **Q10.2 Which model had the highest and which has the lowest loglikelihood?**
+**Q11**
+- **Q11.1 Did the model(s) converge?**
+- **Q11.2 Which model had the highest and which has the lowest loglikelihood?**
 
 <br />
 
@@ -384,9 +387,9 @@ barplot(t(snp_k4_run4), col=c(3,2,1,4), names.arg=sample_names, cex.names=0.8,
 
 Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
-**Q11 Looking at all the results (PCA and admixture K=2, K=3, and K=4)**
-- **Q11.1 Do the admixture and PCA analysis correspond with the known geography?**
-- **Q11.2 Which number of ancestral populations do you find the most likely?**
-- **Q11.3 What are the possible explanaintions for the K=4 admixture results?**
-- **Q11.4 Does it look like we have admixed samples?**
-- **Q11.5 Can we conlcude anything about admixture between the subspecies?**
+**Q12 Looking at all the results (PCA and admixture K=2, K=3, and K=4)**
+- **Q12.1 Do the admixture and PCA analysis correspond with the known geography?**
+- **Q12.2 Which number of ancestral populations do you find the most likely?**
+- **Q12.3 What are the possible explanaintions for the K=4 admixture results?**
+- **Q12.4 Does it look like we have admixed samples?**
+- **Q12.5 Can we conlcude anything about admixture between the subspecies?**
