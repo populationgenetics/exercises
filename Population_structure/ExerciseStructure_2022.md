@@ -237,8 +237,21 @@ done
 grep ^Loglikelihood: *K${K}*log | sort -k2
 ```
 
+<br />
 
-- **Q6.5 Could the model have assumed only 2 ancestral populations (*K*) in this run?**
+**Q7**
+- **Q7.1 Which run-numbers have the 3 highest Loglikelihood?**
+- **Q7.2 Has the model(s) converged? (*rule of thumb is that it's converged if we have 3 runs within ± 1 loglikelihood unit*)**
+- **Q7.3 Which run would you use as the result to plot?**
+- **Q7.4 If it was a better fit, could the model have assumed only 2 ancestral populations (*K*) in these runs?**
+
+<br />
+
+Now let's plot the run with the best fit. **Open R**.
+
+```R
+plot()
+```
 
 
 This gives rise to two 
