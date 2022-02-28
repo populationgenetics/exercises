@@ -2,7 +2,15 @@
 
 ## Program
 
+- Read genotype data into R and apply R functions to estiamte F<sub>ST</sub> from the genotypes.
+- Use F<sub>ST</sub> in windows across genome to detect local signatures of natural selection using a Manhattan plot.
+- Interpret and discuss the results form both analyses in a biological context.
+
 ## Aims
+
+- Learn to estimate F<sub>ST</sub> between population pairs from genotype data.
+- Learn to interpet F<sub>ST</sub> estimates in relation to processes of population divergence.
+- Learn to visualize local F<sub>ST</sub> across the genome and use it to identify candidate genes under selection.
 
 ## Data and set up
 
