@@ -187,12 +187,62 @@ Now we know that the populations look like they are separated into three
 distinct clusters (in accordance to the three subspecies), but we also
 want to know whether there has been any admixture between the three
 subspecies given that at least two of the subspecies have neighboring
-ranges (Figure 1). For this admixture run, we will vary the input
-command for the number of ancestral populations (*K*) that you want
-ADMIXTURE to try to separate the data in. To learn more about admixture
-the manual can be found here:
+ranges (Figure 1). The ADMIXTURE manual can be found
+[here](http://dalexander.github.io/admixture/admixture-manual.pdf).
 
-https://www.genetics.ucla.edu/software/admixture/admixture-manual.pdf
+When running ADMIXTURE, we input a certain number of ancestral populations, *K*.
+Then ADMIXTURE picks a random startingpoint (the *seed*) and finds the best
+fit to the data. 
+
+First, lets try to run ADMIXTURE once assuming *K=3* ancestral populations.
+```bash
+# Make sure you are in the ~/exercises/structure/ directory
+cd ~/exercises/structure/
+
+# Run admixture once
+admixture -s 1 pruneddata.bed 3 > pruneddata_K3_run1.log
+
+# Look at output files
+ls -l
+```
+
+<br />
+
+**Q6**
+- **Q6.1 What is in the pruneddata.3.Q, pruneddata.3.P, and pruneddata_K3_run1.log files? (*Hints: Use `less -S` to look in the files. Use `wc -l [FILE]` to count the number of lines in the files. Look in the manual*)**
+- **Q6.2 What is the ancestral proportions (of the three populations) of sample 10?**
+- **Q6.3 What is the final Loglikelihood of the fit?**
+- **Q6.4 Can we be sure that this is the best overall fit for this data - why/why not? (*hint: see next part of exercise, but remember to explain why*)**
+
+<br />
+
+
+Now, let's run the model fit 10 times with different seeds (different starting points)
+```bash
+# Assumed number of ancestral populations 
+K=3
+
+# Do something 10 times
+for i in {1..10}
+do
+   # Run admixture with seed i
+   admixture -s ${i} pruneddata.bed ${K} > pruneddata_K${K}_run${i}.log
+   
+   # Rename the output files
+   cp pruneddata.${K}.Q pruneddata_K${K}_run${i}.Q
+   cp pruneddata.${K}.P pruneddata_K${K}_run${i}.P
+done
+
+# Show the likelihood of all the 10 runs (in a sorted manner):
+grep ^Loglikelihood: *K${K}*log | sort -k2
+```
+
+
+- **Q6.5 Could the model have assumed only 2 ancestral populations (*K*) in this run?**
+
+
+This gives rise to two 
+
 
 First we want to know whether the separation in three distinct
 populations is the most true clustering given our data. We do this by
