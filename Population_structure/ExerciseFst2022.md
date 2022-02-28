@@ -1,5 +1,10 @@
-# Exercise on measuring population differentiation with F<sub>ST</sub>
+# Exercise on measuring population differentiation and detecting signatures selection with F<sub>ST</sub>
 
+## Program
+
+## Aims
+
+## Data and set up
 
 For this exercise, we will use the same dataset that you used for [the Monday exercise on analyzing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
 The following commands will make a new folder and copy again the dataset to that new folder,
@@ -84,6 +89,8 @@ WC84<-function(x,pop){
 }
 ```
 
+## Measuring population differentiation with *F<sub>ST</sub>*
+
 Now we will read in our data and apply to the three pairs of subspecies the funciton above to estiamte their
 *F<sub>ST</sub>*. We want to make three comparisons.
 
@@ -134,7 +141,7 @@ divergence time with verus, but based on *F<sub>ST</sub>* schweinfurthii has a s
 could explain the difference?
 
 
-# Scanning for loci under selection using an *F<sub>ST</sub>* outlier approach
+## Scanning for loci under selection using an *F<sub>ST</sub>* outlier approach
 
 In the previous section, we have estimated *F<sub>ST</sub>* across all SNPs for which we have data, and then estiamted
 a global *F<sub>ST</sub>* as the average across all SNPs. Now we will visualize local *F<sub>ST</sub>* in sliding windows across
