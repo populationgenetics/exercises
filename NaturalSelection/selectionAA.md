@@ -18,9 +18,8 @@ You are looking at a random 11Mb region of the genome. Try to get a sense of the
  - You can zoom in by draging the mouse
 
 
- <p align="center">
-   <img  align="left" src="browser.png" alt="" width=800 title="">
- </p>  
+ <figure>   <img  align="right" src="browser.png" alt="" width=800 title="">  </figure>  
+ 
 
 
 Take note of the highest and lowest values of Tajimas D that you observed. 
