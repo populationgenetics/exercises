@@ -1,43 +1,38 @@
+
 # Selection scan exercises Part 1
 **Anders Albrechtsen**
 
   
-Go to http://hsb.upf.edu/
-This is a browser for selection for the 1000Genomes project. This is a large publicly available data set for humans with more than 2500 fully sequenced individuals. 
+Go to https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg18&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr16%3A63991874%2D75563746&hgsid=1294549209_UDuyEFJ7wbk3qdY5ve1l31r1Pw4r
 
-  - Uncheck everything except Tajima’s D
-  - Try the SLC45A2 gene in Europeans - this is one of the strongest selected genes in Europeans
-  <br/><br/>
-  
+
+
+This is a browser that can be used to view genomic data. With the above link you will view both genes and tajimas D for 3 populations. 
+ - Individuals with African descent are named AD
+ - Individuals with European descent are named ED
+ - Individuals with Chinese descent are named XD
+You are looking at a random 11Mb region of the genome. Try to get a sense of the values that Tajimas D takes along the genome for the 3 populations.
+ - You can move to another part of the chromosome by clicking ones on the chromosome arm 
+ - You can also change chromosome in the search field
+ - You can zoom in by draging the mouse
+
 
  <p align="center">
-   <img  align="left" src="fig1.png" alt="" width=300 title="">
-   <img  align="left" src="fig2.png" alt="" width=300 title="">
+   <img  align="left" src="browser.png" alt="" width=300 title="">
  </p>  
+
+
+Take note of the highest and lowest values of Tajimas D that you observed. 
+<br/><br/>
   
- <br/><br/>  
 
+Try find the SLC45A2 gene (use the search field, an choose the top option). This is one of the strongest selected genes in Europeans. 
+ - Is this an extreme value of Tajimas D?
 
-  - Look at the Rank Score of TajimasD in the gene
- <figure>
-  <img  src="fig3.png" alt="" width=800 title="">
- </figure>
-
-
-
-
- <figure>   <img  align="right" src="fig4.png" alt="" width=200 title="">  </figure>  
- 
-  - Zoom out a factor 10X 
-  - The score is a rank based score for how extreme the loci is. The p-value can be interpreted as the fraction of the genome that is more extreme than this loci.  P-value = 10-RankScore
-   <figure>
-  <img  align="right" src="fig5.png" alt="" width=400 title="">
- </figure>
- 
-  - The maximum value is 1.72405.  Is this an extreme loci?
-  - Try to go to the LCT loci. How extreme is this?
-  - Try to zoom out. Are the any sites in the genome that stick out
-  - What can you conclude on the performance of Tajima’s D
+<br/><br/>
+Try to go to the LCT loci. 
+ - Does this have an extreme value of Tajimas D ?
+ - What can you conclude on the performance of Tajima’s D
 
 # Part 2
 First mkdir a tmp directory 
@@ -85,5 +80,50 @@ Zoom in to the peak by changing start and end position.
   
 If you have time you can try other genes. Here are the top ones for Humans. You can find the find the location of the genes using for example the ucsc browser https://genome-euro.ucsc.edu/cgi-bin/hgGateway   (choose human GRCh37/hg19 genome). Note that there are some population that you cannot test because the populations are not represented in the data e.g. Tibetan, Ethiopian , Inuit, Siberians.
 
+
+
+
+
+
+# Selection scan exercises Part 1 old
+**Anders Albrechtsen**
+
+  
+Go to http://hsb.upf.edu/
+This is a browser for selection for the 1000Genomes project. This is a large publicly available data set for humans with more than 2500 fully sequenced individuals. 
+
+  - Uncheck everything except Tajima’s D
+  - Try the SLC45A2 gene in Europeans - this is one of the strongest selected genes in Europeans
+  <br/><br/>
+  
+
+ <p align="center">
+   <img  align="left" src="fig1.png" alt="" width=300 title="">
+   <img  align="left" src="fig2.png" alt="" width=300 title="">
+ </p>  
+  
+ <br/><br/>  
+
+
+  - Look at the Rank Score of TajimasD in the gene
+ <figure>
+  <img  src="fig3.png" alt="" width=800 title="">
+ </figure>
+
+
+
+
+ <figure>   <img  align="right" src="fig4.png" alt="" width=200 title="">  </figure>  
+ 
+  - Zoom out a factor 10X 
+  - The score is a rank based score for how extreme the loci is. The p-value can be interpreted as the fraction of the genome that is more extreme than this loci.  P-value = 10-RankScore
+   <figure>
+  <img  align="right" src="fig5.png" alt="" width=400 title="">
+ </figure>
+ 
+  - The maximum value is 1.72405.  Is this an extreme loci?
+  - Try to go to the LCT loci. How extreme is this?
+  - Try to zoom out. Are the any sites in the genome that stick out
+  - What can you conclude on the performance of Tajima’s D
 
 
