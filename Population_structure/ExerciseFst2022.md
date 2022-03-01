@@ -31,7 +31,6 @@ cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
 ls -l
 ```
 
-
 Today, we are going to calculate the fixation index *F<sub>ST</sub>* between subspecies of chimpanzee
 , which is a widely used statistic in population
 genetics. This is a measure of population differentiation and thus, we
@@ -48,7 +47,7 @@ calculate *F<sub>ST</sub>* on the chimpanzees. Again, the theory behind it and t
 not directly part of the course, but if you are interested you can find the formula that is implemented in the following R function in either
 the Weir and Cockerham 1984 article, or in equation 6 from the Bhatia 2011 article linked above.
 
-Open R and copy/paste the following function:
+Open R and copy/paste the following function. You do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
 
 #### \>R
 ```R
@@ -97,12 +96,14 @@ WC84<-function(x,pop){
 }
 ```
 
+Do not close R.
+
 ## Measuring population differentiation with *F<sub>ST</sub>*
 
 Now we will read in our data and apply to the three pairs of subspecies the function above to estimate their
 *F<sub>ST</sub>*. We want to make three comparisons.
 
-#### \>R
+
 ```R
 library(snpMatrix)
 
@@ -119,13 +120,65 @@ geno <- geno - 1
 
 # keep only SNPs without missing data
 g <- geno[,complete.cases(t(geno))]
+```
 
+Let's stop for a moment and look at the dimensions of the genotype matrix before and after filtering SNPs with missing data:
+
+```R
+# dimensions before filtering
+dim(geno)
+
+# dimensions after filtering
+dim(g)
+```
+
+**Q1:** How many SNPs and individuals are there before and after filtering? How many SNPs did we have initially with missing data?
+
+
+<details>
+  <summary>click to see answer</summary>
+	
+	There are 29 samples and 46 673 SNPs before filtering, and 29 samples and 29 314 after fitlering. 
+	Therefore, there were 46673 - 29314 = 17359 with missing data (we have filtered SNPs with any missing data).
+	
+</details>
+
+Let's continue in the same R session:
+
+``` R
 # load population infomration
 popinfo <- read.table("pop.info", stringsAsFactors=F, col.names=c("pop", "ind"))
 
-# get names of the three subspecies
+# check which subspecies we have
+unique(popinfo$pop)
+
+# save names of the three subspecies
 subspecies <- unique(popinfo$pop)
 
+# check which individuals belong to each subspecies
+sapply(subspecies, function(x) popinfo$ind[popinfo$pop == x])
+```
+
+**Q2:** How many samples do we have from each subspecies? (this is easy to do counting the vectors we just printed; but can you edit the code we just used to print the code we used to print the individuals ID to print the number of individuals?)
+
+<details>
+  <summary>click to see answer</summary>
+	
+	There are 11 from the schweinfurthii subspecies, 12 from troglodytes and 6 from verus.
+	
+	We can print the sample sizes in R with the following code (there might be other valid solutions): 
+	
+	sapply(subspecies, function(x) length(popinfo$ind[popinfo$pop == x]))
+	
+
+	
+</details>
+
+
+Let's continue in R and finally estimate the F_{ST} values for each pair of subspecies:
+
+
+``` r
 # get all pairs of subspecies
 subsppairs <- t(combn(subspecies, 2))
 
@@ -140,8 +193,11 @@ lapply(fsts, function(x) x$theta_w)
 
 ```
 
+Do not close R.
+
+
 <details>
-  <summary>click to see *F<sub>ST</sub>* estiamtes</summary>
+  <summary>click to see F<sub>ST</sub> estiamtes</summary>
 	
 	Schwein - Troglodytes: 0.09623364
 
@@ -152,19 +208,18 @@ lapply(fsts, function(x) x$theta_w)
 </details>
 
 
-**Q1:** Does population differentiation fit with the geographical
+**Q3:** Does population differentiation fit with the geographical
 distance between subspecies? (you can find the geographical distribution of each subspecies in [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data))
 
 <details>
   <summary>click to see answer</summary>
 	
 	Yes, the closest subspecies geographically (troglodytes and schweinfurthii) are also the closest populations genetically.
-
 	
 </details>
 
 
-**Q2:** The troglodytes and schweinfurthii population have the same
+**Q4:** The troglodytes and schweinfurthii population have the same
 divergence time with verus, but based on *F<sub>ST</sub>* schweinfurthii has a slighlty higher differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday 14th exercise; you can find them in [Figure 2 from that exercise](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans).)
 
 <details>
@@ -172,12 +227,12 @@ divergence time with verus, but based on *F<sub>ST</sub>* schweinfurthii has a s
 	
 	Two potential explanations are differences in drift between the two subspecies, or differences in migration. 
 	
-	More drift in schweinfurthii due to having a lower population size than troglodytes would have increased the amount of genetic differentiation
-	with verus, and could explain the higher FST. This is supported by schweinfurthii having a lower genetic diversity than troglodytes, since more
-	genetic drift also causes less genetic diversity.
+	More drift in schweinfurthii due to having a lower population size than troglodytes would have increased the 
+	amount of genetic differentiation with verus, and could explain the higher FST. This is supported by schweinfurthii 
+	having a lower genetic diversity than troglodytes, since more genetic drift also causes less genetic diversity.
 	
-	Another potential factor is migration between verus and troglodytes, which is also plausible since verus and troglotyes are closer geographically
-	than verus and schweinfurthii. 
+	Another potential factor is migration between verus and troglodytes, which is also plausible since verus and troglotyes 
+	are closer geographically than verus and schweinfurthii. 
 	
 </details>
 
@@ -194,7 +249,9 @@ We will now calculate and plot *F<sub>ST</sub>* values across the genome in slid
 This is a common approach to scan the genome for candidate genes to have been under positive
 selection in different populations.
 
-First of all, we will copy the function we will use for plotting  a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows in R:
+First of all, we will copy the function we will use for plotting  a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows in R.
+Copy the following function, you do not need to understand it (but are welcome to try if you are interested, and ask if you have questions):
+
 
 ``` R
 manhattanFstWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size, step.size,chrom, fst, colpal = c("lightblue", "darkblue")){
@@ -234,6 +291,8 @@ manhattanFstWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size,
 }
 ```
 
+Do not close R.
+
 Using this function, we will now produce a Manhattan plot for each of the three sub species pairs:
 
 
@@ -248,10 +307,11 @@ snpinfo <- data.frame(chr=bim$V1, pos=bim$V4)
 
 pairnames <- apply(subsppairs, 1, paste, collapse=" ")
 
+# group snps in windows of 10, with sliding window of 1
 windowsize <- 10
 steps <- 1
 
-
+# make the plots
 par(mfrow=c(3,1))
 for(pair in 1:3){
     mainvv = paste("Sliding window Fst:", pairnames[pair], "SNPs =", length(fsts[[pair]]$theta), "Win: ", windowsize, "Step: ", steps)
@@ -260,8 +320,19 @@ for(pair in 1:3){
 
 ```
 
-In the plot we have just generated, the black dotted line indicates the mean FST value across all windows, and the red dotted line the 99.9%
-quantile (so only 0.1% of the windows have FST above that value). One way to define outlying windows is to consider as outlier a windows that has FST above the 99.9 % quantile (this value is necessarily arbitrary).
+If you want to save the plot in the server as a png (so you can then download it to your own computer, or visualize it in the server), you can use the following code:
+
+``` R
+bitmap("manhattan.png", w=8, h=8, res=300)
+par(mfrow=c(3,1))
+for(pair in 1:3){
+    mainvv = paste("Sliding window Fst:", pairnames[pair], "SNPs =", length(fsts[[pair]]$theta), "Win: ", windowsize, "Step: ", steps)
+    manhattanFstWindowPlot(mainvv, "Chromosome", "Fst", window.size=windowsize, step.size=steps, fst =fsts[[pair]], chrom=snpinfo$chr)
+}
+dev.off()
+```
+
+Do not close R.
 
 <details>
   <summary>click to see plot</summary>
@@ -272,22 +343,27 @@ quantile (so only 0.1% of the windows have FST above that value). One way to def
 	
 </details>
 
-**Q3:** Compare the peaks of high *F<sub>ST</sub>* in the three subspecies pairs, do they tend to be found in the same position? Would you expect this to be the case? Why/why not?
+
+In the plot we have just generated, the black dotted line indicates the mean F<sub>ST</sub> value across all windows, and the red dotted line the 99.9%
+quantile (so only 0.1% of the windows have F<sub>ST</sub> above that value). One way to define outlying windows is to consider as outlier a windows that has F<sub>ST</sub> above the 99.9 % quantile (this value is necessarily arbitrary).
+
+
+**Q5:** Compare the peaks of high *F<sub>ST</sub>* in the three subspecies pairs, do they tend to be found in the same position? Would you expect this to be the case? Why/why not?
 
 <details>
   <summary>click to see answer</summary>
 
 	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general we would not expect them to be the same,
-	since they are indicating signatures of recent selection that we would not expect to act in the same genes. However, we do expect, as observed, some peaks
-	to be the same, because the populations are repeated across pairs. So, for example, if a certain SNP had been under selection in schweinfurthii recently,
-	after the split with the other two populations, we would expect the regions around it to exhibit high differentiation with respect to the other two. 
+	since they are indicating signatures of recent selection that we would not expect to act in the same genes in different populations.
+	However, we do expect, as observed, some peaks to be the same, because the populations are repeated across pairs. So, for example, if
+	a certain SNP had been under selection in schweinfurthii recently, after the split with the other two populations, we would expect the 
+	regions around it to exhibit high differentiation with respect to both troglodytes and verus. 
 	
  </details>
 
 
 
-**Q4:** Most of the top FST windows come in groups of nearby window with also high FST. Can you explain or guess why does that happen?
-
+**Q6:** Most of the top *F<sub>ST</sub>* windows come in groups of nearby window with also high *F<sub>ST</sub>*. Can you explain or guess why does that happen?
 
 
 <details>
@@ -300,17 +376,6 @@ quantile (so only 0.1% of the windows have FST above that value). One way to def
 
 
 
-<details>
-  <summary>click to see answer</summary>
-
-	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general we would not expect them to be the same,
-	since they are indicating signatures of recent selection that we would not expect to act in the same genes. However, we do expect, as observed, some peaks
-	to be the same, because the populations are repeated across pairs. So, for example, if a certain SNP had been under selection in schweinfurthii recently,
-	after the split with the other two populations, we would expect the regions around it to exhibit high differentiation with respect to the other two. 
-	
- </details>
-
-
 ### EXTRA Explore genes in region candidates for selection (if there is time)
 
 We have now identified several SNPs that are candidates for having been positively selected in some
@@ -321,6 +386,7 @@ To do so, we need to know what are the coordiantes of the outlier windows in the
 Copy the following funtion, which will return the top n (default 20) windows with maximum FST for a given
 pairwise comparioson:
 
+Copy paste the following function into R. You do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
 
 ```r
 topWindowFst <- function(window.size, step.size, chrom, pos, fst, n_tops = 20){
@@ -362,12 +428,15 @@ Now we can use the function to identify where the top hits from the previous plo
 Let's have a look the top 10 *F<sub>ST</sub>* windows between troglodytes and schweinfurthii:
 
 ``` r
-
+windowsize <- 10
+steps <- 1
 topWindowFst(window.size=windowsize, step.size=steps, chrom=snpinfo$chr, pos=snpinfo$pos, fst=fsts[[1]], n=10)
 
 ```
 
-**QN: Where is located the window with the highest *F<sub>ST</sub>*?**
+
+
+**Q7:** Where is located the window with the highest *F<sub>ST</sub>*?
 
 
 <details>
@@ -380,7 +449,7 @@ topWindowFst(window.size=windowsize, step.size=steps, chrom=snpinfo$chr, pos=snp
 
 Now let's look at what is there in this top positions. Open the [chimpanzee genome assembly in the USCS genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosme and coordiantes in the format they are printed (chr:start-end) in the search tab.
 
-**QN: Is there any gene in the window? Can you figure out the name of the gene and its possible function? (Hint: click in the drawing on the gene on the RefSeq Non-Chimp tab, which contains genes identified in other organisms, with high sequence similarity to that region of the chimp genome, which is a strong suggestion the chimp also has that gene there)**
+**Q8:** Is there any gene in the window? Can you figure out the name of the gene and its possible function? (Hint: click in the drawing on the gene on the RefSeq Non-Chimp tab, which contains genes identified in other organisms, with high sequence similarity to that region of the chimp genome, which is a strong suggestion the chimp also has that gene there)
 
 
 <details>
@@ -392,7 +461,7 @@ Now let's look at what is there in this top positions. Open the [chimpanzee geno
 </details>
 
 
-**QN: Can we conclude that selection on this gene has driven biological differentiation between the troglodytes and schweinfurthii chimpanzee subspecies?**
+**Q9:** Can we conclude that selection on this gene has driven biological differentiation between the troglodytes and schweinfurthii chimpanzee subspecies?
 
 <details>
   <summary>click to see answer</summary>
