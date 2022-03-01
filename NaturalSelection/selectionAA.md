@@ -1,19 +1,20 @@
 # Selection scan exercises Part 1
 **Anders Albrechtsen**
 
-
+  
 Go to http://hsb.upf.edu/
-This is a browser for selection for the 1000Genomes project. This is the largest publicly available data set for humans with more than 2500 fully sequenced individuals. 
+This is a browser for selection for the 1000Genomes project. This is a large publicly available data set for humans with more than 2500 fully sequenced individuals. 
 
   - Uncheck everything except Tajima’s D
   - Try the SLC45A2 gene in Europeans - this is one of the strongest selected genes in Europeans
   <br/><br/>
+  
 
  <p align="center">
    <img  align="left" src="fig1.png" alt="" width=300 title="">
    <img  align="left" src="fig2.png" alt="" width=300 title="">
  </p>  
- 
+  
  <br/><br/>  
 
 
