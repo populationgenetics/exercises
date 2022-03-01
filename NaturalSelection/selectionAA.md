@@ -11,6 +11,7 @@ This is a browser that can be used to view genomic data. With the above link you
  - Individuals with African descent are named AD
  - Individuals with European descent are named ED
  - Individuals with Chinese descent are named XD
+ - <br/><br/>
 You are looking at a random 11Mb region of the genome. Try to get a sense of the values that Tajimas D takes along the genome for the 3 populations.
  - You can move to another part of the chromosome by clicking ones on the chromosome arm 
  - You can also change chromosome in the search field
