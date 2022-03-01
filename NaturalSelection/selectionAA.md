@@ -19,7 +19,7 @@ You are looking at a random 11Mb region of the genome. Try to get a sense of the
 
 
  <p align="center">
-   <img  align="left" src="browser.png" alt="" width=300 title="">
+   <img  align="left" src="browser.png" alt="" width=800 title="">
  </p>  
 
 
