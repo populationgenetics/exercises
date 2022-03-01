@@ -85,45 +85,4 @@ If you have time you can try other genes. Here are the top ones for Humans. You 
 
 
 
-# Selection scan exercises Part 1 old
-**Anders Albrechtsen**
-
-  
-Go to http://hsb.upf.edu/
-This is a browser for selection for the 1000Genomes project. This is a large publicly available data set for humans with more than 2500 fully sequenced individuals. 
-
-  - Uncheck everything except Tajima’s D
-  - Try the SLC45A2 gene in Europeans - this is one of the strongest selected genes in Europeans
-  <br/><br/>
-  
-
- <p align="center">
-   <img  align="left" src="fig1.png" alt="" width=300 title="">
-   <img  align="left" src="fig2.png" alt="" width=300 title="">
- </p>  
-  
- <br/><br/>  
-
-
-  - Look at the Rank Score of TajimasD in the gene
- <figure>
-  <img  src="fig3.png" alt="" width=800 title="">
- </figure>
-
-
-
-
- <figure>   <img  align="right" src="fig4.png" alt="" width=200 title="">  </figure>  
- 
-  - Zoom out a factor 10X 
-  - The score is a rank based score for how extreme the loci is. The p-value can be interpreted as the fraction of the genome that is more extreme than this loci.  P-value = 10-RankScore
-   <figure>
-  <img  align="right" src="fig5.png" alt="" width=400 title="">
- </figure>
- 
-  - The maximum value is 1.72405.  Is this an extreme loci?
-  - Try to go to the LCT loci. How extreme is this?
-  - Try to zoom out. Are the any sites in the genome that stick out
-  - What can you conclude on the performance of Tajima’s D
-
 
