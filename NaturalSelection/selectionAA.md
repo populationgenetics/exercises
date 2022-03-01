@@ -16,9 +16,9 @@ You are looking at a random 11Mb region of the genome. Try to get a sense of the
  - You can move to another part of the chromosome by clicking ones on the chromosome arm 
  - You can also change chromosome in the search field
  - You can zoom in by draging the mouse
-
-
- <figure>   <img  align="right" src="browser.png" alt="" width=800 title="">  </figure>  
+ <figure>
+  <img  src="browser.png" alt="" width=800 title="">
+ </figure>
  
 
 
