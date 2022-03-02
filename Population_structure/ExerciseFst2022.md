@@ -297,7 +297,7 @@ Using this function, we will now produce a Manhattan plot for each of the three 
 
 
 ``` R
-# read bim file to get info on snp location
+# read bim file to get info on snp locsapply(subspecies, function(x) length(popinfo$ind[popinfo$pop == x]))ation
 bim <- read.table("pruneddata.bim", h=F, stringsAsFactors=F)
 
 # keep only sites without missing data (to get same sites we used for fst)
@@ -355,6 +355,7 @@ quantile (so only 0.1% of the windows have F<sub>ST</sub> above that value). One
 
 	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general we would not expect them to be the same,
 	since they are indicating signatures of recent selection that we would not expect to act in the same genes in different populations.
+	
 	However, we do expect, as observed, some peaks to be the same, because the populations are repeated across pairs. So, for example, if
 	a certain SNP had been under selection in schweinfurthii recently, after the split with the other two populations, we would expect the 
 	regions around it to exhibit high differentiation with respect to both troglodytes and verus. 
