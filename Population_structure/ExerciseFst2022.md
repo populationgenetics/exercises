@@ -1,4 +1,4 @@
-# Exercise on measuring population differentiation and detecting signatures selection using F<sub>ST</sub>
+# Exercise on measuring population differentiation and detecting signatures of selection using F<sub>ST</sub>
 
 ## Program
 
