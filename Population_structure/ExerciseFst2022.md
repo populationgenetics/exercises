@@ -175,7 +175,7 @@ sapply(subspecies, function(x) popinfo$ind[popinfo$pop == x])
 </details>
 
 
-Let's continue in R and finally estimate the F_{ST} values for each pair of subspecies:
+Let's continue in R and finally estimate the F<sub>ST</sub> values for each pair of subspecies:
 
 
 ``` r
