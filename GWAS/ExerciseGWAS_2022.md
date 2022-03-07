@@ -60,27 +60,6 @@ Repeat the same analyses (and answer the same questions) for SNP 2 for which the
 countsSNP2 <- matrix(c(1003,4043,222,899,12,49),nrow=2)
 ```
 
-#### Exercise 1B: the allelic test
-
-Another simple way to test for association is by using the allelic test. Try to perform that on the two SNPs. This can be done as follows in R:
-
-```R
-# For SNP 1:
-
-# - get the allelic counts
-allelecountsSNP1<-cbind(2*countsSNP1[,1]+countsSNP1[,2],countsSNP1[,2]+2*countsSNP1[,3])
-print(allelecountsSNP1)
-
-# - perform allelic test
-chisq.test(allelecountsSNP1,correct=F)
-
-# For SNP 2:
-
-# ... repeat the above with SNP 2 data
-```
-
-* Do these tests lead to the same conclusions as you reached in exercise 1A?
-
 .
 
 ## Exercise 2: GWAS
