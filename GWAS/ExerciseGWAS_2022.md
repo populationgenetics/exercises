@@ -86,13 +86,13 @@ Your folder called GWAS should now contain a subfolder called data (you can chec
 
 Briefly, the data consist of SNP genotyping data from 356 individuals some of which are have a certain disease (cases) and the rest do not (controls). To make sure the GWAS analyses will run fast the main data file (gwa.bed) is in a binary format, which is not very reader friendly. However, PLINK will print summary statistics about the data (number of SNPs, number of individuals, number of cases, number of controls etc) to the screen when you run an analysis. Also, there are two additional data files, gwa.bim and gwa.fam, which are not in binary format and which contain information about the SNPs in the data and the individuals in the data, respectively (you can read more about the data format in the manuals linked to above - but for now this is all you need to know).
 
-Let's try to perform a GWAS of our data, i.e. test each SNP for association with the disease. And let's try to do it using the simplest association test for case-control data, the allelic test, which you just performed in R in exercise 1B. You can perform this test on all the SNPs in the dataset using PLINK by typing the following command in the terminal:
+Let's try to perform a GWAS of our data, i.e. test each SNP for association with the disease. And let's try to do it using a logistic regression based test assuming an additive effect. You can perform this test on all the SNPs in the dataset using PLINK by typing the following command in the terminal:
 
 ```bash
-plink  --bfile data/gwa --assoc --adjust
+plink  --bfile data/gwa --logistic --adjust
 ```
 
-Specifically "--bfile data/gwa" specifies that the data PLINK should analyse are the files in folder called "data" with the prefix gwa. "--assoc" specifies that we want to perform GWAS using the allelic test and "--adjust" tells PLINK to output a file that includes p-values that are adjusted for multiple testing using Bonferroni correction as well as other fancier methods. Try to run the command and take a look at the text PLINK prints to your screen. Specifically, note the
+Specifically "--bfile data/gwa" specifies that the data PLINK should analyse are the files in folder called "data" with the prefix gwa. "--logistic" specifies that we want to perform GWAS using logistic regression and "--adjust" tells PLINK to output a file that includes p-values that are adjusted for multiple testing using Bonferroni correction as well as other fancier methods. Try to run the command and take a look at the text PLINK prints to your screen. Specifically, note the
 
 * number of SNPs
 * number of individuals
@@ -103,13 +103,13 @@ NB if you for some reason have trouble reading the PLINK output on your screen t
 Next, try to plot the results of the GWAS by typing:
 
 ```bash
-Rscript data/plink.plot.R plink.assoc
+Rscript data/plink.plot.R plink.assoc.logistic
 ```
 
 This should give you several plots. For now just look at the Manhattan plot, which can be found in the file called plink.assoc.png. You can e.g. open it using the png viewer called display, so by typing:
 
 ```bash
-display plink.assoc.png
+display plink.assoc.logistic.png
 ```
 
 A bonferroni corrected p-value threshold based on an initial p-value threshold of 0.05, is shown as a dotted line on the plot. 
