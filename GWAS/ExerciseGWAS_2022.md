@@ -255,7 +255,7 @@ Rscript data/plink.plot.R assoc2.assoc.logistic
 * Does your answer change if you use other (smarter) methods to correct for multiple testing than Bonferroni (e.g. FDR), which PLINK provides. You can find them by typing:
 
 ```bash
-less assoc2.assoc.adjusted.logistic
+less assoc2.assoc.logistic.adjusted
 ```
 
 Note that PLINK adjusts p-values instead of the threshold (equivalent idea), so you should NOT change the threshold but stick to 0.05.
