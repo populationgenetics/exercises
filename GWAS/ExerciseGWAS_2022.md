@@ -125,7 +125,7 @@ A bonferroni corrected p-value threshold based on an initial p-value threshold o
 Now look at the QQ-plot that you already generated in exercise 2A (the file called plink.assoc.QQ.png) by typing:
 
 ```bash
-display plink.assoc.QQ.png
+display plink.assoc.logistic.QQ.png
 ```
 
 Here the red line is the x=y line. 
