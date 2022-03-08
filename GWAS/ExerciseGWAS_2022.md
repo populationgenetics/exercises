@@ -152,7 +152,7 @@ NB you can use arrows to navigate up and down in the file and close the file vie
 
 * Do you see any problems?
 
-* If you observe any problems then fix them by changing the gender in the file gwa.fam (5th colunm) in the folder data. You can use the editor gedit for this. To open the file in gedit type "gedit data/gwa.fam" in the terminal. (NB usually one would instead get rid of these individuals because wrong gender could indicate that the phenotypes you have do not belong to the genotyped individual. However, in this case the genders were changed on purpose for the sake of this exercises so you can safely just change them back).
+* Usually one would instead get rid of any such these individuals because wrong sex could indicate that the phenotypes you have do not belong to the genotyped individual. However, in this case I made the change on purpose, so you could see how such errors would look like, so just ignore it for now. Or if you are adventurous you can try to change the sex of the relevant individuals in the file gwa.fam (5th colunm) in the folder data. You can use the editor gedit for this. To open the file in gedit type "gedit data/gwa.fam" in the terminal.
 
 
 #### Exercise 2D: doing initial QC of data part 2 (relatedness check)
