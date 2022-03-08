@@ -100,7 +100,7 @@ Specifically "--bfile data/gwa" specifies that the data PLINK should analyse are
 
 NB if you for some reason have trouble reading the PLINK output on your screen then PLINK also writes it to the file plink.log and you can look at that by typing "less plink.log". If you do that, you can use arrows to navigate up and down in the file and close the file viewing by typing q.
 
-Next, try to plot the results of the GWAS by typing:
+Next, try to plot the results of the GWAS by typing this command and pressing enter (note that this can take a little while so be patient):
 
 ```bash
 Rscript data/plink.plot.R plink.assoc.logistic
