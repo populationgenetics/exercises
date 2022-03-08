@@ -249,9 +249,9 @@ Plot the results using
 Rscript data/plink.plot.R assoc2.assoc.logistic
 ```
 
-* How does QQ-plot look (in the file assoc2.assoc.logistic.QQ.png)? 
+* How does QQ-plot look (look at the file assoc2.assoc.logistic.QQ.png e.g. with the viewer called display as you did for the previous QQ-plot)? 
 * Did the analysis go better this time?
-* And what does the Manhattan plot suggest (in the file assoc2.assoc.logistic.png)? Are any of the SNPs associated? 
+* And what does the Manhattan plot suggest (look at the file assoc2.assoc.logistic.png e.g. with the viewer called display)? Are any of the SNPs associated? 
 * Does your answer change if you use other (smarter) methods to correct for multiple testing than Bonferroni (e.g. FDR), which PLINK provides. You can find them by typing:
 
 ```bash
