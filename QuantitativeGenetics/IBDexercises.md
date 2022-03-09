@@ -12,7 +12,8 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - Note the length of the inbreeding tracts. What determines how long they are?
   - Note the number of chromosomes that do not have inbreeding tracts. Try to draw how this might happen
   - Try to get an idea of the range of possible inbreeding coefficients by trying multiple simulations (still using the same F)
-  - Look in table  of simple consanguineous pedigrees.  Does your range overlap with the expected inbreeding coefficients?
+  - Look in table https://www.researchgate.net/profile/Alan-Bittles-2/publication/38114212/figure/tbl1/AS:601713388052509@1520471059919/Human-genetic-relationships.png  of simple consanguineous pedigrees.  Does your range overlap with the expected inbreeding coefficients?
+  
   - Try a few simulations of some of the other simple pedigrees and try to see which pedigrees could explain your estimated inbreeding value of 0.062?
   - If you infer the inbreeding tracks of your individuals the results will look like this. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
 
