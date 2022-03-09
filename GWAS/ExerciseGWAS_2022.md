@@ -106,7 +106,7 @@ Next, try to plot the results of the GWAS by typing this command and pressing en
 Rscript data/plink.plot.R plink.assoc.logistic
 ```
 
-This should give you several plots. For now just look at the Manhattan plot, which can be found in the file called plink.assoc.png. You can e.g. open it using the png viewer called display, so by typing:
+This should give you several plots. For now just look at the Manhattan plot, which can be found in the file called plink.assoc.logistic.png. You can e.g. open it using the png viewer called display, so by typing:
 
 ```bash
 display plink.assoc.logistic.png
