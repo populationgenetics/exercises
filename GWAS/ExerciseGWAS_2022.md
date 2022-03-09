@@ -273,7 +273,7 @@ Rscript data/plink.plot.R pheno3.assoc.logistic
 
 * View the plots and results. Are any of the SNP significantly associated?
 
-Now try to perform the analysis using logistic regression (another association test) adjusted for sex, which is done by adding the option "--sex":
+Now try to perform the analysis using logistic regression adjusted for sex, which is done by adding the option "--sex":
 
 ```bash
 plink --bfile data/gwa --logistic --out pheno3_sexAdjusted --pheno data/pheno3.txt --sex
