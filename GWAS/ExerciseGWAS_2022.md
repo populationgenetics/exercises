@@ -267,8 +267,8 @@ Note that PLINK adjusts p-values instead of the threshold (equivalent idea), so 
 For the same individuals as above we also have another phenotype. This phenotype is strongly correlated with gender. The genotyping was done independently of this phenotype so there is no batch bias. To perform association on this phenotype type
 
 ```bash
-plink --bfile data/gwa --assoc --pheno data/pheno3.txt --adjust --out pheno3
-Rscript data/plink.plot.R pheno3.assoc
+plink --bfile data/gwa --logistic --pheno data/pheno3.txt --adjust --out pheno3
+Rscript data/plink.plot.R pheno3.assoc.logistic
 ```
 
 * View the plots and results. Are any of the SNP significantly associated?
