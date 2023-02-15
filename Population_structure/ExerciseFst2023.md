@@ -1,51 +1,49 @@
-# Exercise on measuring population differentiation and detecting signatures of selection using F<sub>ST</sub>
-
-## Program
-
-- Read genotype data into R and apply R functions to estimate F<sub>ST</sub> from the genotypes.
-- Use F<sub>ST</sub> in windows across genome to detect local signatures of natural selection using a Manhattan plot.
-- Interpret and discuss the results form both analyses in a biological context.
+# Exercises - measuring population differentiation and detecting signatures of selection using F<sub>ST</sub>
 
 ## Aims
 
-- Learn to estimate F<sub>ST</sub> between population pairs from genotype data.
-- Learn to interpet F<sub>ST</sub> estimates in relation to processes of population divergence.
-- Learn to visualize local F<sub>ST</sub> across the genome and use it to identify candidate genes under selection.
+- Learn to estimate F<sub>ST</sub> between population pairs using genotype data.
+- Learn to interpret F<sub>ST</sub> estimates in relation to processes of population divergence.
+- Learn to visualise local F<sub>ST</sub> across the genome and identify candidate genes under selection.
+
+## Outline
+
+- Read genotype data into R and apply R functions to estimate F<sub>ST</sub> from the genotypes.
+- Use F<sub>ST</sub> in windows across the genome and Manhattan plots to detect local signatures of natural selection.
+- Interpret and discuss the results from both analyses in a biological context.
 
 ## Data and set up
 
-For this exercise, we will use the same dataset that you used for [the Monday exercise on analyzing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
-The following commands will make a new folder and copy again the dataset to that new folder,
-but you are free to work in the `structure` folder you created in the last exercise (in that
-case you can skip the following command).
+For this exercise, we will use the same dataset that you used on Monday for [analysing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
+The following commands will create a new folder and copy the dataset to that new folder,
+but you are free to work in the `structure` folder that you created in the last exercise (in which
+case, you can skip the following commands).
 
 ```bash
-cd ~/exercises   # if you do not have a directory called exercises, make one:  mkdir ~/exercises 
-mkdir structure_fst 
-cd structure_fst
+mkdir -p ~/exercises/structure_fst # make a directory called structure_fst inside ~/exercises/
+cd ~/exercises/structure_fst 
 
-# Download data (remember the . in the end)
+# Download data (remember the `.` at the end)
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
 
-# Show the dowloaded files
+# List the downloaded files
 ls -l
 ```
 
-Today, we are going to calculate the fixation index *F<sub>ST</sub>* between subspecies of chimpanzee
-, which is a widely used statistic in population
-genetics. This is a measure of population differentiation and thus, we
+Today, we are going to calculate the fixation index (*F<sub>ST</sub>*), a widely used statistic in population
+genetics, between subspecies of chimpanzees. This is a measure of population differentiation and thus, we
 can use it to distinguish populations in a quantitative way.
 It is worth noticing that what *F<sub>ST</sub>* measures is the
-reduction in heterozygosity compared to a pooled population.
+reduction in heterozygosity within observed populations compared to a pooled population.
 
 There are several methods for estimating *F<sub>ST</sub>* from genotype data. We will not
 cover them in the course, but if you are interested in getting an overview of some of these
-estiamtors and the how they differ you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
+estiamtors and how they differ you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
 
-Here we use the [Weir and Cockerham *F<sub>ST</sub>* calculator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
+Here, we use the [Weir and Cockerham *F<sub>ST</sub>* calculator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
 calculate *F<sub>ST</sub>* on the chimpanzees. Again, the theory behind it and the estimator itself are
-not directly part of the course, but if you are interested you can find the formula that is implemented in the following R function in either
-the Weir and Cockerham 1984 article, or in equation 6 from the Bhatia 2011 article linked above.
+not directly part of the course, but if you are interested, you can find the formula that is implemented in the following R function in either
+the Weir and Cockerham (1984) article, or in equation 6 from the Bhatia (2011) article linked above.
 
 Open R and copy/paste the following function. You do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
 
