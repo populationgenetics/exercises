@@ -12,7 +12,7 @@
 - Use F<sub>ST</sub> in windows across the genome and Manhattan plots to detect local signatures of natural selection.
 - Interpret and discuss the results from both analyses in a biological context.
 
-## Data and set up
+## Data and setup
 
 For this exercise, we will use the same dataset that you used on Monday for [analysing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
 The following commands will create a new folder and copy the dataset to that new folder,
@@ -38,10 +38,10 @@ reduction in heterozygosity within observed populations compared to a pooled pop
 
 There are several methods for estimating *F<sub>ST</sub>* from genotype data. We will not
 cover them in the course, but if you are interested in getting an overview of some of these
-estiamtors and how they differ you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
+estimators and how they differ, you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
 
 Here, we use the [Weir and Cockerham *F<sub>ST</sub>* calculator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
-calculate *F<sub>ST</sub>* on the chimpanzees. Again, the theory behind it and the estimator itself are
+calculate *F<sub>ST</sub>*. Again, the theory behind it and the estimator itself are
 not directly part of the course, but if you are interested, you can find the formula that is implemented in the following R function in either
 the Weir and Cockerham (1984) article, or in equation 6 from the Bhatia (2011) article linked above.
 
@@ -136,8 +136,8 @@ dim(g)
 <details>
   <summary>click to see answer</summary>
 	
-	There are 29 samples and 46 673 SNPs before filtering, and 29 samples and 29 314 after fitlering. 
-	Therefore, there were 46673 - 29314 = 17359 with missing data (we have filtered SNPs with any missing data).
+	There are 29 samples and 46,673 SNPs before filtering, and 29 samples and 29,314 after filtering. 
+	Therefore, there were 46,673 - 29,314 = 17,359 with missing data (we have filtered SNPs with any missing data).
 	
 </details>
 
@@ -157,7 +157,7 @@ subspecies <- unique(popinfo$pop)
 sapply(subspecies, function(x) popinfo$ind[popinfo$pop == x])
 ```
 
-**Q2:** How many samples do we have from each subspecies? (this is easy to do counting the vectors we just printed, but can you edit the code above to print the number of individuals for each subspecies?)
+**Q2:** How many samples do we have from each subspecies? (Of course, this is easy to do by physically counting the number of elements in the vectors we just printed, but can you edit the code above to print the number of individuals for each subspecies?)
 
 <details>
   <summary>click to see answer</summary>
@@ -206,7 +206,7 @@ Do not close R.
 
 
 **Q3:** Does population differentiation fit with the geographical
-distance between subspecies? (you can find the geographical distribution of each subspecies using [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data))
+distance between subspecies? (You can find the geographical distribution of each subspecies using [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data))
 
 <details>
   <summary>click to see answer</summary>
@@ -217,7 +217,7 @@ distance between subspecies? (you can find the geographical distribution of each
 
 
 **Q4:** The troglodytes and schweinfurthii populations have the same
-divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly higher differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans).)
+divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly increased differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans).)
 
 <details>
   <summary>click to see answer</summary>
@@ -300,7 +300,7 @@ bim <- read.table("pruneddata.bim", h=F, stringsAsFactors=F)
 # keep only sites without missing data (to get same sites we used for fst)
 bim <- bim[complete.cases(t(geno)),]
 
-# keep chromosome and bp coordinate of eachsnp and define pairnames
+# keep chromosome and bp coordinate of each snp and define pairnames
 snpinfo <- data.frame(chr=bim$V1, pos=bim$V4)
 pairnames <- apply(subsppairs, 1, paste, collapse=" ")
 
@@ -341,7 +341,7 @@ Do not close R.
 </details>
 
 
-In the plot we have just generated, the black dotted line indicates the mean F<sub>ST</sub> value across all windows, and the red dotted line the 99.9% percentile (i.e. only 0.1% of the windows have an F<sub>ST</sub> above that value). One way to define outlying windows is to consider only windows that have an F<sub>ST</sub> above the 99.9% percentile (this value is necessarily arbitrary).
+In the plot we have just generated, the black dotted line indicates the mean F<sub>ST</sub> value across all windows, and the red dotted line the 99.9% percentile (i.e. only 0.1% of the windows have an F<sub>ST</sub> above that value). One way to define outlying windows is to only consider windows that have an F<sub>ST</sub> above the 99.9% percentile (this value is necessarily arbitrary).
 
 
 **Q5:** Compare the peaks of high *F<sub>ST</sub>* in the three subspecies pairs. Do they tend to be found in the same position? Would you expect this to be the case? Why/why not?
@@ -349,10 +349,10 @@ In the plot we have just generated, the black dotted line indicates the mean F<s
 <details>
   <summary>click to see answer</summary>
 
-	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general we would not expect them to be the same,
+	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general, we would not expect them to be the same
 	since they are indicating signatures of recent selection that we would not expect to act in the same genes in different populations.
 	
-	However, we do expect, as observed, some peaks to be the same, because the populations are repeated across pairs. So, for example, if
+	However, we do expect, as observed, some peaks to be the same because the populations are repeated across pairs. So, for example, if
 	a certain SNP had been under selection in schweinfurthii recently, after the split with the other two populations, we would expect the 
 	regions around it to exhibit high differentiation with respect to both troglodytes and verus. 
 	
@@ -366,7 +366,7 @@ In the plot we have just generated, the black dotted line indicates the mean F<s
 <details>
   <summary>click to see answer</summary>
 
-	Linkage disequilibrium, where nearby positions in the genome are physically linked within the chromosome. 
+	This is due to linkage disequilibrium, where nearby positions in the genome are physically linked within the chromosome. 
 	This means that allele frequencies and FST will be correlated between nearby windows.
 	
  </details>
@@ -381,7 +381,7 @@ comes from exon sequencing, meaning that SNPs will always be located within gene
 
 To do so, we need to know the genomic coordinates of the outlier windows in the Manhattan plot.
 
-Copy and paste the following function into R, which will return the top n (default 20) windows with maximum *F<sub>ST</sub>* for a given
+Copy and paste the following function into R, which will return the top n (default n=20) windows with maximum *F<sub>ST</sub>* for a given
 pairwise comparison. Again, you do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
 
 ```r
