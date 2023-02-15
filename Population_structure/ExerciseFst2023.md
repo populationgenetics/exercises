@@ -76,7 +76,7 @@ WC84<-function(x,pop){
   h_avg<-apply(x==1,2,sum)/N
   ###nc (see page 1360 in wier and cockerhamm, 1984)
   n_c<-1/(npop-1)*(N-sum(n^2)/N)
-  ###variance betwen populations
+  ###variance between populations
   a <-n_avg/n_c*(s2-(p_avg*(1-p_avg)-(npop-1)*s2/npop-h_avg/4)/(n_avg-1))
   ###variance between individuals within populations
   b <- n_avg/(n_avg-1)*(p_avg*(1-p_avg)-(npop-1)*s2/npop-(2*n_avg-1)*h_avg/(4*n_avg))
@@ -98,7 +98,7 @@ Do not close R.
 
 ## Measuring population differentiation with *F<sub>ST</sub>*
 
-Now we will read in our data and apply to the three pairs of subspecies the function above to estimate their
+Now we will read in our data and apply the function above to each of the three pairs of subspecies to estimate their
 *F<sub>ST</sub>*. We want to make three comparisons.
 
 
@@ -144,7 +144,7 @@ dim(g)
 Let's continue in the same R session:
 
 ``` R
-# load population infomration
+# load population information
 popinfo <- read.table("pop.info", stringsAsFactors=F, col.names=c("pop", "ind"))
 
 # check which subspecies we have
@@ -157,7 +157,7 @@ subspecies <- unique(popinfo$pop)
 sapply(subspecies, function(x) popinfo$ind[popinfo$pop == x])
 ```
 
-**Q2:** How many samples do we have from each subspecies? (this is easy to do counting the vectors we just printed; but can you edit the code we just used to print the code we used to print the individuals ID to print the number of individuals?)
+**Q2:** How many samples do we have from each subspecies? (this is easy to do counting the vectors we just printed, but can you edit the code above to print the number of individuals for each subspecies?)
 
 <details>
   <summary>click to see answer</summary>
@@ -172,15 +172,14 @@ sapply(subspecies, function(x) popinfo$ind[popinfo$pop == x])
 	
 </details>
 
-
-Let's continue in R and finally estimate the F<sub>ST</sub> values for each pair of subspecies:
+Let's continue in R and estimate the F<sub>ST</sub> values for each pair of subspecies:
 
 
 ``` r
 # get all pairs of subspecies
 subsppairs <- t(combn(subspecies, 2))
 
-# apply fsts funciton to each of the three subspecies pairs
+# apply fst function to each of the three subspecies pairs
 fsts <- apply(subsppairs, 1, function(x) WC84(g[popinfo$pop %in% x,], popinfo$pop[popinfo$pop %in% x]))
 
 # name each fst 
@@ -207,7 +206,7 @@ Do not close R.
 
 
 **Q3:** Does population differentiation fit with the geographical
-distance between subspecies? (you can find the geographical distribution of each subspecies in [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data))
+distance between subspecies? (you can find the geographical distribution of each subspecies using [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data))
 
 <details>
   <summary>click to see answer</summary>
@@ -217,20 +216,20 @@ distance between subspecies? (you can find the geographical distribution of each
 </details>
 
 
-**Q4:** The troglodytes and schweinfurthii population have the same
-divergence time with verus, but based on *F<sub>ST</sub>* schweinfurthii has a slighlty higher differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday 14th exercise; you can find them in [Figure 2 from that exercise](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans).)
+**Q4:** The troglodytes and schweinfurthii populations have the same
+divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly higher differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans).)
 
 <details>
   <summary>click to see answer</summary>
 	
 	Two potential explanations are differences in drift between the two subspecies, or differences in migration. 
 	
-	More drift in schweinfurthii due to having a lower population size than troglodytes would have increased the 
+	More drift in schweinfurthii, as a result of having a lower population size than troglodytes, would have increased the 
 	amount of genetic differentiation with verus, and could explain the higher FST. This is supported by schweinfurthii 
-	having a lower genetic diversity than troglodytes, since more genetic drift also causes less genetic diversity.
+	having lower genetic diversity than troglodytes, since increased genetic drift results in less genetic diversity.
 	
-	Another potential factor is migration between verus and troglodytes, which is also plausible since verus and troglotyes 
-	are closer geographically than verus and schweinfurthii. 
+	Another potential factor is migration between verus and troglodytes. This is also plausible since verus and troglotyes 
+	are geographically closer than verus and schweinfurthii. 
 	
 </details>
 
