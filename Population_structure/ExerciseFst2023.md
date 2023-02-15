@@ -52,7 +52,7 @@ Open R and copy/paste the following function. You do not need to understand what
 WC84<-function(x,pop){
   # function to estimate Fst using Weir and Cockerham estimators.
   # x is NxM genotype matrix, pop is N length vector with population assignment for each sample
-  # returns list with fst between population per M snps (theta) and other stuff
+  # returns list with fst between population per M snps (theta) and other variables
 
   #number ind each population
   n<-table(pop)
@@ -82,13 +82,13 @@ WC84<-function(x,pop){
   b <- n_avg/(n_avg-1)*(p_avg*(1-p_avg)-(npop-1)*s2/npop-(2*n_avg-1)*h_avg/(4*n_avg))
   ###variance within individuals
   c <- h_avg/2
-  ###inbreedning (F_it)
+  ###inbreeding (F_it)
   F <- 1-c/(a+b+c)
   ###(F_st)
   theta <- a/(a+b+c)
   ###(F_is)
   f <- 1-c(b+c)
-  ###weigted average of theta
+  ###weighted average of theta
   theta_w<-sum(a)/sum(a+b+c)
   list(F=F,theta=theta,f=f,theta_w=theta_w,a=a,b=b,c=c,total=c+b+a)
 }
@@ -194,7 +194,7 @@ Do not close R.
 
 
 <details>
-  <summary>click to see F<sub>ST</sub> estiamtes</summary>
+  <summary>click to see F<sub>ST</sub> estimates</summary>
 	
 	Schwein - Troglodytes: 0.09623364
 
@@ -237,17 +237,17 @@ divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has sl
 
 ## Scanning for loci under selection using an *F<sub>ST</sub>* outlier approach
 
-In the previous section, we have estimated *F<sub>ST</sub>* across all SNPs for which we have data, and then estiamted
-a global *F<sub>ST</sub>* as the average across all SNPs. Now we will visualize local *F<sub>ST</sub>* in sliding windows across
-the genome, with the aim of finding regions with outlying large *F<sub>ST</sub>*, that are candidate for regions under recent
+In the previous section, we estimated *F<sub>ST</sub>* across all SNPs for which we have data, and then estimated
+a global *F<sub>ST</sub>* as the average across all SNPs. Now we will visualise local *F<sub>ST</sub>* in sliding windows across
+the genome, with the aim of finding regions with outlying large *F<sub>ST</sub>*; these are candidates for regions under recent
 positive selection in one of the populations.
 
 We will now calculate and plot *F<sub>ST</sub>* values across the genome in sliding windows.
-This is a common approach to scan the genome for candidate genes to have been under positive
+This is a common approach to scan the genome for candidate genes that may have been under positive
 selection in different populations.
 
-First of all, we will copy the function we will use for plotting  a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows in R.
-Copy the following function, you do not need to understand it (but are welcome to try if you are interested, and ask if you have questions):
+First, we will define a function to generate a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows.
+Copy the following function - you do not need to understand it (but are welcome to try if you are interested and ask if you have questions):
 
 
 ``` R
@@ -290,18 +290,18 @@ manhattanFstWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size,
 
 Do not close R.
 
-Using this function, we will now produce a Manhattan plot for each of the three sub species pairs:
+Using this function, we will now produce a Manhattan plot for each of the three subspecies pairs:
 
 
 ``` R
-# read bim file to get info on snp locsapply(subspecies, function(x) length(popinfo$ind[popinfo$pop == x]))ation
+# read bim file to get info on snp location
 bim <- read.table("pruneddata.bim", h=F, stringsAsFactors=F)
 
 # keep only sites without missing data (to get same sites we used for fst)
 bim <- bim[complete.cases(t(geno)),]
-# keep chromosome and bp coordinate of eachsnp
-snpinfo <- data.frame(chr=bim$V1, pos=bim$V4)
 
+# keep chromosome and bp coordinate of eachsnp and define pairnames
+snpinfo <- data.frame(chr=bim$V1, pos=bim$V4)
 pairnames <- apply(subsppairs, 1, paste, collapse=" ")
 
 # group snps in windows of 10, with sliding window of 1
@@ -317,7 +317,7 @@ for(pair in 1:3){
 
 ```
 
-If you want to save the plot in the server as a png (so you can then download it to your own computer, or visualize it in the server), you can use the following code:
+If you want to save the plot in the server as a png (so you can then download it to your own computer, or visualise it on the server), you can use the following code:
 
 ``` R
 bitmap("manhattan.png", w=8, h=8, res=300)
@@ -341,11 +341,10 @@ Do not close R.
 </details>
 
 
-In the plot we have just generated, the black dotted line indicates the mean F<sub>ST</sub> value across all windows, and the red dotted line the 99.9%
-quantile (so only 0.1% of the windows have F<sub>ST</sub> above that value). One way to define outlying windows is to consider as outlier a windows that has F<sub>ST</sub> above the 99.9 % quantile (this value is necessarily arbitrary).
+In the plot we have just generated, the black dotted line indicates the mean F<sub>ST</sub> value across all windows, and the red dotted line the 99.9% percentile (i.e. only 0.1% of the windows have an F<sub>ST</sub> above that value). One way to define outlying windows is to consider only windows that have an F<sub>ST</sub> above the 99.9% percentile (this value is necessarily arbitrary).
 
 
-**Q5:** Compare the peaks of high *F<sub>ST</sub>* in the three subspecies pairs, do they tend to be found in the same position? Would you expect this to be the case? Why/why not?
+**Q5:** Compare the peaks of high *F<sub>ST</sub>* in the three subspecies pairs. Do they tend to be found in the same position? Would you expect this to be the case? Why/why not?
 
 <details>
   <summary>click to see answer</summary>
@@ -361,30 +360,29 @@ quantile (so only 0.1% of the windows have F<sub>ST</sub> above that value). One
 
 
 
-**Q6:** Most of the top *F<sub>ST</sub>* windows come in groups of nearby window with also high *F<sub>ST</sub>*. Can you explain or guess why does that happen?
+**Q6:** Most of the top *F<sub>ST</sub>* windows are found in groups of nearby windows with high *F<sub>ST</sub>*. Can you explain or guess why that happens?
 
 
 <details>
   <summary>click to see answer</summary>
 
-	Linkage disequilibrium; nearby positions in the genome are phisically linked in the chromosome, meaning allele frequencies will
-	be correlated between them, and therefore FST will also be correlated between nearby windows.
+	Linkage disequilibrium, where nearby positions in the genome are physically linked within the chromosome. 
+	This means that allele frequencies and FST will be correlated between nearby windows.
 	
  </details>
 
 
 
-### EXTRA Explore genes in region candidates for selection (if there is time)
+### EXTRA - Explore genes in candidate regions for selection
 
 We have now identified several SNPs that are candidates for having been positively selected in some
-populations. Now we can try to see in what genes are these SNPs covered (the genotype data we have been working with
-comes from exon sequencing, which mean it is warranteed SNPs will be located within genes).
+populations. Now we can try to see what genes these SNPs are located in (the genotype data we have been working with
+comes from exon sequencing, meaning that SNPs will always be located within genes).
 
-To do so, we need to know what are the coordiantes of the outlier windows in the Manhattan plot.
-Copy the following funtion, which will return the top n (default 20) windows with maximum FST for a given
-pairwise comparioson:
+To do so, we need to know the genomic coordinates of the outlier windows in the Manhattan plot.
 
-Copy paste the following function into R. You do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
+Copy and paste the following function into R, which will return the top n (default 20) windows with maximum *F<sub>ST</sub>* for a given
+pairwise comparison. Again, you do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
 
 ```r
 topWindowFst <- function(window.size, step.size, chrom, pos, fst, n_tops = 20){
@@ -404,7 +402,7 @@ topWindowFst <- function(window.size, step.size, chrom, pos, fst, n_tops = 20){
     fsts <- numeric(n)
     win.coord <- character(n)
 
-    # estiamte per window weighted fst
+    # estimate per window weighted fst
     for (i in 1:n) {
         chunk_a <- fst$a[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
         chunk_b <- fst$b[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
@@ -434,27 +432,27 @@ topWindowFst(window.size=windowsize, step.size=steps, chrom=snpinfo$chr, pos=snp
 
 
 
-**Q7:** Where is located the window with the highest *F<sub>ST</sub>*?
+**Q7:** What are the genomic coordinates of the window with the highest *F<sub>ST</sub>*?
 
 
 <details>
   <summary>click to see answer</summary>
 	
-	It's located in chromosome 20, between base pair coordinates 43836444 and 44049202.
+	The window with the highest FST is on chromosome 20, between base pair coordinates 43836444 and 44049202.
 	
 </details>
 
 
-Now let's look at what is there in this top positions. Open the [chimpanzee genome assembly in the USCS genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosme and coordiantes in the format they are printed (chr:start-end) in the search tab.
+Now let's look at some annotations/features at this location. Open the [chimpanzee genome assembly in the UCSC genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosome and coordinates in the format they are printed (chr:start-end) in the search tab.
 
-**Q8:** Is there any gene in the window? Can you figure out the name of the gene and its possible function? (Hint: click in the drawing on the gene on the RefSeq Non-Chimp tab, which contains genes identified in other organisms, with high sequence similarity to that region of the chimp genome, which is a strong suggestion the chimp also has that gene there)
+**Q8:** Is this window within a gene? If so, can you figure out the name of the gene and its possible function? (Hint: click on the drawing of the gene on the 'Non-Chimp RefSeq Genes' track. This track describes genes identified in other organisms that have high sequence similarity to the observed region of the chimp genome. This suggests that the gene may also be present in that region of the chimp genome).
 
 
 <details>
   <summary>click to see answer</summary>
 	
-	Yes, there is a gene called protein tyrosine phosphatase receptor type T (PTPRT). Protein tyrosine phosphatase are signalling molecules that
-	are involved in many different cellular functions.
+	Yes, there is a gene called protein tyrosine phosphatase receptor type T (PTPRT). Protein tyrosine phosphatases are signalling molecules that
+	are involved in a range of different cellular functions.
 	
 </details>
 
@@ -464,7 +462,8 @@ Now let's look at what is there in this top positions. Open the [chimpanzee geno
 <details>
   <summary>click to see answer</summary>
 	
-	No, we cannot. We can say a variant in the window or near the window is a candidate for postive selection, and in the case it had
-	been driven by selection, selection might be caused by the function of the PTPRT. But it is just a candidate region.
+	No, we cannot. We can only say a variant in the window or near the window is a candidate for positive selection. 
+	In the case that it had been driven by selection, the function of PTPRT may have been important. 
+	But with our current evidence, we just have a candidate region.
 	
 </details>
