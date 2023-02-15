@@ -373,7 +373,7 @@ In the plot we have just generated, the black dotted line indicates the mean F<s
 
 
 
-## EXTRA - Explore genes in candidate regions for selection
+### EXTRA - Explore genes in candidate regions for selection
 
 We have now identified several SNPs that are candidates for having been positively selected in some
 populations. Now we can try to see what genes these SNPs are located in (the genotype data we have been working with
