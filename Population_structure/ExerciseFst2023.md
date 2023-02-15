@@ -14,16 +14,17 @@
 
 ## Data and setup
 
-For this exercise, we will use the same dataset that you used on Monday for [analysing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
+For this exercise, we will use the same dataset that was used on Monday for [analysing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
 The following commands will create a new folder and copy the dataset to that new folder,
 but you are free to work in the `structure` folder that you created in the last exercise (in which
 case, you can skip the following commands).
 
 ```bash
-mkdir -p ~/exercises/structure_fst # make a directory called structure_fst inside ~/exercises/
+# make a directory called structure_fst inside ~/exercises/ and change to that directory
+mkdir -p ~/exercises/structure_fst 
 cd ~/exercises/structure_fst 
 
-# Download data (remember the `.` at the end)
+# Download/copy data (remember the . at the end)
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
 
 # List the downloaded files
@@ -37,13 +38,13 @@ It is worth noticing that what *F<sub>ST</sub>* measures is the
 reduction in heterozygosity within observed populations compared to a pooled population.
 
 There are several methods for estimating *F<sub>ST</sub>* from genotype data. We will not
-cover them in the course, but if you are interested in getting an overview of some of these
+cover them in the course but if you are interested in getting an overview of some of these
 estimators and how they differ, you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
 
 Here, we use the [Weir and Cockerham *F<sub>ST</sub>* calculator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
 calculate *F<sub>ST</sub>*. Again, the theory behind it and the estimator itself are
-not directly part of the course, but if you are interested, you can find the formula that is implemented in the following R function in either
-the Weir and Cockerham (1984) article, or in equation 6 from the Bhatia (2011) article linked above.
+not directly part of the course but if you are interested, you can find the formula that is implemented in the following R function in either
+the Weir and Cockerham (1984) article and/or in equation 6 from the Bhatia et al. (2011) article linked above.
 
 Open R and copy/paste the following function. You do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
 
@@ -205,8 +206,8 @@ Do not close R.
 </details>
 
 
-**Q3:** Does population differentiation fit with the geographical
-distance between subspecies? (You can find the geographical distribution of each subspecies using [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data))
+**Q3:** Does population differentiation correlate with the geographical
+distance between subspecies? (You can find the geographical distribution of each subspecies using [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data)).
 
 <details>
   <summary>click to see answer</summary>
@@ -217,16 +218,16 @@ distance between subspecies? (You can find the geographical distribution of each
 
 
 **Q4:** The troglodytes and schweinfurthii populations have the same
-divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly increased differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans).)
+divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly increased differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans)).
 
 <details>
   <summary>click to see answer</summary>
 	
-	Two potential explanations are differences in drift between the two subspecies, or differences in migration. 
+	Two potential explanations are differences in drift between the two subspecies, and/or differences in migration. 
 	
 	More drift in schweinfurthii, as a result of having a lower population size than troglodytes, would have increased the 
-	amount of genetic differentiation with verus, and could explain the higher FST. This is supported by schweinfurthii 
-	having lower genetic diversity than troglodytes, since increased genetic drift results in less genetic diversity.
+	amount of genetic differentiation with verus and could explain the higher FST. This is supported by schweinfurthii 
+	having lower genetic diversity than troglodytes as increased genetic drift results in less genetic diversity.
 	
 	Another potential factor is migration between verus and troglodytes. This is also plausible since verus and troglotyes 
 	are geographically closer than verus and schweinfurthii. 
@@ -239,12 +240,8 @@ divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has sl
 
 In the previous section, we estimated *F<sub>ST</sub>* across all SNPs for which we have data, and then estimated
 a global *F<sub>ST</sub>* as the average across all SNPs. Now we will visualise local *F<sub>ST</sub>* in sliding windows across
-the genome, with the aim of finding regions with outlying large *F<sub>ST</sub>*; these are candidates for regions under recent
-positive selection in one of the populations.
-
-We will now calculate and plot *F<sub>ST</sub>* values across the genome in sliding windows.
-This is a common approach to scan the genome for candidate genes that may have been under positive
-selection in different populations.
+the genome with the aim of finding regions with outlying large *F<sub>ST</sub>*.  This is a common approach that can reveal 
+candidate SNPs and genes that may have been under positive selection in different populations.
 
 First, we will define a function to generate a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows.
 Copy the following function - you do not need to understand it (but are welcome to try if you are interested and ask if you have questions):
@@ -266,7 +263,7 @@ manhattanFstWindowPlot <- function(mainv, xlabv, ylabv, ylimv=NULL, window.size,
     
     n <- length(step.positions)
     fsts <- numeric(n)
-    # estiamte per window weighted fst
+    # estimate per window weighted fst
     for (i in 1:n) {
         chunk_a <- fst$a[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
         chunk_b <- fst$b[(step.positions[i]-window.size/2):(step.positions[i]+window.size/2)]
@@ -317,7 +314,7 @@ for(pair in 1:3){
 
 ```
 
-If you want to save the plot in the server as a png (so you can then download it to your own computer, or visualise it on the server), you can use the following code:
+If you want to save the plot on the server as a png (so you can then download it to your own computer, or visualise it on the server), you can use the following code:
 
 ``` R
 bitmap("manhattan.png", w=8, h=8, res=300)
@@ -341,7 +338,7 @@ Do not close R.
 </details>
 
 
-In the plot we have just generated, the black dotted line indicates the mean F<sub>ST</sub> value across all windows, and the red dotted line the 99.9% percentile (i.e. only 0.1% of the windows have an F<sub>ST</sub> above that value). One way to define outlying windows is to only consider windows that have an F<sub>ST</sub> above the 99.9% percentile (this value is necessarily arbitrary).
+In the plot we have just generated, the black dotted line indicates the mean F<sub>ST</sub> value across all windows and the red dotted line the 99.9% percentile (i.e. where only 0.1% of the windows have an F<sub>ST</sub> above that value). One way to define outlying windows is to only consider windows that have an F<sub>ST</sub> above the 99.9% percentile (this value is necessarily arbitrary).
 
 
 **Q5:** Compare the peaks of high *F<sub>ST</sub>* in the three subspecies pairs. Do they tend to be found in the same position? Would you expect this to be the case? Why/why not?
@@ -349,11 +346,11 @@ In the plot we have just generated, the black dotted line indicates the mean F<s
 <details>
   <summary>click to see answer</summary>
 
-	Some peaks of high genetic differentiation are shared between some pairs, others are not. In general, we would not expect them to be the same
-	since they are indicating signatures of recent selection that we would not expect to act in the same genes in different populations.
+	Some peaks of high genetic differentiation are shared between pairs, others are not. In general, we would not expect them to be the same
+	since they are indicating signatures of recent selection that we would not expect to act on the same genes in different populations.
 	
 	However, we do expect, as observed, some peaks to be the same because the populations are repeated across pairs. So, for example, if
-	a certain SNP had been under selection in schweinfurthii recently, after the split with the other two populations, we would expect the 
+	a certain SNP had been under selection in schweinfurthii recently after the split with the other two populations, we would expect the 
 	regions around it to exhibit high differentiation with respect to both troglodytes and verus. 
 	
  </details>
@@ -373,7 +370,7 @@ In the plot we have just generated, the black dotted line indicates the mean F<s
 
 
 
-### EXTRA - Explore genes in candidate regions for selection
+### EXTRA - Exploring genes in candidate regions for selection
 
 We have now identified several SNPs that are candidates for having been positively selected in some
 populations. Now we can try to see what genes these SNPs are located in (the genotype data we have been working with
@@ -443,7 +440,7 @@ topWindowFst(window.size=windowsize, step.size=steps, chrom=snpinfo$chr, pos=snp
 </details>
 
 
-Now let's look at some annotations/features at this location. Open the [chimpanzee genome assembly in the UCSC genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosome and coordinates in the format they are printed (chr:start-end) in the search tab.
+Now let's look at some gene annotations at this location. Open the [chimpanzee genome assembly in the UCSC genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosome and coordinates of the top window in the search bar (paste the coordinates in the same format as what was printed in R (i.e. chr:start-end)).
 
 **Q8:** Is this window within a gene? If so, can you figure out the name of the gene and its possible function? (Hint: click on the drawing of the gene on the 'Non-Chimp RefSeq Genes' track. This track describes genes identified in other organisms that have high sequence similarity to the observed region of the chimp genome. This suggests that the gene may also be present in that region of the chimp genome).
 
@@ -451,8 +448,8 @@ Now let's look at some annotations/features at this location. Open the [chimpanz
 <details>
   <summary>click to see answer</summary>
 	
-	Yes, there is a gene called protein tyrosine phosphatase receptor type T (PTPRT). Protein tyrosine phosphatases are signalling molecules that
-	are involved in a range of different cellular functions.
+	Yes, it is within a gene called protein tyrosine phosphatase receptor type T (PTPRT). Protein tyrosine phosphatases
+	are signalling molecules that regulate a range of cellular processes.
 	
 </details>
 
