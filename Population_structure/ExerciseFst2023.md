@@ -35,7 +35,7 @@ Today, we are going to calculate the fixation index (*F<sub>ST</sub>*), a widely
 genetics, between subspecies of chimpanzees. This is a measure of population differentiation and thus, we
 can use it to distinguish populations in a quantitative way.
 It is worth noticing that what *F<sub>ST</sub>* measures is the
-reduction in heterozygosity within observed populations compared to a pooled population.
+reduction in heterozygosity within observed populations when compared to a pooled population.
 
 There are several methods for estimating *F<sub>ST</sub>* from genotype data. We will not
 cover them in the course but if you are interested in getting an overview of some of these
@@ -218,7 +218,7 @@ distance between subspecies? (You can find the geographical distribution of each
 
 
 **Q4:** The troglodytes and schweinfurthii populations have the same
-divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly increased differentiation from verus. Based on what we learned in the lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans)).
+divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly increased differentiation from verus. Based on what we learned in today's lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans)).
 
 <details>
   <summary>click to see answer</summary>
@@ -238,13 +238,13 @@ divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has sl
 
 ## Scanning for loci under selection using an *F<sub>ST</sub>* outlier approach
 
-In the previous section, we estimated *F<sub>ST</sub>* across all SNPs for which we have data, and then estimated
+In the previous section, we estimated *F<sub>ST</sub>* across all SNPs for which we have data and then estimated
 a global *F<sub>ST</sub>* as the average across all SNPs. Now we will visualise local *F<sub>ST</sub>* in sliding windows across
 the genome with the aim of finding regions with outlying large *F<sub>ST</sub>*.  This is a common approach that can reveal 
 candidate SNPs and genes that may have been under positive selection in different populations.
 
 First, we will define a function to generate a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows.
-Copy the following function - you do not need to understand it (but are welcome to try if you are interested and ask if you have questions):
+Copy the following function - you do not need to understand it (but are welcome to try if you are interested, and ask if you have questions):
 
 
 ``` R
@@ -374,7 +374,7 @@ In the plot we have just generated, the black dotted line indicates the mean F<s
 
 We have now identified several SNPs that are candidates for having been positively selected in some
 populations. Now we can try to see what genes these SNPs are located in (the genotype data we have been working with
-comes from exon sequencing, meaning that SNPs will always be located within genes).
+comes from exome sequencing, meaning that SNPs will always be located within genes).
 
 To do so, we need to know the genomic coordinates of the outlier windows in the Manhattan plot.
 
