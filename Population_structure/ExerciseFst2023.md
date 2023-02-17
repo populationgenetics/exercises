@@ -39,9 +39,9 @@ reduction in heterozygosity within observed populations when compared to a poole
 
 There are several methods for estimating *F<sub>ST</sub>* from genotype data. We will not
 cover them in the course but if you are interested in getting an overview of some of these
-estimators and how they differ, you can take a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
+estimators and how they differ, you can have a look at [this article](https://genome.cshlp.org/content/23/9/1514.full.pdf).
 
-Here, we use the [Weir and Cockerham *F<sub>ST</sub>* calculator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
+Here, we use the [Weir and Cockerham *F<sub>ST</sub>* estimator from 1984](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1558-5646.1984.tb05657.x) to
 calculate *F<sub>ST</sub>*. Again, the theory behind it and the estimator itself are
 not directly part of the course but if you are interested, you can find the formula that is implemented in the following R function in either
 the Weir and Cockerham (1984) article and/or in equation 6 from the Bhatia et al. (2011) article linked above.
@@ -51,11 +51,11 @@ Open R and copy/paste the following function. You do not need to understand what
 #### \>R
 ```R
 WC84<-function(x,pop){
-  # function to estimate Fst using Weir and Cockerham estimators.
+  # function to estimate Fst using Weir and Cockerham estimator.
   # x is NxM genotype matrix, pop is N length vector with population assignment for each sample
   # returns list with fst between population per M snps (theta) and other variables
 
-  #number ind each population
+  ###number ind in each population
   n<-table(pop)
   ###number of populations
   npop<-nrow(n)
@@ -73,7 +73,7 @@ WC84<-function(x,pop){
   # h<-apply(x==1,2,function(x,pop)tapply(x,pop,mean),pop=pop)
   #average heterozygote frequency for allele 1
   # h_avg<-as.vector(n%*%h/N)
-  #faster version than above:
+  ###faster version than above:
   h_avg<-apply(x==1,2,sum)/N
   ###nc (see page 1360 in wier and cockerhamm, 1984)
   n_c<-1/(npop-1)*(N-sum(n^2)/N)
@@ -131,7 +131,7 @@ dim(geno)
 dim(g)
 ```
 
-**Q1:** How many SNPs and individuals are there before and after filtering? How many SNPs did we have initially with missing data?
+**Q1:** How many SNPs and individuals are there before and after filtering? How many SNPs did we initially have with missing data?
 
 
 <details>
@@ -244,7 +244,7 @@ the genome with the aim of finding regions with outlying large *F<sub>ST</sub>*.
 candidate SNPs and genes that may have been under positive selection in different populations.
 
 First, we will define a function to generate a Manhattan plot of local *F<sub>ST</sub>* values across the genome in sliding windows.
-Copy the following function - you do not need to understand it (but are welcome to try if you are interested, and ask if you have questions):
+Copy the following function; you do not need to understand it (but are welcome to try if you are interested, and ask if you have questions):
 
 
 ``` R
@@ -378,7 +378,7 @@ comes from exome sequencing, meaning that SNPs will always be located within gen
 
 To do so, we need to know the genomic coordinates of the outlier windows in the Manhattan plot.
 
-Copy and paste the following function into R, which will return the top n (default n=20) windows with maximum *F<sub>ST</sub>* for a given
+Copy and paste the following function into R; this will return the top n (default n=20) windows with maximum *F<sub>ST</sub>* for a given
 pairwise comparison. Again, you do not need to understand what the code does (but are welcome to try if you are interested, and ask if you have questions):
 
 ```r
@@ -440,7 +440,7 @@ topWindowFst(window.size=windowsize, step.size=steps, chrom=snpinfo$chr, pos=snp
 </details>
 
 
-Now let's look at some gene annotations at this location. Open the [chimpanzee genome assembly in the UCSC genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy paste the chromosome and coordinates of the top window in the search bar (paste the coordinates in the same format as what was printed in R (i.e. chr:start-end)).
+Now let's look at some gene annotations at this location. Open the [chimpanzee genome assembly in the UCSC genome browser](https://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro5&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr1%3A78555444%2D78565444&hgsid=1293765481_hOBCvmiwGLVKt1SRo9yIaRFa0wYc) and copy/paste the chromosome and coordinates of the top window in the search bar (paste the coordinates in the same format as what was printed in R (i.e. chr:start-end)).
 
 **Q8:** Is this window within a gene? If so, can you figure out the name of the gene and its possible function? (Hint: click on the drawing of the gene on the 'Non-Chimp RefSeq Genes' track. This track describes genes identified in other organisms that have high sequence similarity to the observed region of the chimp genome. This suggests that the gene may also be present in that region of the chimp genome).
 
