@@ -1,5 +1,7 @@
 # Exercises - measuring population differentiation and detecting signatures of selection using F<sub>ST</sub>
 
+## Genis Garcia Erill & Renzo Balboa
+
 ## Aims
 
 - Learn to estimate F<sub>ST</sub> between population pairs using genotype data.
