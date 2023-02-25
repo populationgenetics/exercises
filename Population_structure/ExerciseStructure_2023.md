@@ -393,3 +393,39 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 - **Q12.4 Does it look like we have admixed samples?**
 - **Q12.5 Can we conclude anything about admixture between the subspecies?**
 
+**Q13 Extra exercise: assessing the obtained models for K=2-4**:
+Let's now finally try to assess the fit of the models that we obtaining usign ADMIXTURE. To do so we first copy the program evalAdmix and a plotting script that help you plots the evalAdmix output to you structure exercise folder:
+```bash
+cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/evalAdmix .
+cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/visFuns.R .
+```
+Second we want to run evalAdmix on the best solution from ADMXITURE for each of K=2-4. evalAdmix needs a few things specificed: the prefix of the files that contain the data (option -plink), the name of the P file from ADMIXTURE (option -fname), the name of the Q file from ADMIXTURE (option -qname) and the name you want the output file to have (option -o). So to assess the fit for K=2 (where the best run was run 1) we would run the command in the terminal:
+
+```bash
+./evalAdmix -plink pruneddata -fname pruneddata_K2_run1.P -qname pruneddata_K2_run1.Q -o K2.output.corres.txt
+```
+
+Try to run that command and the corresponding commands for K=3 and 4.
+
+Next we want to plot the results. To do so open R and run the following R code, which plots the evalAdmix results for K=2:
+ 
+```R
+# Read in plotting functions
+source("../../evalAdmix/visFuns.R")
+
+# Read in the population info
+popinfo <- read.table("pop.info")
+pop = as.vector(popinfo[,1])
+
+# Read in the output 
+r <- as.matrix(read.table("K2.output.corres.txt"))
+plotCorRes(cor_mat = r, pop = pop, title = "Admixture evaluation as correlation of residuals", max_z=0.25, min_z=-0.25)
+```
+
+Try to also plot the evalAdmix results for K=3 and 4.
+Now finally have a look at the results. 
+
+- **Q13.1 Does it look like K=2 provides a good fit?**
+- **Q13.2 Does it look like K=3 provides a good fit?**
+- **Q13.3 Does it look like K=4 provides a good fit?**
+
