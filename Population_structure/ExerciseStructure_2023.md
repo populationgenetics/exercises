@@ -420,7 +420,7 @@ pop = as.vector(popinfo[,1])
 
 # Read in the output 
 r <- as.matrix(read.table("K2.output.corres.txt"))
-plotCorRes(cor_mat = r, pop = pop, title = "Admixture evaluation as correlation of residuals (K=2)", max_z=0.25, min_z=-0.25)
+plotCorRes(cor_mat = r, pop = pop, title = "Correlation of residuals (K=2)", max_z=0.15, min_z=-0.15)
 ```
 
 Try to also plot the evalAdmix results for K=3 and 4.
@@ -429,5 +429,5 @@ Now finally have a look at the results.
 - **Q13.1 Does it look like K=2 provides a good fit (judging from the lower right triangle)?**
 - **Q13.2 Does it look like K=3 provides a good fit (judging from the lower right triangle)?**
 - **Q13.3 Does it look like K=4 provides a good fit (judging from the lower right triangle)?**
-- **Q13.4 Does looking at the upper left triangle in the K=3 plot tell us something about why trogl splits into 2 in the K=4 ADMIXTURE plot? (in a plot of a good fitting model high correlation values for a pair of individuals in the uppper left triangle indicate that the two individuals are related) **
+- **Q13.4 Does looking at the upper left triangle in the K=3 plot tell us something about why the trogl sample splits into 2 in the K=4 ADMIXTURE plot? (in a plot of a good fitting model high correlation values for a pair of individuals in the uppper left triangle indicate that the two individuals are related)**
 
