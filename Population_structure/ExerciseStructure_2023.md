@@ -2,8 +2,8 @@
 
 ## Program
 
-  - Constructing and interpretating of a Principal Component Analysis (PCA) plot using SNP data
-  - Running and interpreting ADMIXTURE analyses using SNP data
+  1. Constructing and interpretating of a Principal Component Analysis (PCA) plot using SNP data
+  2. Running and interpreting ADMIXTURE analyses using SNP data
   
 ## Learning objectives 
 
@@ -46,7 +46,7 @@ troglodytes* (from [Frandsen & Fontsere *et al.* 2020](https://www.nature.com/ar
 
 We start by creating a directory for this exercise and downloading the exome data to the folder.
 
-Open a terminal and type:
+Open a terminal and copy in the following code (and note that everything in the code on a line after # is a comment and gives you a description of what the next line(s) of code does. So if you read these this should help you follow what is going on in the code):
 
 ```bash
 # Make a directory for this exercise in your exercises folder
@@ -57,7 +57,7 @@ cd structure
 # Download data (remember the . in the end)
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/pa/* .
 
-# Show the dowloaded files
+# Show a list of files i thus directory and thus of the files you downloaded
 ls -l
 ```
 You have now downloaded a PLINK file-set consisting of
@@ -70,7 +70,7 @@ and a separate file containing assumed population info for each sample.
 
 - pop.info
 
-First, we want to look at the data (like you always should *before* doing any analyses). The command `wc -l [FILENAME]` counts the number of lines in a file.
+First, we want to look at the data (like you always should *before* doing any analyses). The command `wc -l FILENAME` counts the number of lines in a given file (if you replace "FILENAME" by the name of that file).
 
 <br />
 
@@ -78,7 +78,7 @@ First, we want to look at the data (like you always should *before* doing any an
 
 <br />
 
-Now open R in the exercises directory (don’t close it before this manual states that you should) and type:
+Now open R in your structure exercise directory (don’t close it before this manual states that you should) and type:
 ```R
 popinfo <- read.table("pop.info")
 table(popinfo[,1])
@@ -96,7 +96,7 @@ table(popinfo[,1])
 Now we want to import our genotype data into R. 
 
 ```R
-# Load data
+# Load the data into a variable called geno
 library(snpMatrix)
 data <- read.plink("pruneddata")
 geno <- matrix(as.integer(data@.Data),nrow=nrow(data@.Data))
@@ -192,7 +192,7 @@ ranges (Figure 1). The ADMIXTURE manual can be found
 [here](http://dalexander.github.io/admixture/admixture-manual.pdf).
 
 When running ADMIXTURE, we input a certain number of ancestral populations, *K*.
-Then ADMIXTURE picks a random startingpoint (the *seed*) and tries to find the 
+Then ADMIXTURE picks a random starting point (the *seed*) and tries to find the 
 parameters (admixture proportions and ancestral frequencies) resulting in the highest likelihood. 
 
 First, lets try to run ADMIXTURE once assuming *K=3* ancestral populations.
@@ -210,7 +210,7 @@ ls -l
 <br />
 
 **Q6**
-- **Q6.1 What is in the pruneddata.3.Q, pruneddata.3.P, and pruneddata_K3_run1.log files? (*Hints: Use `less -S` to look in the files. Use `wc -l [FILE]` to count the number of lines in the files. Look in the manual*)**
+- **Q6.1 What is in the output files pruneddata.3.Q, pruneddata.3.P, and pruneddata_K3_run1.log files? (*Hints: Use `less -S` to look in the files. Use `wc -l [FILE]` to count the number of lines in the files. Look in the manual*)**
 - **Q6.2 What is the ancestral proportions (of the three populations) of sample 4?**
 - **Q6.3 Is it admixed and can we say which subspecies its from?**
 - **Q6.4 What is the final Loglikelihood of the fit?**
@@ -273,9 +273,8 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 **Q8**
 - **Q8.1 Explain the plot - what is shown for each sample?**
 - **Q8.2 Does the assigned ancestral proportions match the subpecies classification for each sample?**
-- **Q8.3 Can you find any admixed samples (how does/would an admixed sample look)?**
-- **Q8.4 Does assuming 3 ancestral populations (K=3) seem to be a good fit to the data?**
-- **Q8.5 Could the model have assumed only 2 ancestral populations (*K*) in these runs?**
+- **Q8.3 Can you find any admixed samples? How does/would an admixed sample look? What about e.g. an F1, so and indivual with unadmixed parents with different ancestries? And a backcross, so the offspring of an F1 and an unadmixed sample with the same ancestry as one of the F1's parents?
+- **Q8.4 Could the model have assumed only 2 ancestral populations (*K*) in these runs?**
 
 <br />
 
@@ -328,7 +327,6 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 
 **Q10**
 - **Q10.1 Would the conclusion be different if you used the worst compared to the best?**
-- **Q10.2 How would an f1 sample (child of parents from two different subspecies) look?**
 
 <br />
 
@@ -391,6 +389,7 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 **Q12 Looking at all the results (PCA and admixture K=2, K=3, and K=4)**
 - **Q12.1 Do the admixture and PCA analysis correspond with the known geography?**
 - **Q12.2 Which number of ancestral populations do you find the most likely?**
-- **Q12.3 What are the possible explanaintions for the K=4 admixture results?**
+- **Q12.3 What are the possible explanations for the K=4 admixture results?**
 - **Q12.4 Does it look like we have admixed samples?**
-- **Q12.5 Can we conlcude anything about admixture between the subspecies?**
+- **Q12.5 Can we conclude anything about admixture between the subspecies?**
+
