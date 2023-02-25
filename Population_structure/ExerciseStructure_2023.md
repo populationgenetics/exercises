@@ -273,7 +273,7 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 **Q8**
 - **Q8.1 Explain the plot - what is shown for each sample?**
 - **Q8.2 Does the assigned ancestral proportions match the subpecies classification for each sample?**
-- **Q8.3 Can you find any admixed samples? How does/would an admixed sample look? What about e.g. an F1, so and indivual with unadmixed parents with different ancestries? And a backcross, so the offspring of an F1 and an unadmixed sample with the same ancestry as one of the F1's parents?
+- **Q8.3 Can you find any admixed samples? How does/would an admixed sample look? What about e.g. an F1, e.i. an indivual with unadmixed parents with different ancestries? And a backcross, i.e. the offspring of an F1 and an unadmixed sample with the same ancestry as one of the F1's parents?**
 - **Q8.4 Could the model have assumed only 2 ancestral populations (*K*) in these runs?**
 
 <br />
