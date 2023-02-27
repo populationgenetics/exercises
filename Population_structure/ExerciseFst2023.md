@@ -2,21 +2,27 @@
 
 ## Genis Garcia Erill & Renzo Balboa
 
-## Aims
+## Program
+
+- Read genotype data into R and apply R functions to estimate F<sub>ST</sub>.
+- Use F<sub>ST</sub> in windows across the genome and Manhattan plots to detect local signatures of natural selection.
+- Interpret and discuss the results from both analyses in a biological context.
+
+## Learning Objectives
 
 - Learn to estimate F<sub>ST</sub> between population pairs using genotype data.
 - Learn to interpret F<sub>ST</sub> estimates in relation to processes of population divergence.
 - Learn to visualise local F<sub>ST</sub> across the genome and identify candidate genes under selection.
 
-## Outline
+## Recommended Reading
 
-- Read genotype data into R and apply R functions to estimate F<sub>ST</sub> from the genotypes.
-- Use F<sub>ST</sub> in windows across the genome and Manhattan plots to detect local signatures of natural selection.
-- Interpret and discuss the results from both analyses in a biological context.
+Chapter 4 - Population Subdivision (pp. 59-76).
+
+In: Nielsen, R. and Slatkin, M. (2013). _An Introduction to Population Genetics: Theory and Applications_. Sinauer.
 
 ## Data and setup
 
-For this exercise, we will use the same dataset that was used on Monday for [analysing population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md). 
+For this exercise, we will use the same dataset that was used on Monday for [inferring population structure](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2023.md). 
 The following commands will create a new folder and copy the dataset to that new folder,
 but you are free to work in the `structure` folder that you created in the last exercise (in which
 case, you can skip the following commands).
@@ -209,7 +215,7 @@ Do not close R.
 
 
 **Q3:** Does population differentiation correlate with the geographical
-distance between subspecies? (You can find the geographical distribution of each subspecies using [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2022.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data)).
+distance between subspecies? (You can find the geographical distribution of each subspecies using [Figure 1 from Monday](https://github.com/populationgenetics/exercises/blob/master/Population_structure/ExerciseStructure_2023.md#inferring-chimpanzee-population-structure-and-admixture-using-exome-data)).
 
 <details>
   <summary>click to see answer</summary>
@@ -220,7 +226,7 @@ distance between subspecies? (You can find the geographical distribution of each
 
 
 **Q4:** The troglodytes and schweinfurthii populations have the same
-divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly increased differentiation from verus. Based on what we learned in today's lecture, what factors do you think could explain the difference? (Hint: remember the estimates of genetic diversity within chimpanzee subspecies from Monday's exercise; you can find them in [Figure 2](https://github.com/populationgenetics/exercises/blob/master/NucleotideDiversiteyExercise/Exercise%20in%20estimating%20nucleotide%20diversity.md#using-plink-to-find-the-nucleotide-diversity-in-chimpanzees-and-humans)).
+divergence time with verus, but based on *F<sub>ST</sub>*, schweinfurthii has slightly increased differentiation from verus. Based on what we learned in today's lecture, what factors do you think could explain the difference?
 
 <details>
   <summary>click to see answer</summary>
@@ -463,6 +469,6 @@ Now let's look at some gene annotations at this location. Open the [chimpanzee g
 	
 	No, we cannot. We can only say a variant in the window or near the window is a candidate for positive selection. 
 	In the case that it had been driven by selection, the function of PTPRT may have been important. 
-	But with our current evidence, we just have a candidate region.
+	But based on our current evidence, we just have a candidate region.
 	
 </details>
