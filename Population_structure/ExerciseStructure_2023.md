@@ -412,7 +412,7 @@ Next we want to plot the results. To do so open R and run the following R code, 
  
 ```R
 # Read in plotting functions
-source("../../evalAdmix/visFuns.R")
+source("visFuns.R")
 
 # Read in the population info
 popinfo <- read.table("pop.info")
