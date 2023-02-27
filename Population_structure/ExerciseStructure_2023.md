@@ -23,7 +23,7 @@ attention, and with continuously newly discovered populations of
 chimpanzees, controversies still exist about the true number of
 subspecies. The unresolved taxonomic labelling of chimpanzee populations
 has negative implications for future conservation planning for this
-endangered species. In this exercise, we will use 110.000 SNPs from the
+endangered species. In this exercise, we will use around 50.000 SNPs from the
 chimpanzee exome to infer population structure and admixture of
 chimpanzees in Africa, in order to acquire thorough knowledge of the
 population structure and thus help guide future conservation management
