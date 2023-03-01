@@ -3,7 +3,8 @@
 **Anders Albrechtsen**
 
   
-Go to https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg18&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr16%3A63991874%2D75563746&hgsid=1582363565_ZYtUXy2UaCA4w1aCGz2HOsBJ8vxx
+Go to https://genome.ucsc.edu/s/aalbrechtsen/hg18Selection
+
 
 
 
