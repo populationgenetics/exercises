@@ -46,9 +46,7 @@ Open R and load data
 .libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
 setwd("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/selection/selectionScan")
 source("server.R")
-shinyPBS <- "/home/bcn627/tmp/"
-shinyPBS<-paste0(shinyDir,"pbs") 
-shinyCSV<-paste0(shinyDir,"pbs.csv")
+
 ```
 
 **Exercise**
