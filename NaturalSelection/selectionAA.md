@@ -63,7 +63,7 @@ The first population is the one which branch you are investigating. The two othe
 ```R
 #### choose populations
 #pops 1=NAT,2=CHB",3=CEU",4=YRI
-myPops <- c(1,2,4)
+myPops <- c(3,2,4)
 ```
 
 
