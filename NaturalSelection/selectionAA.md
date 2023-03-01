@@ -36,22 +36,19 @@ Try to go to the LCT loci.
  - What can you conclude on the performance of Tajima’s D
 
 # Part 2
-First mkdir a tmp directory 
-```R
-mkdir ~/tmp
-```
+`
 
 
-Open R and run the shiny app
+Open R and load data
 ## in R 
 ```R
 .libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
-shiny::runApp("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/selection/selectionScan/")
+setwd("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/selection/selectionScan")
+source("server.R")
+shinyPBS <- "/home/bcn627/tmp/"
+shinyPBS<-paste0(shinyDir,"pbs") 
+shinyCSV<-paste0(shinyDir,"pbs.csv")
 ```
-**be patient – a browser window will pop up after ~ 30 sec.**
-
-If you cannot copy paste then you can find the command in the Absalon module
-
 
 **Exercise**
 
@@ -63,15 +60,43 @@ Let see if we can do better than the Tajima’s D by using the PBS statistics. F
   
 The first population is the one which branch you are investigating. The two others are the one you are comparing to. Chose CEU as the first and choose CHB and YRI as the two others. 
 
+
+```R
+#### choose populations
+#pops 1=NAT,2=CHB",3=CEU",4=YRI
+myPops <- c(1,2,4)
+```
+
+
 First lets get an overview of the whole genome by making a manhattan plot
-  - Press “Run analysis”. 
+
+
+
+
+```R
+#### choose populations
+PBSmanPlot(myPops)
+```
 
 Note which chromosomes have extreme values. A high value of PBS means a long branch length. 
 To view a single chromosome – go to PBS region
 
 Chose the chromosome with the highest PBS value and set the starting position to -1 to get the whole chromosome
 
+e.g. 
+
+
+```R
+# see entire chromosome 1
+PBSmanRegion(myPops,chrom=1,start=-1)
+```
+
 Zoom in to the peak by changing start and end position. 
+
+```R
+# see region between 20Mb and 21Mb on chromosome 1
+PBSmanRegion(myPops,chrom=1,start=20,end=21)
+```
 
   - Locate the most extreme regions of the genome and zoom in
   - Identify the Gene with the highest PBS value.  
