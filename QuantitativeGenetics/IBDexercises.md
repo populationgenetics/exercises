@@ -30,7 +30,7 @@ open R on you desktop (not the server). Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runApp("http://popgen.dk:3838/anders/popgen2016/Fgenome.tar.gz")
+runUrl("http://popgen.dk:3838/anders/popgen2016/Fgenome.tar.gz")
 ```
   
  
@@ -74,6 +74,6 @@ log into popgen servers and open R. Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runApp("http://popgen.dk:3838/anders/popgen2016/Rgenome.tar.gz")
+runUrl("http://popgen.dk:3838/anders/popgen2016/Rgenome.tar.gz")
 ```
   
