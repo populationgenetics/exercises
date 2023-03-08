@@ -3,7 +3,6 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - Is this high compared to what you would expect for a Human?
   - What the most simple pedigree that could give rise to such an estimate?
   - - Hint 1: Look at the “Estimation of inbreeding coefficient from pedigrees” slides from earlier
-  - - Hint 2: use if you give up
 
   - Go to http://popgen.dk:3838/anders/popgen2016/Fgenome/ to simulate the 22 autosomes for a Human. 
   - - If it is slow to respond you can use a local version(see below)
