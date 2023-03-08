@@ -6,7 +6,7 @@ You have gotten access to DNA from an individual and using genetic markers acros
 
 
 
-  - Go to http://popgen.dk:3838/anders/popgen2016/Fgenome/ to simulate the 22 autosomes for a Human. 
+  - Go to http://popgen.dk:3838/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
   - - If it is slow to respond you can use a local version(see below)
   - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
 
@@ -30,7 +30,7 @@ open R on you desktop (not the server). Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runUrl("http://popgen.dk:3838/anders/popgen2016/Fgenome.tar.gz")
+runUrl("http://popgen.dk:3838/anders/popgenCourse/Fgenome.tar.gz")
 ```
   
  
