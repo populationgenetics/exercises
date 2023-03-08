@@ -4,6 +4,13 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - What the most simple pedigree that could give rise to such an estimate?
   - - Hint 1: Look at the “Estimation of inbreeding coefficient from pedigrees” slides from earlier
 
+
+ <p align="center">
+   <img  align="left" src="im.png" alt="" width=800 title="">
+ <br> 
+ </p>  
+
+
   - Go to http://popgen.dk:3838/anders/popgen2016/Fgenome/ to simulate the 22 autosomes for a Human. 
   - - If it is slow to respond you can use a local version(see below)
   - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
