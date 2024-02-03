@@ -88,7 +88,7 @@ b)  calculate the probability that the child of such a set of parents gets the d
 
 c)  use a, b & the fact that there are 60000 children to calculate how many children you expect will have healthy parents but get the disease
     
-d)  finally calculate how big of proportion this is of the 6 children who got the disease
+d)  finally calculate how big of proportion your number in c constitutes of the 6 children with the disease
 
 If you get stuck despite this hint then feel free to move to the next exercise.
 
