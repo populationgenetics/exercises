@@ -124,9 +124,10 @@ are given
     frequencies of heterozygotes.\]
 
 5)  What could have caused the differences in HW proportions between the
-    groups?
+    groups? (if you do not know, then just move to the next question)
 
-6)  What is happening among the seedling stage and the adult life stage?
+6)  What is happening among the seedling stage and the adult life stage? (if you do not know, then just move to the next exercise)
+
 
 <!---**Note 1:** It is advisable to do the calculations by hand to get used to it. 
 You
