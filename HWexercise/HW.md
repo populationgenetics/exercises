@@ -81,11 +81,16 @@ total, 60,000 children are born.
 
 Hint for question 3:
 One way to solve it is to step by step do as follows
+
 a)  calculate the probability that a random set of parents consists of two healthy carriers
+
 b)  calculate the probability that the child of such a set of parents gets the disease
+
 c)  use your answers to a and b and the fact that there are 60000 children in total to calculate how many children you 
     expect will have healthy parents and nonetheless get the disease
+    
 d)  finally calculate how big of proportion this is of the 6 children who got the disease
+
 If you get stuck despite this hint then feel free to move to the next exercise.
 
 **Exercise 2**
