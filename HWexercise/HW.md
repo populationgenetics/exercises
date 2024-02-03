@@ -17,7 +17,7 @@ The focus of these exercises is to
   - quantify deviations from Hardy-Weinberg proportions with the
     inbreeding coefficient *F*
 
-  - carry out a graphical test for multiple diallelic markers
+  - (if there is time) carry out a graphical test for multiple diallelic markers
     
       - Plotting genotypic distributions in deFinetti diagrams
     
@@ -27,7 +27,7 @@ The focus of these exercises is to
  
 **Note 1:** It is advisable to do all the calculations by hand to get used to it. 
 
-**Note 2:** Once you are familiar with R you can redo exercise 2 and 3 and do exercise 4 using 
+**Note 2:** Once you are familiar with R you can redo exercise 2 and 3. If you want to do exercise 4 you can do it using 
 Jan Graffelman’s "HardyWeinberg" R package described in the
 paper “Exploring Diallelic Genetic Markers: The HardyWeinberg Package”,
 which is available from the Comprehensive R Archive Network (CRAN) at
