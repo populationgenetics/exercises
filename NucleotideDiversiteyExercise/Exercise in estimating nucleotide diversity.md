@@ -41,8 +41,9 @@ During this exercise you will be introduced to population genetic analysis of SN
 <details><summary>click to see answer (please think a bit before)</summary>
 <p>
 	
-	Chromosome 22 was chosen because it is one of the smallest autosomal chromosomes. 
-	We would not be able to complete this exercise if we had chosen whole genomes or even one of the largest chromosomes.
+	Chromosome 22 was chosen because it is one of the smallest autosomal   
+	chromosomes.  We would not be able to complete this exercise if we  
+	had chosen whole genomes or even one of the largest chromosomes.
 	
 </p>
 </details>
@@ -137,14 +138,15 @@ less -S FILENAME.fam
 
 **Q2:** What do you see when you open the **.bed** file? Why is that? 
 
-<details><summary>click to see answer (please think a bit before)</summary>
+
+<details><summary>click to see answer</summary>
 <p>
 	
-	You should see some illegible characters, because it is a binary file made to be easily read by a computer but not so easily by humans.
+	You should see some illegible characters, because it is a binary file made to  
+	be easily read by a computer but not so easily by humans
 	
 </p>
 </details>
-
 
 Let's take a look at the **.bim** file containing all chimpanzees (“pan\_troglodytes.bim”)
 
@@ -166,7 +168,8 @@ Let's take a look at the **.bim** file containing all chimpanzees (“pan\_trogl
 <details><summary>click to see answer</summary>
 <p>
 
-	Variant information (chromosome, ID, position and alleles...) in .bim and sample information (ID, family ID, sex...) in .fam.
+	Variant information (chromosome, ID, position and alleles...) in .bim  
+    and sample information (ID, family ID, sex...) in .fam.
 
 </p>
 </details>
@@ -190,7 +193,9 @@ Let's take a look at the **.bim** file containing all chimpanzees (“pan\_trogl
 <details><summary>click to see answer</summary>
 <p>
 
-	Read depth reduces the certainty of the SNP calls, often you exclude SNPs based on sites where you only have a limited read depth. In general low depth will lead to identifying less SNPs.
+	Read depth reduces the certainty of the SNP calls, often you exclude SNPs based   
+    on sites where you only have a limited read depth. In general low depth will  
+    lead to identifying less SNPs.
 
 </p>
 </details>
@@ -209,7 +214,10 @@ Since we only included bi-allelic SNPs (i.e. SNPs with two bases), we can estima
 <details><summary>click to see answer</summary>	
 <p>
 	
-	It is not a good idea, to estimate expected heterozygosity we need to assume the genotypes are in Hardy Weinberg proportions, and when we combine genotype data from different populations we do not expect them to be in Hardy Weinberg proportions.
+	It is not a good idea, to estimate expected heterozygosity we need to assume   
+	the genotypes are in Hardy Weinberg proportions, and when we combine genotype  
+	data from different populations we do not expect them to be in Hardy Weinberg   
+	proportions.
 	
 </p>
 </details>
@@ -255,7 +263,8 @@ done
 <details><summary>click to see answer</summary>
 <p>
 	
-	12 variants removed due to missing genotype data (--geno) and 301258 variants removed due to minor allele threshold.
+	12 variants removed due to missing genotype data (--geno)  
+	and 301258 variants removed due to minor allele threshold.
 	
 </p>
 </details>
@@ -273,7 +282,10 @@ done
 
 <details><summary>click to see answer</summary>
 <p>
-	Chromosome, SNP ID, Allele 1, Allele 2, Minor Allele Frequency, Number of chromosomes
+	
+	Chromosome, SNP ID, Allele 1, Allele 2, Minor Allele Frequency,  
+	Number of chromosomes
+	
 </p>
 </details>
 
@@ -325,7 +337,13 @@ barplot(mean_hets, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfu
 <details><summary>click to see answer</summary>
 <p>
 	
-	The expected heterozygosity we have estimated is based only in variable sites, which will increase a lot the proporiton of heterozygous sites and will not necessarily be representative of the genetic diversity in the population. The estimates in Prado-Martinez et al. are proportion of heterozygosity per bp, including positions that are equal across all samples which will always be homozygous and are the majority of the genome.
+	The expected heterozygosity we have estimated is based only in  
+	variable sites, which will increase a lot the proporiton of  
+	heterozygous sites and will not necessarily be representative  
+	of the genetic diversity in the population. The estimates in 
+	Prado-Martinez et al. are proportion of heterozygosity per bp, 
+	including positions that are equal across all samples which will  
+	always be homozygous and are the majority of the genome.
 	
 </p>
 </details>
@@ -367,7 +385,8 @@ barplot(all_pi, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfurti
 <details><summary>click to see answer</summary>
 <p>
 	
-	Differences in demographic history. Europeans have gone through a population bottleneck, reducing their effective population size.
+	Differences in demographic history. Europeans have gone through a  
+	population bottleneck, reducing their effective population size.
 	
 </p>
 </details>
@@ -378,7 +397,11 @@ barplot(all_pi, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfurti
 <details><summary>click to see answer</summary>
 <p>
 
-	Rare variants will mostly be found in heterozygous state, since it is very unlikely that a low frequency variants is paired together with itself. Based on HWE proportions, the probability of finding a variant with frequency 0.01 in heterozyougs state 2 * 0.01 * 0.99 = 0.0198 while in homozyougs is 0.01 * 0.01 = 0.0001.
+	Rare variants will mostly be found in heterozygous state, since it  
+	is very unlikely that a low frequency variants is paired together  
+	with itself. Based on HWE proportions, the probability of finding  
+	a variant with frequency 0.01 in heterozygote state 
+	2 * 0.01 * 0.99 = 0.0198 while in homozygote is 0.01 * 0.01 = 0.0001.
 	
 </p>
 </details>
@@ -388,7 +411,12 @@ barplot(all_pi, names.arg=c("Nigerian_Cameroon\nellioti", "Eastern\nschweinfurti
 <details><summary>click to see answer</summary>
 <p>
 
-	The central chimpanzee as this population has the highest effective population size based on heterozygosity. We would expect the verus chimpanzee population to have the lowest effective population size. Compared to the other chimpanzee population the verus population has been isolated for a longer time at a smaller census population size.
+	The central chimpanzee as this population has the highest effective 
+	population size based on heterozygosity. We would expect the verus  
+	chimpanzee population to have the lowest effective population size. 
+	Compared to the other chimpanzee population the verus population  
+	has been isolated for a longer time at a smaller census population 
+	size.
 
 </p>
 </details>
@@ -468,7 +496,11 @@ slidingwindowPiplot(mainv=mainvv, xlab="Position", ylab=expression(paste("pi")),
 <details><summary>click to see answer</summary>
 <p>
 
-	Differences between coding and non-coding regions might reduce or increase the diversity depending on the constraint of selection. There are also differences in recombination rate and mutation rate across the chromosome, that will also influence the amount of diversity.
+	Differences between coding and non-coding regions might reduce or  
+	increase the diversity depending on the constraint of selection.  
+	There are also differences in recombination rate and mutation rate  
+	across the chromosome, that will also influence the amount of  
+	diversity.
 
 </p>
 </details>
@@ -478,7 +510,10 @@ slidingwindowPiplot(mainv=mainvv, xlab="Position", ylab=expression(paste("pi")),
 <details><summary>click to see answer</summary>
 <p>
 
-	Populations may be adapted to different environments, so there will be differences in which regions of the chromosome are more constrained by selection. They also have different population sizes and experienced different levels of genetic drift.
+	Populations may be adapted to different environments, so there  
+	will be differences in which regions of the chromosome are more  
+	constrained by selection. They also have different population  
+	sizes and experienced different levels of genetic drift.
 
 </p>
 </details>
@@ -549,7 +584,9 @@ Start by looking at the four different chimpanzee subspecies and the two human p
 <details><summary>click to see answer</summary>
 <p>
 
-	First cousin offspring has an F of around 0.0625, uncle-niece an F of 0.125 and offspring of brother sister around 0.25. Keep in mind that there is some variation around this number.
+	First cousin offspring has an F of around 0.0625, uncle-niece  
+	an F of 0.125 and offspring of brother sister around 0.25. 
+	Keep in mind that there is some variation around this number.
 
 </p>
 </details>
@@ -561,7 +598,9 @@ Now take a look at the total sample of the combined set of chimpanzees and human
 <details><summary>click to see answer</summary>
 <p>
 
-	The Wahlund effect, where we see more homozygotes than what we expect from random mating, because we pool different populations into one.
+	The Wahlund effect, where we see more homozygotes than what we  
+	expect from random mating, because we pool different populations  
+	into one.
 	
 </p>
 </details>
@@ -571,10 +610,12 @@ Now take a look at the total sample of the combined set of chimpanzees and human
 <details><summary>click to see answer</summary>
 <p>
 
-	These popualtions have less diversity, so the increase in the actual number of observed homozygous sites with respect to the expected when pooled together with the more diverse populations is higher than in the more diverse populations (YRI and troglodytes populations in humans and chimpanzees, respectively).
+	These popualtions have less diversity, so the increase in the  
+	actual number of observed homozygous sites with respect to the  
+	expected when pooled together with the more diverse populations  
+	is higher than in the more diverse populations (YRI and  
+	troglodytes populations in humans and chimpanzees, respectively).
 	
 	
 </p>
 </details>
-
-	
