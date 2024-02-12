@@ -1,4 +1,4 @@
-d# Exercise in estimating nucleotide diversity 2024
+# Exercise in estimating nucleotide diversity 2024
 
 Genís Garcia-Erill, Patrícia Chrzanová Pečnerová, Casper-Emil Pedersen, Peter Frandsen and Hans R. Siegismund
 
