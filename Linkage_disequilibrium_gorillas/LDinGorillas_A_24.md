@@ -132,7 +132,7 @@ different populations?
   <summary>Answer: </summary>
 
 <figure>
-  <img  align="left" src="LD_ex_2_link_map.png" alt="" width=600 title="">
+  <img  align="cdnter" src="LD_ex_2_link_map.png" alt="" width=600 title="">
  </figure>
 The mountain gorilla genome consists of large regions with blocks of
 high LD, while recombination has broken down such patterns in the
