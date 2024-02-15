@@ -1,6 +1,6 @@
 # Linkage Disequilibrium in Small and Large Populations of Gorillas
 
-**Peter Frandsen**
+**Peter Frandsen, Shyam Gopalakrishnan & Hans R. Siegismund**
 
 ## Program
 
@@ -134,6 +134,7 @@ different populations?
 <figure>
   <img  align="cdnter" src="LD_ex_2_link_map.png" alt="" width=600 title="">
  </figure>
+ 
 The mountain gorilla genome consists of large regions with blocks of
 high LD, while recombination has broken down such patterns in the
 western lowland gorilla.
