@@ -128,12 +128,27 @@ evince WesternLowland.eps &
 
 **Q1:** How would you characterize the structure you observe in the
 different populations?
+<details>
+  <summary>Answer: </summary>
+
+<figure>
+  <img  align="left" src="LD_ex_2_link_map.png" alt="" width=600 title="">
+ </figure>
+The mountain gorilla genome consists of large regions with blocks of
+high LD, while recombination has broken down such patterns in the
+western lowland gorilla.
+</details>
 
 **Q2:** How many (if any) recombination hotspots can you identify in the two populations (crude estimate)?
 
 Mountain gorilla:
 
 Western lowland gorilla:
+<details>
+  <summary> </summary>
+
+Mountain gorilla *at least two* Western lowland gorilla no blocks of LD in this region
+</details>
 
 ## LD decay
 In this part of today’s exercise we will explore the decay of LD as a function of distance along the chromosome. This will enable us to compare the two populations in terms of mean distances on the chromosome with sites in LD. To begin with, we will do some essential filtering procedures common to this type of analysis and then, again, read the data into R and run the analyses with snpMatrix.
@@ -146,10 +161,40 @@ plink --file lowland --maf 0.15 --geno 0 --thin 0.15 --make-bed --out lowlandLD
 ```
 
 **Q3:** Why do we exclude minor allele frequencies (i.e. the less common or rare alleles in the population)?
+<details>
+  <summary> </summary>
+
+ Newly arisen and rare mutations will
+distort the LD pattern (elevate the mean LD) Remember, every new
+mutation on a chromosome is in complete LD with the rest of the
+chromosome. For most LD analyses, we are also more interested in the
+common variation. On the plus side, we also get rid of sequencing errors
+(which are also rare, hopefully).
+</details>
 
 **Q4:** What else are we filtering away? See list of options in PLINK http://[http://pngu.mgh.harvard.edu/\~purcell/plink/reference.shtml#options](http://pngu.mgh.harvard.edu/%7Epurcell/plink/reference.shtml#options) Seems to be broken.
+<details>
+  <summary> </summary>
+
+`--geno 0` : removes all missing data
+
+`--thin 0.15` : removes a random 85 percent of the data (keeps 15
+percent), otherwise we would not get through the exercise in just two
+hours. Plus, it is not always necessary to keep all your data.
+Sometimes, only a fraction of your data will tell you the same story as
+a complete and computational heavy dataset.</details>
 
 **Q5:** How many SNP’s did we have before and after filtering?
+<details>
+  <summary> </summary>
+
+mountain gorilla: 2.521.457 SNP’s before, 23,689  SNP’s after filtering
+
+lowland gorilla: 2.521.457 SNP’s before, 48,555 SNP’s after filtering
+
+In other words, you threw away a lot of data (but you can still reach
+the same conclusion as if we had looked at the whole genome)
+</details>
 
 ### Run the commands
 
@@ -208,6 +253,11 @@ Look through the script to get an idea about what is going on.
 
 **Q6:** How many pair-wise comparisons have we done (*dep* in
 snpMatrix)?
+<details>
+  <summary> </summary>
+
+500 (ld<- ld.snp(data, dep=500))
+</details>
 
 ## 
 
@@ -264,6 +314,17 @@ together with different colors and legend (*hint: the input you will
 need was printed to four text files in the end of the scripts above*).
 
 **Q7:** Look at the two plots and explain why LD decays with distance.
+<details>
+  <summary> </summary>
+
+<figure>
+  <img  align="center" src="LD_ex_3_LD_decay.png" alt="" width=550 title="">
+ </figure>
+
+LD is broken down by recombination, with increasing distance between two
+sites, the likelihood of a recombination event increases. See plots
+above.
+</details>
 
 **Q8:** What is the mean *r2* at distance 1M (100 on the x-axis) in the
 two populations?
@@ -271,18 +332,55 @@ two populations?
 Mountain gorilla:
 
 Western lowland gorilla:
+<details>
+  <summary> </summary>
+
+Mountain gorilla: ~0.45
+
+Western lowland gorilla: ~0.15
+</details>
 
 **Q9:** What could explain any observed difference in the decay of LD in
 the two populations?
+<details>
+  <summary> </summary>
+
+Selection (genetic hitchhiking), admixture, and
+drift in course of the population history
+</details>
 
 **Q10:** These estimates are done on an autosomal chromosome, would you
 expect different LD patterns in other parts of the genome?
+<details>
+  <summary> </summary>
+
+Yes, there is no (or very little) recombination on the Y chromosome and
+the mitochondria; hence, you would not observe a decay with increasing
+distance.
+</details>
 
 ## Perspectives
 
 **Q11:** In comparison to the different populations of gorilla, how do
 you think the trajectory of the LD decay and the LD block patterns would
 look like in humans?
+<details>
+  <summary> </summary>
+
+LD decays at a rate similar to the western lowland gorilla and large
+parts of the genome will show comparable patterns in terms of LD blocks.
+Only for very small human population, that has been isolated for a long
+time, would we observe anything as extreme as in the mountain gorilla.
+</details>
 
 **Q12:** Would you also expect different patterns of LD in human
 populations (*e.g.* Chinese, Europeans, and Africans)?
+<details>
+  <summary> </summary>
+
+Populations that have gone through historic bottlenecks, been subjected
+to genetic drift, admixture or selection will on average have a higher
+degree of LD. As an example, populations that went through a bottleneck
+when they migrated out of African (*e.g.* Europeans), have on average a
+higher degree of LD compared to most African populations.
+</details>
