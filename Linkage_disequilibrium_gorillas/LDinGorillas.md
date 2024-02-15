@@ -1,6 +1,6 @@
 # Linkage Disequilibrium in Small and Large Populations of Gorillas
 
-**Peter Frandsen**
+**Peter Frandsen, Shyam Gopalakrishnan & Hans R. Siegismund**
 
 ## Program
 
