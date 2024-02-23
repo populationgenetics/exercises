@@ -121,7 +121,7 @@ table(geno[1,], useNA='a')
 
 <br />
 
-Specialized software (ex. [PCAngsd](https://doi.org/10.1534/genetics.118.301336)) can handle missing information in a clever way, but for now we will simply remove all sites that have missing information and then perform PCA with the standard R-function `prcomp`. 
+OK. So now that we have had a look at the data, let's tryt o do a PCA analysis of it. Specialized software (ex. [PCAngsd](https://doi.org/10.1534/genetics.118.301336)) can handle missing information in a clever way, but for now we will simply remove all sites that have missing information and then perform PCA with the standard R-function `prcomp`. 
 
 ```R
 # Number of missing samples per site
