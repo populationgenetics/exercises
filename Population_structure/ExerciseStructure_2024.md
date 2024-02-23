@@ -49,7 +49,9 @@ We start by creating a directory for this exercise and downloading the exome dat
 Open a terminal and copy in the following code (and note that everything in the code on a line after # is a comment and gives you a description of what the next line(s) of code does. So if you read these this should help you follow what is going on in the code):
 
 ```bash
-# Make a directory for this exercise in an appropriate folder
+# Make a directory for this exercise - NB We assume that the folder exercises exists in your
+# home folder. If not then create it first using the command mkdir ~/exercises in your home
+cd exercises
 mkdir structure
 cd structure
 
