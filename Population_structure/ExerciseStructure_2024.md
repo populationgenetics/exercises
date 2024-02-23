@@ -73,7 +73,7 @@ First, we want to look at the data (like you always should *before* doing any an
 
 <br />
 
-**Q1: How many samples and variants do the downloaded PLINK file-set consist of?**
+**Q1: How many samples and variants does the downloaded PLINK file-set consist of?**
 
 <br />
 
