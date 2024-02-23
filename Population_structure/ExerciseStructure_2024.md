@@ -72,6 +72,7 @@ and a separate file containing assumed population info for each sample.
 First, we want to look at the data (like you always should *before* doing any analyses). The command `wc -l FILENAME` counts the number of lines in a given file (if you replace "FILENAME" by the name of that file). Use this and the information about the content of the files to answer the following question:
 
 <br />
+
 **Q1: How many samples and variants do the downloaded PLINK file-set consist of?**
 
 <br />
