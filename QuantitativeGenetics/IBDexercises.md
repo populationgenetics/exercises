@@ -6,7 +6,7 @@ You have gotten access to DNA from an individual and using genetic markers acros
 
 
 
-  - Go to http://popgen.dk:3838/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
+  - Go to http://pontus.popgen.dk:3838/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
   - - If it is slow to respond you can use a local version(see below)
   - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
 
@@ -22,7 +22,7 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - Look in table https://www.researchgate.net/profile/Alan-Bittles-2/publication/38114212/figure/tbl1/AS:601713388052509@1520471059919/Human-genetic-relationships.png  of simple consanguineous pedigrees.  Does your range overlap with the expected inbreeding coefficients?
   
   - Try a few simulations of some of the other simple pedigrees and try to see which pedigrees could explain your estimated inbreeding value of 0.062?
-  - If you infer the inbreeding tracks of your individuals the results will look like this http://popgen.dk/albrecht/embo2015/FforInd.png. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
+  - If you infer the inbreeding tracks of your individuals the results will look like this http://pontus.popgen.dk/albrecht/embo2015/FforInd.png. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
 
 
 ## run locally 
@@ -30,7 +30,7 @@ open R on you desktop (not the server). Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runUrl("http://popgen.dk:3838/anders/popgenCourse/Fgenome.tar.gz")
+runUrl("http://pontus.popgen.dk:3838/anders/popgenCourse/Fgenome.tar.gz")
 ```
   
  
@@ -63,7 +63,7 @@ Here is shown the IBD sharing between two individuals on chromosome 1.
   - These individuals share two regions IBD. What assumption do we have to have in order to conclude that the disease causing locus is in one of these regions?
   - For relatedness mapping do you think it is best to have close or distantly related individuals?
   - Try to guess the number of generations that separate these two individuals?
-  - They are actually separated by 14 generations. Try to see if you can get a similar pattern using simulations http://popgen.dk:3838/anders/popgen2016/Rgenome/
+  - They are actually separated by 14 generations. Try to see if you can get a similar pattern using simulations http://pontus.popgen.dk:3838/anders/popgen2016/Rgenome/
   - - If slow then run locally (see below)
   - What explains the difference between your simulations and above plot?
 
@@ -74,6 +74,6 @@ log into popgen servers and open R. Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runUrl("http://popgen.dk:3838/anders/popgen2016/Rgenome.tar.gz")
+runUrl("http://pontus.popgen.dk:3838/anders/popgen2016/Rgenome.tar.gz")
 ```
   
