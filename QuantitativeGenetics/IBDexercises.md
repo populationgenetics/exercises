@@ -2,7 +2,7 @@
 You have gotten access to DNA from an individual and using genetic markers across the genome you estimate that the inbreeding coefficient to F=0.062
   - Is this high compared to what you would expect for a Human?
   - What the most simple pedigree that could give rise to such an estimate?
-  - - Hint 1: Look at the “Estimation of inbreeding coefficient from pedigrees” slides from earlier
+  - - Hint 1: Look at the “Expectations of inbreeding coefficient from pedigrees” slides from earlier
 
 
 
