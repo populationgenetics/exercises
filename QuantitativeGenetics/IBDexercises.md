@@ -75,6 +75,6 @@ log into popgen servers and open R. Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runUrl("http://pontus.popgen.dk:3838/anders/popgen2016/Rgenome.tar.gz")
+runUrl("http://pontus.popgen.dk:3838/anders/popgenCourse/Rgenome.tar.gz")
 ```
   
