@@ -6,23 +6,24 @@ You have gotten access to DNA from an individual and using genetic markers acros
 
 
 
-  - Go to http://pontus.popgen.dk:3838/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
-  - - If it is slow to respond you can use a local version(see below)
-  - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
+ - Go to http://pontus.popgen.dk:3838/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
+ - - If it is slow to respond you can use a local version(see below)
+ - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
 
 
  <p align="center">
    <img  align="left" src="im.png" alt="" width=800 title="">
  <br> 
  </p>  
-- Note the simulated inbreeding coefficient for this individual. Why is it not the same as the F you entered?
-  - Note the length of the inbreeding tracts. What determines how long they are?
-  - Note the number of chromosomes that do not have inbreeding tracts. Try to draw how this might happen
-  - Try to get an idea of the range of possible inbreeding coefficients by trying multiple simulations (still using the same F)
-  - Look in table https://www.researchgate.net/profile/Alan-Bittles-2/publication/38114212/figure/tbl1/AS:601713388052509@1520471059919/Human-genetic-relationships.png  of simple consanguineous pedigrees.  Does your range overlap with the expected inbreeding coefficients?
+ 
+ - Note the simulated inbreeding coefficient for this individual. Why is it not the same as the F you entered?
+ - - Note the length of the inbreeding tracts. What determines how long they are?
+ - - Note the number of chromosomes that do not have inbreeding tracts. Try to draw how this might happen
+ - - Try to get an idea of the range of possible inbreeding coefficients by trying multiple simulations (still using the same F)
+ - - Look in table https://www.researchgate.net/profile/Alan-Bittles-2/publication/38114212/figure/tbl1/AS:601713388052509@1520471059919/Human-genetic-relationships.png  of simple consanguineous pedigrees.  Does your range overlap with the expected inbreeding coefficients?
   
-  - Try a few simulations of some of the other simple pedigrees and try to see which pedigrees could explain your estimated inbreeding value of 0.062?
-  - If you infer the inbreeding tracks of your individuals the results will look like this http://pontus.popgen.dk/albrecht/embo2015/FforInd.png. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
+ - Try a few simulations of some of the other simple pedigrees and try to see which pedigrees could explain your estimated inbreeding value of 0.062?
+ - If you infer the inbreeding tracks of your individuals the results will look like this http://pontus.popgen.dk/albrecht/embo2015/FforInd.png. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
 
 
 ## run locally 
