@@ -100,6 +100,8 @@ bash ./scripts/1_clean_data.sh
 ```
 Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. Essentially, a program called plink just took each of the salmon population panel files and applied some filters to clean them up. 
 
+* Questions *
+
 1. Check the output text produced by running plink on your files. What are the salmon sample sizes and number of genetic loci used in the analysis of each population. Why do they differ?
 
 2. Check the text produced by running plink on your files/look at the plink commands. What are the reasons that some variants are removed in the filtering step? Why do you think it’s important to remove them? See here for an explanation of all the filters implemented in plink: https://www.cog-genomics.org/plink/1.9/filter
@@ -133,22 +135,36 @@ display ./plots/PCA.pink_salmon.clean.png
 What would you type to see the second file? Try and compare the two figures.
 -->
  #### Calculate LD 
-
+Now calculate LD in each of the populations using this script: 
 ```bash 
 bash ./scripts/4_calculate_LD.sh
 ```
-see: [./scripts/4_calculate_LD.sh](./scripts/4_calculate_LD.sh) to see the commands that are executed, or see [./4_calculate_LD.md](./4_calculate_LD.md) for an anotated version that describes each line.
+see: [./scripts/4_calculate_LD.sh](./scripts/4_calculate_LD.sh) to see the commands that are executed, or see [./4_calculate_LD.md](./4_calculate_LD.md) for an anotated version that describes each line. 
+
+* Questions *
+1. What does the r<sup>2</sup> statistic measure? How is r<sup>2</sup> related to D?
+
+2. How is our estimate of LD affected by sample size?  
+
+3. Do we want to include or exclude estimates of LD for locus pairs on the same chromosome when we estimate Ne? Why?
+
 
 ####  Estimate Ne
+Now try to use your estimates of LD to estimate Ne by running the following script:
 
 ```bash
 Rscript ./scripts/5_estimate_Ne.r
 ```
 see: [./scripts/5_estimate_Ne.r](./scripts/5_estimate_Ne.r) to see just the commands that are executed, or see [./5_estimate_Ne.ipynb](./5_estimate_Ne.ipynb) for an anotated version that describes each line.
 
-Becuase it can be very computationally intensive, I have omitted calculating confidence intervals for the Ne estimates, with a bootstrap or jackknife procedure.  There is still research into the best was to provide accurate confidence intervals with the LD method of estimating Ne.  See [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201619a.html) and also [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201660a.html) for some discussion of this issue.
+* Questions *
+1. Try to go the [./scripts/R_functions.r](./scripts/R_functions.r) and look for the place where Ne is estimated. Which formula was used to estimate Ne? Why do you think this was used?
+
+NB. Because it can be very computationally intensive, I have omitted calculating confidence intervals for the Ne estimates, with a bootstrap or jackknife procedure.  There is still research into the best was to provide accurate confidence intervals with the LD method of estimating Ne.  See [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201619a.html) and also [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201660a.html) for some discussion of this issue.
 
 #### Plot the Ne and Nc estimates
+Now let's try to plot the Ne and Nc estimates by running this script:
+
 ```bash
 Rscript ./scripts/6_plot_Ne_Nc.r
 ```
@@ -163,7 +179,6 @@ display [path_to_image]
 
 ##### Barplot of the population-specific effective population size estimates
 * ./plots/Ne_estimates.png
-
 
 ##### Barplot of the population-specific effective and census population size estimates
 You can see how large some populations are in absolute number.
@@ -194,7 +209,7 @@ bash ./do_everything
 #### Extra task if you have time
 
 
-## Questions 
+<!-- ## Questions 
 
 ### 1_clean_data
         
@@ -204,7 +219,7 @@ bash ./do_everything
 
 3. Why is it important to separate each population before calculating LD?
     
-<!-- ### 2_do_PCA & 3_plot_PCA
+### 2_do_PCA & 3_plot_PCA
 
 1. What is shown in the first few axes of the PCA projection? What does each dot represent?
 
@@ -218,7 +233,7 @@ bash ./do_everything
     
 4. Here we analyzed all six populations together. Would it have been useful to perform PCA on the data from each population separately? What would that reveal?
 
--->
+
 ### 4_calculate_r2
 
 1. What does the r<sup>2</sup> statistic measure?  How is r<sup>2</sup> related to D?
@@ -240,6 +255,8 @@ bash ./do_everything
 2. Can you calculate the relative signal (due to Ne) and the noise (due to sample size?) in the mean r2 value? 
 
 3. Given time and money how would you improve this analysis - more samples? more loci? more populations? What more would you want to research about the pink salmon populations in order to understand the Ne/Nc ratios?
+
+-->
 
 ## Data sources 
 * [Seeb et al 2014](http://onlinelibrary.wiley.com/doi/10.1111/mec.12769/abstract)
