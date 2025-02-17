@@ -195,7 +195,7 @@ bash ./do_everything
 
 3. Why is it important to separate each population before calculating LD?
     
-### 2_do_PCA & 3_plot_PCA
+<!-- ### 2_do_PCA & 3_plot_PCA
 
 1. What is shown in the first few axes of the PCA projection? What does each dot represent?
 
@@ -208,7 +208,8 @@ bash ./do_everything
     * Give a possible laboratory explanation  
     
 4. Here we analyzed all six populations together. Would it have been useful to perform PCA on the data from each population separately? What would that reveal?
-    
+
+-->
 ### 4_calculate_r2
 
 1. What does the r<sup>2</sup> statistic measure?  How is r<sup>2</sup> related to D?
