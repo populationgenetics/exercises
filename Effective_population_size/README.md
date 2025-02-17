@@ -4,8 +4,8 @@
 
 ## Program
 * Download pink salmon data, apply filters. (`Plink`)
-* Visualize the effect of data filters with a PCA. (`Plink` and `R`)
-* Explore patterns of population structure pink salmon. (`Plink` and `R`)
+<!-- * Visualize the effect of data filters with a PCA. (`Plink` and `R`) --> 
+<!-- * Explore patterns of population structure pink salmon. (`Plink` and `R`) --> 
 * Estimate pairwise linkage disequilibrium (LD) between all SNPs in each population. (`Plink`)
 * Use the LD estimates to estimate effective population size (N<sub>e</sub>) in each population. (`R`)
 * Compare estimates of the census (N<sub>c</sub>) and effective (N<sub>e</sub>) population sizes.   
@@ -13,7 +13,7 @@
 ## Learning outcomes
 * Get confortable with using PLINK for common filtering procedures.
 * Get confortable with using R for data analysis and plotting.
-* Consider the impact that filtering and data quality has on different analyses.
+<!-- * Consider the impact that filtering and data quality has on different analyses. --> 
 * Understand the relationship between LD and N<sub>e</sub>.
 * Understand the how N<sub>e</sub> and N<sub>c</sub> vary in natural populations. 
 
