@@ -1,5 +1,4 @@
 # Estimation of recent effective population size in pink salmon
-## Population Genetics MSc course, University of Copenhagen
 ##### Modified from an exercise originally written by Ryan Waples.
 
 ## Data
