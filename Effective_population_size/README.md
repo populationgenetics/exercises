@@ -98,8 +98,13 @@ Now go back to the main directory (maybe ~/exercises/Effective_population_size o
 ```bash
 bash ./scripts/1_clean_data.sh 
 ```
-Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. Essentially, a program called plink just took each of the salmon population panel files and applied some filters to clean them up. See if you can figure out what each of the filters did. Otherwise, talk to your partner or ask your instructor.
+Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. Essentially, a program called plink just took each of the salmon population panel files and applied some filters to clean them up. 
 
+1. Check the output text produced by running plink on your files. What are the salmon sample sizes and number of genetic loci used in the analysis of each population. Why do they differ?
+
+2. Check the text produced by running plink on your files/look at the plink commands. What are the reasons that some variants are removed in the filtering step? Why do you think it’s important to remove them? See here for an explanation of all the filters implemented in plink: https://www.cog-genomics.org/plink/1.9/filter
+
+3. Why is it important to separate each population before calculating LD?
 <!-- #### Perform PCA on the data before and after filtering
 
 We'll perform a principal component analysis (PCA) on our genetic data. PCAs are a way of summarizing large multi-dimensional datasets into a few axes of variation (we'll cover them in more detail next week). In this case, we have many dimensions (thousands of loci) and the frequencies of particular alleles at each of these loci all carry some information about the average genetic relationships between the individuals we are studying. We'll try to summarize this large quantity of information into the two strongest axes of variation (principal component 1 and principal component 2), which we will then plot, so as to understand how our individuals are related to each other. Importantly, we need to make sure that the sites we use to compute our PCA are actually polymorphisms (variable sites) that do not have large amounts of sequencing errors (so that we can be confident about whether an allele is absent or present in an individual).
