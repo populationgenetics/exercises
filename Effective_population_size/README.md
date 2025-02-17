@@ -2,8 +2,10 @@
 ## Population Genetics MSc course, University of Copenhagen
 ##### Modified from an exercise originally written by Ryan Waples.
 
+## Data
+
 ## Program
-* Download pink salmon data, apply filters. (`Plink`)
+* Download pink salmon data, split the data into six populations and apply filters. (`Plink`)
 <!-- * Visualize the effect of data filters with a PCA. (`Plink` and `R`) --> 
 <!-- * Explore patterns of population structure pink salmon. (`Plink` and `R`) --> 
 * Estimate pairwise linkage disequilibrium (LD) between all SNPs in each population. (`Plink`)
@@ -72,10 +74,10 @@ We will go over each of these scripts in turn.
 * Clone or download this repository (to be run in terminal from ~/exercises or a similar directory)
 
 ```bash
-git clone https://github.com/FerRacimo/popgen-pink-salmon.git
+git clone https://github.com/populationgenetics/Effective_population_size.git
 cd popgen-pink-salmon
 ```
-**or**
+<!-- **or**
 ```bash
 mkdir popgen-pink-salmon
 cd popgen-pink-salmon
@@ -83,14 +85,14 @@ wget https://api.github.com/repos/FerRacimo/popgen-pink-salmon/tarball/master -O
 ```
 
 **or**
-* go to the [repository](https://github.com/FerRacimo/popgen-pink-salmon) on Github and click **Clone or download** and then **Download ZIP**.  Download and unzip the repository in the appropriate directory.  Notice the name of the directory might have a 'master' suffix.
+* go to the [repository](https://github.com/FerRacimo/popgen-pink-salmon) on Github and click **Clone or download** and then **Download ZIP**.  Download and unzip the repository in the appropriate directory.  Notice the name of the directory might have a 'master' suffix. -->
 
 
 ### Running the analyses
 
 Before we get started, take a look at the files in the data folder. Can you read what is inside them?
 
-Now go back to the main directory (maybe ~/exercises/popgen-pink-salmon or somewhere else depending on where you downloaded the folder) and begin running the analysis scripts detailed below.
+Now go back to the main directory (maybe ~/exercises/Effective_population_size or somewhere else depending on where you downloaded the folder) and begin running the analysis scripts detailed below.
 
 #### Filter the data 
 ```bash
@@ -183,6 +185,8 @@ You can run [./do_everything](./do_everything) to re-run the entire analysis:
 ``` bash 
 bash ./do_everything
 ```
+
+#### Extra task if you have time
 
 
 ## Questions 
