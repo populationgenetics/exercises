@@ -1,0 +1,11 @@
+#mkdir popgen2018-pink_salmon
+#cd popgen2018-pink_salmon
+#wget https://api.github.com/repos/rwaples/popgen2018-pink_salmon/tarball/master -O - | tar xz --strip=1
+
+#bash ./scripts/0_get_data.sh 
+bash ./scripts/1_clean_data.sh 
+bash ./scripts/2_do_PCA.sh 
+Rscript ./scripts/3_plot_PCA.r
+bash ./scripts/4_calculate_LD.sh 
+Rscript ./scripts/5_estimate_Ne.r
+Rscript ./scripts/6_plot_Ne_Nc.r
