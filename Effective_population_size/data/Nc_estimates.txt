@@ -1,0 +1,8 @@
+Pop	Site	Lineage	Nc_est
+Nome_ODD	Nome	ODD	300000
+Nome_EVEN	Nome	EVEN	10000
+Koppen_ODD	Koppen	ODD	200000
+Koppen_EVEN	Koppen	EVEN	200000
+Puget_ODD	Puget	ODD	1400000
+Puget_EVEN	Puget	EVEN	4000
+
