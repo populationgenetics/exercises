@@ -38,7 +38,7 @@ We have samples from adult fish from six pink salmon populations at three differ
 3. [Snohomish River](https://www.google.dk/maps/place/Snohomish+River/@47.9214779,-122.2607548,11z/data=!3m1!4b1!4m5!3m4!1s0x549aaadae1303f37:0x5bdf1b360c1dc900!8m2!3d47.9215631!4d-122.1206718), Puget Slound, Washington state, USA
    * Near Seattle, WA
 
-![Alt text](images/samling_locations.png)
+![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sampling_locations.png)
     
 Rough estimates of the census population sizes (N<sub>c</sub>).
 
