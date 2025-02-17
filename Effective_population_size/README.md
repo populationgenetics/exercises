@@ -96,9 +96,9 @@ Now go back to the main directory (maybe ~/exercises/popgen-pink-salmon or somew
 ```bash
 bash ./scripts/1_clean_data.sh 
 ```
-Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. Essentially, a program called plink just took each of the salmon population panel files and applied some filters to clean them up. See if you can figure out what each of the filters did. Otheriwse, talk to your patner or ask you instructor.
+Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. Essentially, a program called plink just took each of the salmon population panel files and applied some filters to clean them up. See if you can figure out what each of the filters did. Otherwise, talk to your partner or ask your instructor.
 
-#### Perform PCA on the data before and after filtering
+<!-- #### Perform PCA on the data before and after filtering
 
 We'll perform a principal component analysis (PCA) on our genetic data. PCAs are a way of summarizing large multi-dimensional datasets into a few axes of variation (we'll cover them in more detail next week). In this case, we have many dimensions (thousands of loci) and the frequencies of particular alleles at each of these loci all carry some information about the average genetic relationships between the individuals we are studying. We'll try to summarize this large quantity of information into the two strongest axes of variation (principal component 1 and principal component 2), which we will then plot, so as to understand how our individuals are related to each other. Importantly, we need to make sure that the sites we use to compute our PCA are actually polymorphisms (variable sites) that do not have large amounts of sequencing errors (so that we can be confident about whether an allele is absent or present in an individual).
 
@@ -124,7 +124,7 @@ display ./plots/PCA.pink_salmon.clean.png
 ```
 
 What would you type to see the second file? Try and compare the two figures.
-
+-->
  #### Calculate LD 
 
 ```bash 
