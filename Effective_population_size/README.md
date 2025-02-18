@@ -176,7 +176,7 @@ see: [./scripts/5_estimate_Ne.r](./scripts/5_estimate_Ne.r) to see the commands 
 *Questions*
 1. Try to go the [./scripts/R_functions.r](./scripts/R_functions.r) and look for the place where N<sub>e</sub> is estimated. Which formula was used for the estimation? Why do you think this was used?
 
-NB. Because it can be very computationally intensive, I have omitted calculating confidence intervals for the Ne estimates, with a bootstrap or jackknife procedure.  There is still research into the best was to provide accurate confidence intervals with the LD method of estimating Ne.  See [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201619a.html) and also [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201660a.html) for some discussion of this issue.
+NB. Because it can be very computationally intensive, I have omitted calculating confidence intervals for the Ne estimates, with a bootstrap or jackknife procedure.  There is still research into the best was to provide accurate confidence intervals with the LD method of estimating Ne. See [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201619a.html) and also [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201660a.html) for some discussion of this issue.
 
 ### Plot the Ne and Nc estimates
 Now let's try to plot the Ne and Nc estimates by running this script:
@@ -186,15 +186,15 @@ Rscript ./scripts/6_plot_Ne_Nc.r
 ```
 see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see the commands that are executed. <!--, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line. -->
 
-This will create three plots looking at Ne and Nc in the six pink salmon populations:
+This will create two plots looking at Ne and Nc in the six pink salmon populations:
 
 1. Barplot of the population-specific effective population size estimates: ./plots/Ne_estimates.png
 
 2. Barplot of the population-specific effective and census population size estimates: ./plots/Ne_and_Nc_estimates.png
 
-3. A log-scaled version of the above plot: ./plots/Ne_and_Nc_estimates_log-scaled.png
+<!--3. A log-scaled version of the above plot: ./plots/Ne_and_Nc_estimates_log-scaled.png
 
-<!--4. Looking at the Ne/Nc ratios: ./plots/Ne-Nc_ratios.png -->
+4. Looking at the Ne/Nc ratios: ./plots/Ne-Nc_ratios.png -->
 
 Try to look at the plots. Each plot can be viewed with 
 ```bash
@@ -206,7 +206,7 @@ display [path_to_image]
 2. Based on your estimates of effective population size, which population do you expect to have be most affected by genetic drift? Which ones do you expect to be the least affected?-->
 
 1. How well does the census size match the N<sub>e</sub>?
-2. What can explain the differences between the census sizes and the N<sub>e</sub>? 
+2. What could explain the differences between the census sizes and the N<sub>e</sub>? 
 
 <!--
 #### And also a heatmap of the r^2 matrix used in the Ne estimate
