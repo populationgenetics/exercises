@@ -161,10 +161,11 @@ see: [./scripts/4_calculate_LD.sh](./scripts/4_calculate_LD.sh) to see the comma
 
 2. How is our estimate of LD affected by sample size? --> 
 
-1. Do we want to include or exclude estimates of LD for locus pairs on the same chromosome when we estimate N<sub>e<\sub>? Why?
+1. Look at the plink commands: which measure of LD did we estimate?
+2. Do we want to include or exclude estimates of LD for locus pairs on the same chromosome when we estimate N<sub>e</sub>? Why?
 
 
-###  Estimate Ne
+###  Estimate N<sub>e</sub>
 Now try to use your estimates of LD to estimate Ne by running the following script:
 
 ```bash
