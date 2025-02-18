@@ -154,8 +154,8 @@ bash ./scripts/4_calculate_LD.sh
 ```
 see: [./scripts/4_calculate_LD.sh](./scripts/4_calculate_LD.sh) to see the commands that are executed, or see [./4_calculate_LD.md](./4_calculate_LD.md) for an anotated version that describes each line. 
 
-* Questions *
-1. What does the r<sup>2</sup> statistic measure? How is r<sup>2</sup> related to D?
+*Questions*
+1. What does the r<sup>2</sup> statistic measure? 
 
 2. How is our estimate of LD affected by sample size?  
 
@@ -170,7 +170,7 @@ Rscript ./scripts/5_estimate_Ne.r
 ```
 see: [./scripts/5_estimate_Ne.r](./scripts/5_estimate_Ne.r) to see just the commands that are executed, or see [./5_estimate_Ne.ipynb](./5_estimate_Ne.ipynb) for an anotated version that describes each line.
 
-* Questions *
+*Questions*
 1. Try to go the [./scripts/R_functions.r](./scripts/R_functions.r) and look for the place where Ne is estimated. Which formula was used to estimate Ne? Why do you think this was used?
 
 NB. Because it can be very computationally intensive, I have omitted calculating confidence intervals for the Ne estimates, with a bootstrap or jackknife procedure.  There is still research into the best was to provide accurate confidence intervals with the LD method of estimating Ne.  See [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201619a.html) and also [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201660a.html) for some discussion of this issue.
@@ -181,28 +181,28 @@ Now let's try to plot the Ne and Nc estimates by running this script:
 ```bash
 Rscript ./scripts/6_plot_Ne_Nc.r
 ```
-see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see just the commands that are executed, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an anotated version that describes each line.
+see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see just the commands that are executed, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line.
 
-This will create four plots looking at Ne and Nc in the six pink salmon populations.
+This will create four plots looking at Ne and Nc in the six pink salmon populations:
 
-Each plot can be viewed with 
+1. Barplot of the population-specific effective population size estimates: ./plots/Ne_estimates.png
+
+2. Barplot of the population-specific effective and census population size estimates: ./plots/Ne_and_Nc_estimates.png
+
+3. A log-scaled version of the above plot: ./plots/Ne_and_Nc_estimates_log-scaled.png
+
+4. Looking at the Ne/Nc ratios: ./plots/Ne-Nc_ratios.png
+
+Try to look at the plots. Each plot can be viewed with 
 ```bash
 display [path_to_image]
 ```
+*Questions*
+1. Which lineage of pink salmon has higher N<sub>e</sub> in the north, south, and middle of the range?
 
-##### Barplot of the population-specific effective population size estimates
-* ./plots/Ne_estimates.png
+2. Based on your estimates of effective population size, which population do you expect to have be most affected by genetic drift? Which ones do you expect to be the least affected?
 
-##### Barplot of the population-specific effective and census population size estimates
-You can see how large some populations are in absolute number.
-* ./plots/Ne_and_Nc_estimates.png
-
-##### A log-scaled version of the above plot.
-* ./plots/Ne_and_Nc_estimates_log-scaled.png
-
-##### Looking at the Ne/Nc ratios
-* ./plots/Ne-Nc_ratios.png
-
+<!--
 #### And also a heatmap of the r^2 matrix used in the Ne estimate
 In these plots yellow is low LD and orange is high LD. You can see the raw r2 values in your ./work/Puget_EVEN.ld and similar files.
 * ./plots/LD_Koppen_EVEN.png
@@ -212,14 +212,19 @@ In these plots yellow is low LD and orange is high LD. You can see the raw r2 va
 * ./plots/LD_Puget_EVEN.png
 * ./plots/LD_Puget_ODD.png
 
-#### All together
-You can run [./do_everything](./do_everything) to re-run the entire analysis:
+-->
 
+#### Extra task if you have time
+Try to do the same but using the other estimator you were presented in class. To do so you have to change some code in scripts/R_functions.r on the server. 
+
+After doing this you can re-run all the code again in one go by typing 
 ``` bash 
 bash ./do_everything
 ```
 
-#### Extra task if you have time
+*Questions*
+1. How much did the Ne estimates change?
+2. Try to explain why.
 
 
 <!-- ## Questions 
