@@ -292,6 +292,7 @@ bash ./do_everything
 ## Part 2: Estimating effective population size using Wattorson's estimator of Theta
 Rasmus showed this figure in his slides:
 
+![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sfs1dx.png)
 
 Notice that in the upper right hand corner there is an estimate of the percentage of sites that are polymorphic in the five different populations based on 18 individuals per populations. Let's focus on two of these: 
 - YRI (Africans from Nigeria)
