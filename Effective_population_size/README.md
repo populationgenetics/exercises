@@ -174,7 +174,7 @@ Rscript ./scripts/5_estimate_Ne.r
 see: [./scripts/5_estimate_Ne.r](./scripts/5_estimate_Ne.r) to see the commands that are executed <!-- , or see [./5_estimate_Ne.ipynb](./5_estimate_Ne.ipynb) for an anotated version that describes each line. -->
 
 *Questions*
-1. Try to go the [./scripts/R_functions.r](./scripts/R_functions.r) and look for the place where Ne is estimated. Which formula was used to estimate Ne? Why do you think this was used?
+1. Try to go the [./scripts/R_functions.r](./scripts/R_functions.r) and look for the place where N<sub>e</sub> is estimated. Which formula was used for the estimation? Why do you think this was used?
 
 NB. Because it can be very computationally intensive, I have omitted calculating confidence intervals for the Ne estimates, with a bootstrap or jackknife procedure.  There is still research into the best was to provide accurate confidence intervals with the LD method of estimating Ne.  See [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201619a.html) and also [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201660a.html) for some discussion of this issue.
 
@@ -280,7 +280,6 @@ bash ./do_everything
 
 3. Given time and money how would you improve this analysis - more samples? more loci? more populations? What more would you want to research about the pink salmon populations in order to understand the Ne/Nc ratios?
 
--->
 
 ## Data sources 
 * [Seeb et al 2014](http://onlinelibrary.wiley.com/doi/10.1111/mec.12769/abstract)
