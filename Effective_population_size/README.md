@@ -3,29 +3,27 @@
 ## Part 1: estimating recent effective population size in pink salmon using LD
 ##### Modified from an exercise originally written by Ryan Waples.
 
-### Data
-
 ### Program
-* Download pink salmon data, split the data into six populations and apply filters. (`Plink`)
 <!-- * Visualize the effect of data filters with a PCA. (`Plink` and `R`) --> 
 <!-- * Explore patterns of population structure pink salmon. (`Plink` and `R`) --> 
+* Download pink salmon data, split the data into six populations and apply filters. (`Plink`)
 * Estimate pairwise linkage disequilibrium (LD) between all SNPs in each population. (`Plink`)
 * Use the LD estimates to estimate effective population size (N<sub>e</sub>) in each population. (`R`)
 * Compare estimates of the census (N<sub>c</sub>) and effective (N<sub>e</sub>) population sizes.   
 
 ### Learning outcomes
-* Get confortable with using PLINK for common filtering procedures.
-* Get confortable with using R for data analysis and plotting.
+<!-- * Get confortable with using R for data analysis and plotting.-->
 <!-- * Consider the impact that filtering and data quality has on different analyses. --> 
+* Get more confortable with using PLINK for common filtering procedures.
 * Understand the relationship between LD and N<sub>e</sub>.
 * Understand the how N<sub>e</sub> and N<sub>c</sub> vary in natural populations. 
 
 ### Background reading (Nielsen and Slatkin)
-* Wright-Fisher Model: p. 22-27
 * Effective population size: p. 43-46
 * Linkage Disequilibrium: p. 108-112, including boxes 6.1-6.3
+<!-- * Wright-Fisher Model: p. 22-27 -->
 
-### Pink salmon
+### Pink salmon data
 Pink salmon in the Pacific have an obligate 2 year life-cycle; they live to be 2 years old, reproduce, then die. This results in two reproductively isolated lineages, in the odd and even years.
 "Pink salmon, a highly abundant and widely ranging salmonid, provide a naturally occurring opportunity to study the effects of similar environments on divergent genetic backgrounds due to a strict two-year semelparous life history. The species is composed of two reproductively isolated lineages with overlapping ranges that share the same spawning and rearing environments in alternate years."  (Seeb et al 2014)
 
@@ -53,13 +51,13 @@ Rough estimates of the census population sizes (N<sub>c</sub>).
 |**Even-year** | Koppen Cr. | 200K (metapopulation) [(source)](http://www.adfg.alaska.gov/FedAidPDFs/FMR13-46.pdf) |?|?|
 |**Even-year** | Puget S.   | 4K [(source)](https://data.wa.gov/Natural-Resources-Environment/WDFW-Salmonid-Stock-Inventory-Population-Escapemen/fgyz-n3uk) |?|?|
 
-## How to use this document.
+<!-- ## How to use this document.
 You are reading README.md, a markdown document that decribes the exercise.
 
 About the *.ipynb files.  These are [Jupyter](http://jupyter.org/) notebook files that help organize and communicate the analyses in this exercise.  You can view these (non-interactively) on [Github](https://github.com/FerRacimo/popgen-pink-salmon).
 
-
 #### Sub-directories
+
 * ./data - raw data, this will be provided
 * ./scripts - analysis files
     - *.sh files contain code meant to be run in the terminal
@@ -71,6 +69,7 @@ About the *.ipynb files.  These are [Jupyter](http://jupyter.org/) notebook file
 How to run this exercise. Navigate to a desired base directory and then you can execute all the analyses in this exercise with this series of commands:
 
 We will go over each of these scripts in turn.
+-->
 
 #### Getting started
 * Clone or download this repository (to be run in terminal from ~/exercises or a similar directory)
@@ -170,7 +169,7 @@ Now try to use your estimates of LD to estimate Ne by running the following scri
 ```bash
 Rscript ./scripts/5_estimate_Ne.r
 ```
-see: [./scripts/5_estimate_Ne.r](./scripts/5_estimate_Ne.r) to see just the commands that are executed, or see [./5_estimate_Ne.ipynb](./5_estimate_Ne.ipynb) for an anotated version that describes each line.
+see: [./scripts/5_estimate_Ne.r](./scripts/5_estimate_Ne.r) to see the commands that are executed <!-- , or see [./5_estimate_Ne.ipynb](./5_estimate_Ne.ipynb) for an anotated version that describes each line. -->
 
 *Questions*
 1. Try to go the [./scripts/R_functions.r](./scripts/R_functions.r) and look for the place where Ne is estimated. Which formula was used to estimate Ne? Why do you think this was used?
@@ -183,7 +182,7 @@ Now let's try to plot the Ne and Nc estimates by running this script:
 ```bash
 Rscript ./scripts/6_plot_Ne_Nc.r
 ```
-see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see just the commands that are executed, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line.
+see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see the commands that are executed. <!--, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line. -->
 
 This will create three plots looking at Ne and Nc in the six pink salmon populations:
 
