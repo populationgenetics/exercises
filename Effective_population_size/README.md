@@ -95,7 +95,7 @@ Before we get started, let's take a look at the files in the data folder. First 
 ```bash
 ls data/ 
 ```
-The bim file contains a line per locus and the fam file contains a line per sample. Try to use the commandline program wc (a program that can count lines in files) to assess how many indivuals and loci you have in your dataset. E.g. you get the number of lines in the bim file by writing:
+The bim file contains a line per locus and the fam file contains a line per sample. Try to use the commandline program wc (a program that can count lines in files) to assess how many individuals and loci you have in your dataset. E.g. you get the number of lines in the bim file by writing:
 ```bash
 wc -l data/pink_salmon.bim 
 ```
