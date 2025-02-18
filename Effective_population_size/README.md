@@ -112,7 +112,7 @@ bash ./scripts/1_clean_data.sh
 ```
 Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. <!-- Essentially, the program called plink just took each of the salmon population panel files and applied some filters to clean them up. -->
 
-**Questions*
+**Questions**
 
 1. Check the output text produced by running plink on your files. What are the salmon sample sizes and number of genetic loci used in the analysis of each population. Why do they differ?
 
