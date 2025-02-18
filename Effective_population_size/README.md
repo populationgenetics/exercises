@@ -24,13 +24,13 @@
 * Linkage Disequilibrium: p. 108-112, including boxes 6.1-6.3
 * Wright-Fisher Model: p. 22-27 -->
  
-### Pink salmon data
+### Pink salmon 
 Pink salmon in the Pacific have an obligate 2 year life-cycle; they live to be 2 years old, reproduce, then die. This results in two reproductively isolated lineages, in the odd and even years.
 "Pink salmon, a highly abundant and widely ranging salmonid, provide a naturally occurring opportunity to study the effects of similar environments on divergent genetic backgrounds due to a strict two-year semelparous life history. The species is composed of two reproductively isolated lineages with overlapping ranges that share the same spawning and rearing environments in alternate years."  (Seeb et al 2014)
 
+#### Collection sites, north to south
 We have samples from adult fish from six pink salmon populations at three different sites.  At each site we have samples from both the odd- and even-year lineage.   
 
-#### Collection sites, north to south
 1. [Nome River](https://www.google.dk/maps?q=Nome+River+alaska&um=1&ie=UTF-8&sa=X&ved=0ahUKEwjD1r25s8XSAhVGhywKHbOPB4QQ_AUICSgC), Norten Sound, Alaska, USA
     * Nome, Alaska is the end of the [Iditarod dog sled race](http://iditarod.com/)
 2. [Koppen Creek](https://www.google.dk/maps/@60.4782575,-143.7244104,7z), Prince William Sound, Alaska, USA
@@ -40,7 +40,7 @@ We have samples from adult fish from six pink salmon populations at three differ
 
 ![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sampling_locations.png)
     
-Rough estimates of the census population sizes (N<sub>c</sub>).
+####Rough estimates of the census population sizes (N<sub>c</sub>).
 
 | Lineage      | Population |N<sub>c</sub>| N<sub>e</sub> |
 |----------    |------------|------------:|--------------:|
@@ -72,7 +72,7 @@ How to run this exercise. Navigate to a desired base directory and then you can 
 We will go over each of these scripts in turn.
 -->
 
-#### Getting started
+### Getting started
 * Clone or download this repository (to be run in terminal from ~/exercises or a similar directory)
 
 ```bash
@@ -90,7 +90,7 @@ wget https://api.github.com/repos/FerRacimo/popgen-pink-salmon/tarball/master -O
 * go to the [repository](https://github.com/FerRacimo/popgen-pink-salmon) on Github and click **Clone or download** and then **Download ZIP**.  Download and unzip the repository in the appropriate directory.  Notice the name of the directory might have a 'master' suffix. -->
 
 
-#### Looking at the data
+### Getting a quick overview of the data
 Before we get started, let's take a look at the files in the data folder. First list the files:
 ```bash
 ls data/ 
@@ -107,7 +107,7 @@ cut -d" " -f1 data/pink_salmon.fam | sort | uniq -c
 Now let's begin running the analysis scripts detailed below.
 <!--  cut -c1 data/pink_salmon.bim | sort | uniq -c -->
 
-#### Divide and filter the data 
+### Divide and filter the data 
 We start by dividing the data into a dataset for each of the 6 populations and filtering each of these. To do so we run the following command
 ```bash
 bash ./scripts/1_clean_data.sh 
@@ -149,7 +149,7 @@ display ./plots/PCA.pink_salmon.clean.png
 
 What would you type to see the second file? Try and compare the two figures.
 -->
- #### Calculate LD 
+ ### Calculate LD 
 Now calculate LD in each of the populations using this script: 
 ```bash 
 bash ./scripts/4_calculate_LD.sh
@@ -164,7 +164,7 @@ see: [./scripts/4_calculate_LD.sh](./scripts/4_calculate_LD.sh) to see the comma
 3. Do we want to include or exclude estimates of LD for locus pairs on the same chromosome when we estimate Ne? Why?
 
 
-####  Estimate Ne
+###  Estimate Ne
 Now try to use your estimates of LD to estimate Ne by running the following script:
 
 ```bash
@@ -177,7 +177,7 @@ see: [./scripts/5_estimate_Ne.r](./scripts/5_estimate_Ne.r) to see the commands 
 
 NB. Because it can be very computationally intensive, I have omitted calculating confidence intervals for the Ne estimates, with a bootstrap or jackknife procedure.  There is still research into the best was to provide accurate confidence intervals with the LD method of estimating Ne.  See [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201619a.html) and also [this paper](http://www.nature.com/hdy/journal/v117/n4/full/hdy201660a.html) for some discussion of this issue.
 
-#### Plot the Ne and Nc estimates
+### Plot the Ne and Nc estimates
 Now let's try to plot the Ne and Nc estimates by running this script:
 
 ```bash
