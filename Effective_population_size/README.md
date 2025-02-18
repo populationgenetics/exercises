@@ -97,10 +97,15 @@ The bim file contains a line per locus and the fam file contains a line per samp
 ```bash
 wc -l data/pink_salmon.bim 
 ```
+Finally try to see how many samples you have form each population:
+```bash
+cut -d" " -f1 data/pink_salmon.fam | sort | uniq -c
+```
+
 Now let's begin running the analysis scripts detailed below.
 <!--  cut -c1 data/pink_salmon.bim | sort | uniq -c -->
 
-#### Filter the data 
+#### Divide and filter the data 
 We start by dividing the data into a dataset for each of the 6 populations and filtering each of these. To do so we run the following command
 ```bash
 bash ./scripts/1_clean_data.sh 
