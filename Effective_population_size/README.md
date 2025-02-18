@@ -24,7 +24,7 @@
 * Linkage Disequilibrium: p. 108-112, including boxes 6.1-6.3
 * Wright-Fisher Model: p. 22-27 -->
  
-### Pink salmon 
+### Background info on Pink salmon and the samples 
 Pink salmon in the Pacific have an obligate 2 year life-cycle; they live to be 2 years old, reproduce, then die. This results in two reproductively isolated lineages, in the odd and even years.
 "Pink salmon, a highly abundant and widely ranging salmonid, provide a naturally occurring opportunity to study the effects of similar environments on divergent genetic backgrounds due to a strict two-year semelparous life history. The species is composed of two reproductively isolated lineages with overlapping ranges that share the same spawning and rearing environments in alternate years."  (Seeb et al 2014)
 
