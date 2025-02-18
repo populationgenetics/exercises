@@ -108,7 +108,7 @@ Now let's begin running the analysis scripts detailed below.
 <!--  cut -c1 data/pink_salmon.bim | sort | uniq -c -->
 
 ### Divide and filter the data 
-We start by dividing the data into a dataset for each of the 6 populations and filtering each of these. To do so we run the following command
+We start by dividing the data into a dataset for each of the 6 populations and filtering each of these. To do so we run the following command 
 ```bash
 bash ./scripts/1_clean_data.sh 
 ```
@@ -166,7 +166,7 @@ see: [./scripts/4_calculate_LD.sh](./scripts/4_calculate_LD.sh) to see the comma
 
 
 ###  Estimate N<sub>e</sub>
-Now try to use your estimates of LD to estimate Ne by running the following script:
+Now try to use your estimates of LD to estimate Ne by running the following R script:
 
 ```bash
 Rscript ./scripts/5_estimate_Ne.r
@@ -289,6 +289,7 @@ bash ./do_everything
 ### Further reading
 * [Tarpey et al 2017](http://www.nrcresearchpress.com/doi/full/10.1139/cjfas-2017-0023)
 * [Kovach et al 2012](http://rspb.royalsocietypublishing.org/content/279/1743/3870.short)
+-->
 
 ## Part 2: Estimating effective population size using Watterson's estimator of Theta
 This Monday Rasmus showed the follwoing figure in his slides:
