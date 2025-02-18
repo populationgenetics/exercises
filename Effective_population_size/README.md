@@ -311,5 +311,5 @@ Let's in a few steps estimate the effective population sizes for these two popul
 
 5.  Does it make sense that YRI has a higher  N<sub>e</sub> than CEU? 
 
-6. If there is time estimate N<sub>e</sub> for GR (the Greenlandic populations) as well. How does that compare with N<sub>e</sub for the other two populations? And does it make sense why?
+6. If there is time estimate N<sub>e</sub> for GR (the Greenlandic populations) as well. How does that compare with N<sub>e</sub> for the other two populations? And does it make sense why?
 
