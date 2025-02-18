@@ -157,11 +157,11 @@ bash ./scripts/4_calculate_LD.sh
 see: [./scripts/4_calculate_LD.sh](./scripts/4_calculate_LD.sh) to see the commands that are executed, or see [./4_calculate_LD.md](./4_calculate_LD.md) for an anotated version that describes each line. 
 
 *Questions*
-1. What does the r<sup>2</sup> statistic measure? 
+<!--1. What does the r<sup>2</sup> statistic measure? 
 
-2. How is our estimate of LD affected by sample size?  
+2. How is our estimate of LD affected by sample size? --> 
 
-3. Do we want to include or exclude estimates of LD for locus pairs on the same chromosome when we estimate Ne? Why?
+1. Do we want to include or exclude estimates of LD for locus pairs on the same chromosome when we estimate N<sub>e<\sub>? Why?
 
 
 ###  Estimate Ne
