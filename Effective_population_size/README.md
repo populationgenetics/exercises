@@ -13,25 +13,25 @@
 * Use the LD estimates to estimate effective population size (N<sub>e</sub>) in each population. (`R`)
 * Compare estimates of the census (N<sub>c</sub>) and effective (N<sub>e</sub>) population sizes.   
 
-## Learning outcomes
+### Learning outcomes
 * Get confortable with using PLINK for common filtering procedures.
 * Get confortable with using R for data analysis and plotting.
 <!-- * Consider the impact that filtering and data quality has on different analyses. --> 
 * Understand the relationship between LD and N<sub>e</sub>.
 * Understand the how N<sub>e</sub> and N<sub>c</sub> vary in natural populations. 
 
-## Background reading (Nielsen and Slatkin)
+### Background reading (Nielsen and Slatkin)
 * Wright-Fisher Model: p. 22-27
 * Effective population size: p. 43-46
 * Linkage Disequilibrium: p. 108-112, including boxes 6.1-6.3
 
-## Pink salmon
+### Pink salmon
 Pink salmon in the Pacific have an obligate 2 year life-cycle; they live to be 2 years old, reproduce, then die. This results in two reproductively isolated lineages, in the odd and even years.
 "Pink salmon, a highly abundant and widely ranging salmonid, provide a naturally occurring opportunity to study the effects of similar environments on divergent genetic backgrounds due to a strict two-year semelparous life history. The species is composed of two reproductively isolated lineages with overlapping ranges that share the same spawning and rearing environments in alternate years."  (Seeb et al 2014)
 
 We have samples from adult fish from six pink salmon populations at three different sites.  At each site we have samples from both the odd- and even-year lineage.   
 
-### Collection sites, north to south
+#### Collection sites, north to south
 1. [Nome River](https://www.google.dk/maps?q=Nome+River+alaska&um=1&ie=UTF-8&sa=X&ved=0ahUKEwjD1r25s8XSAhVGhywKHbOPB4QQ_AUICSgC), Norten Sound, Alaska, USA
     * Nome, Alaska is the end of the [Iditarod dog sled race](http://iditarod.com/)
 2. [Koppen Creek](https://www.google.dk/maps/@60.4782575,-143.7244104,7z), Prince William Sound, Alaska, USA
@@ -59,7 +59,7 @@ You are reading README.md, a markdown document that decribes the exercise.
 About the *.ipynb files.  These are [Jupyter](http://jupyter.org/) notebook files that help organize and communicate the analyses in this exercise.  You can view these (non-interactively) on [Github](https://github.com/FerRacimo/popgen-pink-salmon).
 
 
-### Sub-directories
+#### Sub-directories
 * ./data - raw data, this will be provided
 * ./scripts - analysis files
     - *.sh files contain code meant to be run in the terminal
@@ -67,12 +67,12 @@ About the *.ipynb files.  These are [Jupyter](http://jupyter.org/) notebook file
 * ./work - intermediate data files and results
 * ./plots - figures and plots
 
-## Exercise
+### Exercise
 How to run this exercise. Navigate to a desired base directory and then you can execute all the analyses in this exercise with this series of commands:
 
 We will go over each of these scripts in turn.
 
-### Getting started
+#### Getting started
 * Clone or download this repository (to be run in terminal from ~/exercises or a similar directory)
 
 ```bash
@@ -90,7 +90,7 @@ wget https://api.github.com/repos/FerRacimo/popgen-pink-salmon/tarball/master -O
 * go to the [repository](https://github.com/FerRacimo/popgen-pink-salmon) on Github and click **Clone or download** and then **Download ZIP**.  Download and unzip the repository in the appropriate directory.  Notice the name of the directory might have a 'master' suffix. -->
 
 
-### Running the analyses
+#### Looking at the data
 Before we get started, let's take a look at the files in the data folder. First list the files:
 ```bash
 ls data/ 
@@ -217,7 +217,6 @@ In these plots yellow is low LD and orange is high LD. You can see the raw r2 va
 * ./plots/LD_Puget_EVEN.png
 * ./plots/LD_Puget_ODD.png
 
--->
 
 #### Extra task if you have time
 Try to do the same but using the other estimator you were presented in class. To do so you have to change some code in scripts/R_functions.r on the server. 
@@ -231,6 +230,7 @@ bash ./do_everything
 1. How much did the Ne estimates change?
 2. Try to explain why.
 
+-->
 
 <!-- ## Questions 
 
@@ -288,3 +288,25 @@ bash ./do_everything
 ### Further reading
 * [Tarpey et al 2017](http://www.nrcresearchpress.com/doi/full/10.1139/cjfas-2017-0023)
 * [Kovach et al 2012](http://rspb.royalsocietypublishing.org/content/279/1743/3870.short)
+
+## Part 2: Estimating effective population size using Wattorson's estimator of Theta
+Rasmus showed this figure in his slides:
+
+
+Notice that in the upper right hand corner there is an estimate of the percentage of sites that are polymorphic in the five different populations based on 18 individuals per populations. Let's focus on two of these: 
+- YRI (Africans from Nigeria)
+- CEU (Utah residents with Northern and Western European ancestry)
+
+Let's in a few steps estimate the effective population sizes for these two populations based on the shown percentages:
+
+1. Assuming the shown percentages are estimated from 1.000.000.000 sites in each populations, how many segrating sites does that mean is present in the 18 individuals in each of the populations?
+
+2. Based on that what would be the Watterson's estimate for Theta in the 2 different populations?
+
+3. Mutation rate per generation per locus in human has been estimated to around 1.2*10<sup>-8</sup> (so for a sequence consisting of  1.000.000.000 sites, $\mu$ = 1.000.000.000 * 1.2*10<sup>-8</sup>  = 12). Use this and the fact that we can estimated N<sup>e</sup> as $\theta$/(4*$\mu$) to estimate N<sup>e</sup> for the 4 population.
+
+4.  Are the N<sup>e</sup> higer or lower than you had expected?
+
+5.  Does it make sense that YRI has a higher  N<sub>e</sub> than CEU? 
+
+
