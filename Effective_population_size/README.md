@@ -11,6 +11,7 @@
 * Use the LD estimates to estimate effective population size (N<sub>e</sub>) in each population. (`R`)
 * Compare estimates of the census (N<sub>c</sub>) and effective (N<sub>e</sub>) population sizes.   
 
+<!-- 
 ### Learning outcomes
 <!-- * Get confortable with using R for data analysis and plotting.-->
 <!-- * Consider the impact that filtering and data quality has on different analyses. --> 
@@ -22,7 +23,8 @@
 * Effective population size: p. 43-46
 * Linkage Disequilibrium: p. 108-112, including boxes 6.1-6.3
 <!-- * Wright-Fisher Model: p. 22-27 -->
-
+ -->
+ 
 ### Pink salmon data
 Pink salmon in the Pacific have an obligate 2 year life-cycle; they live to be 2 years old, reproduce, then die. This results in two reproductively isolated lineages, in the odd and even years.
 "Pink salmon, a highly abundant and widely ranging salmonid, provide a naturally occurring opportunity to study the effects of similar environments on divergent genetic backgrounds due to a strict two-year semelparous life history. The species is composed of two reproductively isolated lineages with overlapping ranges that share the same spawning and rearing environments in alternate years."  (Seeb et al 2014)
