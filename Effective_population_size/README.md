@@ -74,8 +74,8 @@ We will go over each of these scripts in turn.
 * Clone or download this repository (to be run in terminal from ~/exercises or a similar directory)
 
 ```bash
-git clone https://github.com/populationgenetics/exercises/Effective_population_size.git
-cd Effective_population_size
+git clone https://github.com/FerRacimo/popgen-pink-salmon.git
+cd popgen-pink-salmon
 ```
 <!-- **or**
 ```bash
