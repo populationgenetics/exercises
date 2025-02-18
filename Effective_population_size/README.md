@@ -40,7 +40,7 @@ We have samples from adult fish from six pink salmon populations at three differ
 
 ![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sampling_locations.png)
     
-####Rough estimates of the census population sizes (N<sub>c</sub>).
+#### Rough estimates of the census population sizes (N<sub>c</sub>).
 
 | Lineage      | Population |N<sub>c</sub>| N<sub>e</sub> |
 |----------    |------------|------------:|--------------:|
