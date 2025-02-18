@@ -116,9 +116,9 @@ Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_c
 
 *Questions*
 
-1. Check the text produced by running plink on your files/look at the plink commands. What are the reasons that some variants are removed in the filtering step? Why do you think it’s important to remove them? See here for an explanation of all the filters implemented in plink: https://www.cog-genomics.org/plink/1.9/filter
+1. Check look at the plink commands. What are the reasons that some variants are removed in the filtering step? Why do you think it’s important to remove them? See here for an explanation of all the filters implemented in plink: https://www.cog-genomics.org/plink/1.9/filter
 
-2. Check the output text produced by running plink on your files. What are the salmon sample sizes and does that match what you found out above? And how many sites are there for each population (and why is is not the same in all populations?
+2. Check the output text produced by running plink on your files: what are the salmon sample sizes and does that match what you found out above? And how many sites are there for each population (and why is is not the same in all populations?
 
 3. Why is it important to separate each population before calculating LD?
 
