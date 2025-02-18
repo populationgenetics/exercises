@@ -97,7 +97,7 @@ The bim file contains a line per locus and the fam file contains a line per samp
 ```bash
 wc -l data/pink_salmon.bim 
 ```
-Finally try to see how many samples you have form each population:
+Finally try to see how many samples you have from each population:
 ```bash
 cut -d" " -f1 data/pink_salmon.fam | sort | uniq -c
 ```
