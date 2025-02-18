@@ -1,9 +1,11 @@
-# Estimation of recent effective population size in pink salmon
+# Estimation of effective populations size
+
+## Part 1: estimating recent effective population size in pink salmon using LD
 ##### Modified from an exercise originally written by Ryan Waples.
 
-## Data
+### Data
 
-## Program
+### Program
 * Download pink salmon data, split the data into six populations and apply filters. (`Plink`)
 <!-- * Visualize the effect of data filters with a PCA. (`Plink` and `R`) --> 
 <!-- * Explore patterns of population structure pink salmon. (`Plink` and `R`) --> 
