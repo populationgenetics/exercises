@@ -295,20 +295,21 @@ This Monday Rasmus showed the following figure in his slides:
 
 ![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sfs1dx.png)
 
-Notice that in the upper right hand corner there is an estimate of the percentage of sites that are polymorphic in the five different populations based on 18 individuals per populations. Let's focus on two of these: 
+Notice that in the upper right hand corner there is an estimate of the percentage of sites that are polymorphic in the five different populations based on 18 individuals per populations. We will here focus on two of these: 
 - YRI (Africans from Nigeria)
 - CEU (Utah residents with Northern and Western European ancestry)
 
 Let's in a few steps estimate the effective population sizes for these two populations based on the shown percentages:
 
-1. Assuming the shown percentages are estimated from 1.000.000.000 sites in each populations, how many segrating sites does that mean is present in the 18 individuals in each of the populations?
+1. Assuming the shown percentages are estimated from 1.000.000.000 sites in each population, how many segrating sites does that mean is present in the 18 individuals in each of the two populations?
 
-2. Based on that what would be the Watterson's estimate for &Theta; in the 2 different populations?
+2. Based on that what is the Watterson's estimate for &Theta; in the 2 different populations?
 
-3. Mutation rate per generation per locus in humans has been estimated to around 1.2 * 10<sup>-8</sup> (so for a sequence consisting of  1.000.000.000 sites, &mu; = 1.000.000.000 * 1.2 * 10<sup>-8</sup>  = 12). Use this and the fact that we can estimated N<sub>e</sub> as &Theta;/(4*&mu;) to estimate N<sub>e</sub> for the 4 population.
+3. The mutation rate per generation per locus in humans has been estimated to around 1.2 * 10<sup>-8</sup> (so for a sequence consisting of  1.000.000.000 sites, &mu; = 1.000.000.000 * 1.2 * 10<sup>-8</sup>  = 12). Use this and the fact that we can estimated N<sub>e</sub> as &Theta;/(4*&mu;) to estimate N<sub>e</sub> for the two populations.
 
 4.  Are the N<sub>e</sub> higher or lower than you had expected?
 
 5.  Does it make sense that YRI has a higher  N<sub>e</sub> than CEU? 
 
+6. If there is time estimate N<sub>e</sub> for GR (the Greenlandic populations) as well. How does that compare with N<sub>e</sub for the other two populations? And does it make sense why?
 
