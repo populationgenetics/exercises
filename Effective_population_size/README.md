@@ -289,7 +289,7 @@ bash ./do_everything
 * [Tarpey et al 2017](http://www.nrcresearchpress.com/doi/full/10.1139/cjfas-2017-0023)
 * [Kovach et al 2012](http://rspb.royalsocietypublishing.org/content/279/1743/3870.short)
 
-## Part 2: Estimating effective population size using Wattorson's estimator of Theta
+## Part 2: Estimating effective population size using Watterson's estimator of Theta
 This Monday Rasmus showed the follwoing figure in his slides:
 
 ![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sfs1dx.png)
@@ -304,7 +304,7 @@ Let's in a few steps estimate the effective population sizes for these two popul
 
 2. Based on that what would be the Watterson's estimate for Theta in the 2 different populations?
 
-3. Mutation rate per generation per locus in human has been estimated to around 1.2*10<sup>-8</sup> (so for a sequence consisting of  1.000.000.000 sites, $\mu$ = 1.000.000.000 * 1.2*10<sup>-8</sup>  = 12). Use this and the fact that we can estimated N<sup>e</sup> as $\theta$/(4*$\mu$) to estimate N<sup>e</sup> for the 4 population.
+3. Mutation rate per generation per locus in human has been estimated to around 1.2*10<sup>-8</sup> (so for a sequence consisting of  1.000.000.000 sites, &mu; = 1.000.000.000 * 1.2*10<sup>-8</sup>  = 12). Use this and the fact that we can estimated N<sup>e</sup> as $\theta$/(4*$\mu$) to estimate N<sup>e</sup> for the 4 population.
 
 4.  Are the N<sup>e</sup> higer or lower than you had expected?
 
