@@ -290,7 +290,7 @@ bash ./do_everything
 * [Kovach et al 2012](http://rspb.royalsocietypublishing.org/content/279/1743/3870.short)
 
 ## Part 2: Estimating effective population size using Wattorson's estimator of Theta
-Rasmus showed this figure in his slides:
+This Monday Rasmus showed the follwoing figure in his slides:
 
 ![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sfs1dx.png)
 
