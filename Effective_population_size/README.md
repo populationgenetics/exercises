@@ -90,17 +90,21 @@ wget https://api.github.com/repos/FerRacimo/popgen-pink-salmon/tarball/master -O
 
 ### Running the analyses
 
-Before we get started, take a look at the files in the data folder. Can you read what is inside them?
-
-Now go back to the main directory (maybe ~/exercises/Effective_population_size or somewhere else depending on where you downloaded the folder) and begin running the analysis scripts detailed below.
+Before we get started, take a look at the files in the data folder. The bim file contains a line per locus and the fam file contains a line per sample. Try to use wc (a program that cna count lines in files to assess how many indivuals and loci you have in your dataset. E.g. you get the number of lines in the bim file by writing:
+```bash
+wc -l data/pink_salmon.bim 
+```
+Now let's begin running the analysis scripts detailed below.
+<!--  cut -c1 data/pink_salmon.bim | sort | uniq -c -->
 
 #### Filter the data 
+We start by dividing the data into a dataset for each of the 6 populations and filtering each of these. To do so we run the following command
 ```bash
 bash ./scripts/1_clean_data.sh 
 ```
-Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. Essentially, a program called plink just took each of the salmon population panel files and applied some filters to clean them up. 
+Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_clean_data.sh](./scripts/1_clean_data.sh) to see the commands that were just executed, or see [./1_clean_data.md](./1_clean_data.md) for an anotated version that describes each line. <!-- Essentially, the program called plink just took each of the salmon population panel files and applied some filters to clean them up. -->
 
-* Questions *
+**Questions*
 
 1. Check the output text produced by running plink on your files. What are the salmon sample sizes and number of genetic loci used in the analysis of each population. Why do they differ?
 
