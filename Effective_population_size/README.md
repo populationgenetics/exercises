@@ -12,18 +12,17 @@
 * Compare estimates of the census (N<sub>c</sub>) and effective (N<sub>e</sub>) population sizes.   
 
 <!-- 
-### Learning outcomes
+### Learning outcomes --> 
 <!-- * Get confortable with using R for data analysis and plotting.-->
 <!-- * Consider the impact that filtering and data quality has on different analyses. --> 
-* Get more confortable with using PLINK for common filtering procedures.
+<!--* Get more confortable with using PLINK for common filtering procedures.
 * Understand the relationship between LD and N<sub>e</sub>.
 * Understand the how N<sub>e</sub> and N<sub>c</sub> vary in natural populations. 
 
 ### Background reading (Nielsen and Slatkin)
 * Effective population size: p. 43-46
 * Linkage Disequilibrium: p. 108-112, including boxes 6.1-6.3
-<!-- * Wright-Fisher Model: p. 22-27 -->
- -->
+* Wright-Fisher Model: p. 22-27 -->
  
 ### Pink salmon data
 Pink salmon in the Pacific have an obligate 2 year life-cycle; they live to be 2 years old, reproduce, then die. This results in two reproductively isolated lineages, in the odd and even years.
