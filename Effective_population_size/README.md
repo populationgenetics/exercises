@@ -116,7 +116,7 @@ Wow! A whole lot of text just got dumped into your terminal. See: [./scripts/1_c
 
 1. Check the text produced by running plink on your files/look at the plink commands. What are the reasons that some variants are removed in the filtering step? Why do you think it’s important to remove them? See here for an explanation of all the filters implemented in plink: https://www.cog-genomics.org/plink/1.9/filter
 
-2. Check the output text produced by running plink on your files. What are the salmon sample sizes and does that match what you foudn out above? And how many sites are there in for each population (and why is is not the same in all populations?
+2. Check the output text produced by running plink on your files. What are the salmon sample sizes and does that match what you found out above? And how many sites are there for each population (and why is is not the same in all populations?
 
 3. Why is it important to separate each population before calculating LD?
 
@@ -183,7 +183,7 @@ Rscript ./scripts/6_plot_Ne_Nc.r
 ```
 see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see just the commands that are executed, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line.
 
-This will create four plots looking at Ne and Nc in the six pink salmon populations:
+This will create three plots looking at Ne and Nc in the six pink salmon populations:
 
 1. Barplot of the population-specific effective population size estimates: ./plots/Ne_estimates.png
 
@@ -191,16 +191,19 @@ This will create four plots looking at Ne and Nc in the six pink salmon populati
 
 3. A log-scaled version of the above plot: ./plots/Ne_and_Nc_estimates_log-scaled.png
 
-4. Looking at the Ne/Nc ratios: ./plots/Ne-Nc_ratios.png
+<!--4. Looking at the Ne/Nc ratios: ./plots/Ne-Nc_ratios.png -->
 
 Try to look at the plots. Each plot can be viewed with 
 ```bash
 display [path_to_image]
 ```
 *Questions*
-1. Which lineage of pink salmon has higher N<sub>e</sub> in the north, south, and middle of the range?
+<!-- 1. Which lineage of pink salmon has higher N<sub>e</sub> in the north, south, and middle of the range?
 
-2. Based on your estimates of effective population size, which population do you expect to have be most affected by genetic drift? Which ones do you expect to be the least affected?
+2. Based on your estimates of effective population size, which population do you expect to have be most affected by genetic drift? Which ones do you expect to be the least affected?-->
+
+1. How well does the census size match the N<sub>e</sub>?
+2. What can explain the differences between the census sizes and the N<sub>e</sub>? 
 
 <!--
 #### And also a heatmap of the r^2 matrix used in the Ne estimate
