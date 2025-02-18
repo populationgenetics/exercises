@@ -42,15 +42,15 @@ We have samples from adult fish from six pink salmon populations at three differ
     
 Rough estimates of the census population sizes (N<sub>c</sub>).
 
-| Lineage      | Population |N<sub>c</sub>| N<sub>e</sub> | Ratio |
-|----------    |------------|------------:|--------------:|-------|
-| **Odd-year** | Nome R.    | ~300K [(source)](http://www.adfg.alaska.gov/index.cfm?adfg=commercialbyareanortonsound.salmon_escapement) |?|?|
+| Lineage      | Population |N<sub>c</sub>| N<sub>e</sub> |
+|----------    |------------|------------:|--------------:|
+| **Odd-year** | Nome R.    | ~300K [(source)](http://www.adfg.alaska.gov/index.cfm?adfg=commercialbyareanortonsound.salmon_escapement) |?|
 | **Odd-year** | Koppen Cr. | 200K (metapopulation)  [(source)](http://www.adfg.alaska.gov/FedAidPDFs/FMR14-43.pdf) |?|?|
-| **Odd-year** | Puget S.   | ~1.4M [(source)](https://data.wa.gov/Natural-Resources-Environment/WDFW-Salmonid-Stock-Inventory-Population-Escapemen/fgyz-n3uk) |?|?|
+| **Odd-year** | Puget S.   | ~1.4M [(source)](https://data.wa.gov/Natural-Resources-Environment/WDFW-Salmonid-Stock-Inventory-Population-Escapemen/fgyz-n3uk) |?|
 |              |            |             |||
-|**Even-year** | Nome R.    | ~10K [(source)](http://www.adfg.alaska.gov/index.cfm?adfg=commercialbyareanortonsound.salmon_escapement) |?|?|
+|**Even-year** | Nome R.    | ~10K [(source)](http://www.adfg.alaska.gov/index.cfm?adfg=commercialbyareanortonsound.salmon_escapement) |?|
 |**Even-year** | Koppen Cr. | 200K (metapopulation) [(source)](http://www.adfg.alaska.gov/FedAidPDFs/FMR13-46.pdf) |?|?|
-|**Even-year** | Puget S.   | 4K [(source)](https://data.wa.gov/Natural-Resources-Environment/WDFW-Salmonid-Stock-Inventory-Population-Escapemen/fgyz-n3uk) |?|?|
+|**Even-year** | Puget S.   | 4K [(source)](https://data.wa.gov/Natural-Resources-Environment/WDFW-Salmonid-Stock-Inventory-Population-Escapemen/fgyz-n3uk) |?|
 
 <!-- ## How to use this document.
 You are reading README.md, a markdown document that decribes the exercise.
