@@ -187,7 +187,7 @@ Rscript ./scripts/6_plot_Ne_Nc.r
 see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see the commands that are execute (however, just skip looking at this unless you are very curious because, because it contains code makes a lot of plots which we won't spend time on here) 
 <!--, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line. -->
 
-Try to look at ./plots/Ne_and_Nc_estimates.png using display:   
+Try to look at plots/Ne_and_Nc_estimates.png using display:   
 <!--
 
 looking at Ne and Nc in the six pink salmon populations:
@@ -201,7 +201,7 @@ looking at Ne and Nc in the six pink salmon populations:
 
 Try to look at the plots. Each plot can be viewed with  -->
 ```bash 
-display /plots/Ne_estimates.png
+display plots/Ne_and_Nc_estimates.png 
 ```
 *Questions*
 <!-- 1. Which lineage of pink salmon has higher N<sub>e</sub> in the north, south, and middle of the range?
