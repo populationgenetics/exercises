@@ -184,9 +184,9 @@ Now let's try to plot the Ne and Nc estimates by running this script:
 ```bash
 Rscript ./scripts/6_plot_Ne_Nc.r
 ```
-see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see the commands that are executed. <!--, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line. -->
+see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see the commands that are execute (however, just skip looking at this unless you are very curious because, because it contains code makes a lot of plots which we won't spend time on here) <!--, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line. -->
 
-This will create a few plots of Ne and Nc. Try to look at ./plots/Ne_and_Nc_estimates.png using display:   
+Try to look at ./plots/Ne_and_Nc_estimates.png using display:   
 
 <!--
 
