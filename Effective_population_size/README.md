@@ -184,10 +184,10 @@ Now let's try to plot the Ne and Nc estimates by running this script:
 ```bash
 Rscript ./scripts/6_plot_Ne_Nc.r
 ```
-see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see the commands that are execute (however, just skip looking at this unless you are very curious because, because it contains code makes a lot of plots which we won't spend time on here) <!--, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line. -->
+see: [./scripts/6_plot_Ne_Nc.r](./scripts/6_plot_Ne_Nc.r) to see the commands that are execute (however, just skip looking at this unless you are very curious because, because it contains code makes a lot of plots which we won't spend time on here) 
+<!--, or see [./6_plot_Ne_Nc.ipynb](./6_plot_Ne_Nc.ipynb) for an annotated version that describes each line. -->
 
 Try to look at ./plots/Ne_and_Nc_estimates.png using display:   
-
 <!--
 
 looking at Ne and Nc in the six pink salmon populations:
@@ -195,9 +195,9 @@ looking at Ne and Nc in the six pink salmon populations:
 
 2. Barplot of the population-specific effective and census population size estimates: ./plots/Ne_and_Nc_estimates.png
 
-<!--3. A log-scaled version of the above plot: ./plots/Ne_and_Nc_estimates_log-scaled.png
+3. A log-scaled version of the above plot: ./plots/Ne_and_Nc_estimates_log-scaled.png
 
-4. Looking at the Ne/Nc ratios: ./plots/Ne-Nc_ratios.png -->
+4. Looking at the Ne/Nc ratios: ./plots/Ne-Nc_ratios.png
 
 Try to look at the plots. Each plot can be viewed with  -->
 ```bash 
