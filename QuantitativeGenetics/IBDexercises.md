@@ -31,7 +31,7 @@ open R on you desktop (not the server). Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runUrl("https://popgen.dk:anders/popgenCourse/Fgenome.tar.gz")
+runUrl("https://popgen.dk/shiny/anders/popgenCourse/Fgenome.tar.gz")
 ```
   
  
@@ -64,17 +64,17 @@ Here is shown the IBD sharing between two individuals on chromosome 1.
   - These individuals share two regions IBD. What assumption do we have to have in order to conclude that the disease causing locus is in one of these regions?
   - For relatedness mapping do you think it is best to have close or distantly related individuals?
   - Try to guess the number of generations that separate these two individuals?
-  - They are actually separated by 14 generations. Try to see if you can get a similar pattern using simulations http://pontus.popgen.dk:3838/anders/popgen2016/Rgenome/
+  - They are actually separated by 14 generations. Try to see if you can get a similar pattern using simulations https://popgen.dk/shiny/anders/popgen2016/Rgenome/
   - - If slow then run locally (see below)
   - What explains the difference between your simulations and above plot?
 
 
 
 ## run locally 
-log into popgen servers and open R. Then run
+Open R or R studio and then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runUrl("http://pontus.popgen.dk:3838/anders/popgenCourse/Rgenome.tar.gz")
+runUrl("https://popgen.dk/shiny/anders/popgenCourse/Rgenome.tar.gz")
 ```
   
