@@ -6,7 +6,7 @@ You have gotten access to DNA from an individual and using genetic markers acros
 
 
 
- - Go to http://pontus.popgen.dk:3838/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
+ - Go to https://popgen.dk/shiny/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
  - - If it is slow to respond you can use a local version(see below)
  - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
 
@@ -23,7 +23,7 @@ You have gotten access to DNA from an individual and using genetic markers acros
  - - Look in table https://www.researchgate.net/profile/Alan-Bittles-2/publication/38114212/figure/tbl1/AS:601713388052509@1520471059919/Human-genetic-relationships.png  of simple consanguineous pedigrees.  Does your range overlap with the expected inbreeding coefficients?
   
  - Try a few simulations of some of the other simple pedigrees and try to see which pedigrees could explain your estimated inbreeding value of 0.062?
- - If you infer the inbreeding tracks of your individuals the results will look like this http://pontus.popgen.dk/albrecht/embo2015/FforInd.png. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
+ - If you infer the inbreeding tracks of your individuals the results will look like this https://popgen.dk/albrecht/embo2015/FforInd.png. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
 
 
 ## run locally 
@@ -31,7 +31,7 @@ open R on you desktop (not the server). Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
-runUrl("http://pontus.popgen.dk:3838/anders/popgenCourse/Fgenome.tar.gz")
+runUrl("https://popgen.dk:anders/popgenCourse/Fgenome.tar.gz")
 ```
   
  
