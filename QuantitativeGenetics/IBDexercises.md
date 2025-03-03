@@ -6,7 +6,8 @@ You have gotten access to DNA from an individual and using genetic markers acros
 
 
 
- - Go to https://popgen.dk/shiny/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human. 
+ - Go to https://popgen.dk/shiny/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human.
+ - - NB!. The link does not work if you are using the KU VPN. 
  - - If it is slow to respond you can use a local version(see below)
  - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
 
