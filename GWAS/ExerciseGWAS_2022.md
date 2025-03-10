@@ -74,7 +74,6 @@ First close R if you have it open.
 Then make a folder called GWAS for this exercise, copy the relavant data into this folder and unpack the data by typing
 
 ```bash
-cd ~/exercises
 mkdir GWAS 
 cd GWAS
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/GWAS/gwasdata.tar.gz .
