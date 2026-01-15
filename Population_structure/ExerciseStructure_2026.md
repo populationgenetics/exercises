@@ -56,7 +56,7 @@ mkdir structure
 cd structure
 
 # Download data (remember the . in the end)
-cp /course/popgenmsc26/* .
+cp /course/popgenmsc26/exercises/structure/pa/* .
 
 # Show a list of files i thus directory and thus of the files you downloaded
 ls -l
