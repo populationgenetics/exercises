@@ -98,9 +98,9 @@ Now we want to import our genotype data into R.
 
 ```R
 # Load the data into a variable called geno
-library(snpMatrix)
+library(snpStats)
 data <- read.plink("pruneddata")
-geno <- matrix(as.integer(data@.Data),nrow=nrow(data@.Data))
+geno <- matrix(as.integer(data$genotypes),nrow=nrow(data$genotypes))
 geno[geno==0] <- NA
 geno <- geno-1
 
