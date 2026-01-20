@@ -300,7 +300,7 @@ cd ~/exercises
 mkdir HardyWeinberg
 cd HardyWeinberg
 cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/HardyWeinberg/CE* .
-
+cp ~/course/popgenmsc26/exercises/HardyWeinberg/CE*.
 
 ```
 
@@ -507,3 +507,4 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
