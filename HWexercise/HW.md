@@ -123,7 +123,7 @@ are given
     frequencies of heterozygotes.\]
 
 5)  What could have caused the differences in HW proportions between the
-    groups? (if you do not know, then just move to the next question)
+    groups? (if you do not know, then just move to the next question. We will reveal it in the solutions.)
 
 6)  What is happening among the seedling stage and the adult life stage? (if you do not know, then just move to the next exercise)
 
@@ -497,6 +497,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
