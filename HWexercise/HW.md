@@ -77,7 +77,7 @@ total, 60,000 children are born.
 2)  How many carriers (healthy heterozygotes) are born each year?
 
 3)  What is the fraction of affected children where both parents don’t
-    have the disease? (skip until you have solved exercise 2 and 3 and then return to it if you have more time by then).
+    have the disease? (*NB.* skip until you have solved exercise 2 and 3 and then return to it if you have more time by then).
 
 Hint for question 3:
 One way to solve it is to step by step do as follows
@@ -504,6 +504,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
