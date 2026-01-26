@@ -356,8 +356,7 @@ proportions.
     proportions that deviate significantly from Hardy-Weinberg
     proportions? (How many significant tests at a significance level of
     0.05 do you expect to see?)
-
-Copy the following in the command line into R to count the number of
+    Hint: Copy the following in the command line into R to count the number of
 significant tests
 
 ```
@@ -501,6 +500,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
