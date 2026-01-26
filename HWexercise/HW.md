@@ -276,6 +276,7 @@ don’t get confused when you interpret “AA”, “AB” and “BB” for the 
 samples. They have been swapped in the African sample
 -->
 **Exercise 4**
+
 In this exercise, we will analyze datasets that consists of a larger
 number of loci. For this purpose we will use the HardyWeinberg R
 package. There are two datasets: CEU\_500.hw and CEU\_500.sim. The first
@@ -288,12 +289,11 @@ populations. There is no admixture among populations. The sample size is
 60 for both datasets.
 
 *Get the two files:*
-
-In the Linux terminal: Make the exercises directory, move to it and 
-make a HardyWeinberg directory and copy your data:
+First login to the teaching server. 
+In the Linux terminal you then run the following commands (which means you make a directory called exercises, go into that directory, then make a directory called HardyWeinberg, go into that and finally copy the data files you need into this directory):
 
 ```
-cd ~
+cd 
 mkdir exercises
 cd ~/exercises
 mkdir HardyWeinberg
@@ -301,9 +301,9 @@ cd HardyWeinberg
 cp /course/popgenmsc26/exercises/HardyWeinberg/CE* .
 ```
 
-Analyze (in the \~/exercises/HardyWeinberg folder) the two data sets:
+Next you should analyses (in the \~/exercises/HardyWeinberg folder) the two data sets using R:
 
-Open R and copy the following in the command line
+So open R and copy the following in the command line
 
 ```
 library("HardyWeinberg")
@@ -357,7 +357,7 @@ proportions.
     proportions? (How many significant tests at a significance level of
     0.05 do you expect to see?)
 
-Copy the following in the command line in R to count the number of
+Copy the following in the command line into R to count the number of
 significant tests
 
 ```
@@ -376,7 +376,7 @@ length(sigchitest)
 3)  What could the reason for a deviation from Hardy-Weinberg
     proportions be?
 
-We can use a Q–Q (quantile-quantile) plot to check whether the data
+We can use Q–Q (quantile-quantile) plots to check whether the data
 perform as expected. In this case, we check whether the genotypic
 proportions are the expected Hardy-Weinberg proportions. We use the
 HardyWeinberg package to do this. See **6.4. Q-Q plots** below in this
@@ -504,6 +504,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
