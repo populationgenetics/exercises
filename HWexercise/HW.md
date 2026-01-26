@@ -242,11 +242,11 @@ The European population consists of the following subpopulations
 
 5)  In which gene is the SNP found?
 
-    Hint: you can use the ensembl link above, pick location "5:33951588 (forward strand)", press go and then click "4 transcripts" under "About this variant".
+    Hint: you can use the ensembl link above, pick location "5:33951588 (forward strand)", press go and then click "View in dbSNP" under "Original source".
     
 7)  Does the variation have an effect on the phenotype?
 
-    Hint: same as in 5 but this time click "69 phenotypes" under "About this variant". 
+    Hint: same as in 5 but this time click under Clinical Significance in dbSNP. 
 
 9)  Among the AFR subpopulations, two (ACB, ASW) seem to differ from the
 others, which seem to be homogeneous. This is also the case for one
@@ -497,6 +497,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
