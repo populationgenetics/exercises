@@ -393,12 +393,9 @@ the observed and expected values are equal..
 ```
 par(mfrow=c(1,2))
 HWQqplot(SNP_data,
-         main ="Q-Q plot for original data",
-         cex.main=1.5, font.main = 1)
+         main ="Q-Q plot for original data")
 HWQqplot(SNP_sim_data,
-         main ="Q-Q plot for simulated data",
-         cex.main=1.5, font.main = 1)
-
+         main ="Q-Q plot for simulated data")
 
 ```
 
@@ -504,6 +501,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
