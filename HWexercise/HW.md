@@ -354,10 +354,9 @@ proportions.
 
 1)  Are there any indications that the original SNP data has genotypic
     proportions that deviate significantly from Hardy-Weinberg
-    proportions? (How many significant tests at a significance level of
-    0.05 do you expect to see?)
-    Hint: Copy the following in the command line into R to count the number of
-significant tests
+    proportions? (Hint 1: How many significant tests at a significance level of
+    0.05 do you expect to see? Hint 2: Copy the following in the command line into R to count the number of
+significant tests observed:
 
 ```
 #First make a vector with chi test values
@@ -366,8 +365,6 @@ chitest  <- HWChisqStats(SNP_data,pvalues=FALSE)
 #Then make a vector with significant tests
 sigchitest <-chitest[chitest>3.84]
 length(sigchitest)
-
-
 ```
 2)  Do the simulated dataset overall agree with Hardy-Weinberg
     proportions?
@@ -500,6 +497,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
