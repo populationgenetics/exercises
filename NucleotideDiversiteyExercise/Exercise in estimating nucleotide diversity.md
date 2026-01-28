@@ -1,6 +1,6 @@
-# Exercise in estimating nucleotide diversity 2024
+# Exercise in estimating nucleotide diversity 2026
 
-Genís Garcia-Erill, Patrícia Chrzanová Pečnerová, Casper-Emil Pedersen, Peter Frandsen and Hans R. Siegismund
+Harvi Pawar, Genís Garcia-Erill, Patrícia Chrzanová Pečnerová, Casper-Emil Pedersen, Peter Frandsen and Hans R. Siegismund
 
 ## Program
 
@@ -61,7 +61,7 @@ If the directory exists, start here
 
 ```bash
 cd ~/exercises
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/apeDiversity/apeGenDiv2022.tar.gz .
+cp ~ /course/popgenmsc26/exercises/apeDiversity/apeGenDiv2022.tar.gz .
 tar -zxvf apeGenDiv2022.tar.gz
 rm apeGenDiv2022.tar.gz
 cd apeGenDiv
