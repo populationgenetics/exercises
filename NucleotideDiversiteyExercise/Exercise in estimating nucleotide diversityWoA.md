@@ -1,6 +1,6 @@
 # Exercise in estimating nucleotide diversity
 
-Harvi Pawar,Genís Garcia-Erill, Patrícia Chrzanová Pečnerová, Casper-Emil Pedersen, Peter Frandsen and Hans R. Siegismund
+Harvi Pawar, Genís Garcia-Erill, Patrícia Chrzanová Pečnerová, Casper-Emil Pedersen, Peter Frandsen and Hans R. Siegismund
 
 ## Program
 
@@ -404,6 +404,7 @@ Now take a look at the total sample of the combined set of chimpanzees and human
 
 
 **Q22:** This effect is more pronounced in some populaitons (CEU in humans, verus, ellioti and scweinfurhii in chimpanzees), can you guess why is that?
+
 
 
 
