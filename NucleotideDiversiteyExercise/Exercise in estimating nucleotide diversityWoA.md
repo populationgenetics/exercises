@@ -52,7 +52,7 @@ If the directory exists, start here
 
 ```bash
 cd ~/exercises
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/apeDiversity/apeGenDiv2022.tar.gz .
+cp ~/course/popgenmsc26/exercises/apeDiversity/apeGenDiv2022.tar.gz .
 tar -zxvf apeGenDiv2022.tar.gz
 rm apeGenDiv2022.tar.gz
 cd apeGenDiv
@@ -404,5 +404,6 @@ Now take a look at the total sample of the combined set of chimpanzees and human
 
 
 **Q22:** This effect is more pronounced in some populaitons (CEU in humans, verus, ellioti and scweinfurhii in chimpanzees), can you guess why is that?
+
 
 
