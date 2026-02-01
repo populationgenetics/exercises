@@ -62,6 +62,7 @@ and here
   <img  align="right" src="HW1PA.png" alt="Phenylalanine" width=125 title="Phenylalanine">
  </figure>
 
+
  **Exercise 1**  
 In Denmark, each year 6 children are born that are homozygotes for
 deleterious alleles at the phenylkenuria (PKU) locus (Følling's
@@ -89,6 +90,7 @@ b)  calculate the probability that the child of such a set of parents gets the d
 c)  use a, b & the fact that there are 60000 children to calculate how many children you expect will have healthy parents but get the disease
     
 d)  finally calculate how big of proportion your number in c constitutes of the 6 children with the disease
+
 
 
 **Exercise 2**
@@ -177,7 +179,9 @@ n
 
 ```
 -->
+
 **Exercise 3**
+
 A young unexperienced biologist has collected data for the human SNP
 rs16891982 for Europeans (EUR) and Africans (AFR). He found the
 following variation at this SNP:
@@ -498,6 +502,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
