@@ -31,7 +31,7 @@ The focus of these exercises is to
 Jan Graffelman’s "HardyWeinberg" R package described in the
 paper “Exploring Diallelic Genetic Markers: The HardyWeinberg Package”,
 which is available from the Comprehensive R Archive Network (CRAN) at
-<http://CRAN.R-project.org/package=HardyWeinberg>. NB This package is already installed on the popgen server! 
+<http://CRAN.R-project.org/package=HardyWeinberg>. NB This package is already installed on the teaching server! 
 So, please do not reinstall it. It takes some time, and we don't need 50 independent copies for all users.
 
 
@@ -63,7 +63,8 @@ and here
  </figure>
 
 
- **Exercise 1**  
+.
+**Exercise 1**  
 In Denmark, each year 6 children are born that are homozygotes for
 deleterious alleles at the phenylkenuria (PKU) locus (Følling's
 disease [ Named after Asbjørn Følling, a Norwegian that discovered PKU in 1934.])
@@ -92,7 +93,7 @@ c)  use a, b & the fact that there are 60000 children to calculate how many chil
 d)  finally calculate how big of proportion your number in c constitutes of the 6 children with the disease
 
 
-
+.
 **Exercise 2**
 
 *Silene nutans* is a hermaphroditic plant that is
@@ -180,6 +181,7 @@ n
 ```
 -->
 
+.
 **Exercise 3**
 
 A young unexperienced biologist has collected data for the human SNP
@@ -502,6 +504,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
