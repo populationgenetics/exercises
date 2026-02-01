@@ -64,6 +64,7 @@ and here
 
 
 .
+
 **Exercise 1**  
 In Denmark, each year 6 children are born that are homozygotes for
 deleterious alleles at the phenylkenuria (PKU) locus (Følling's
@@ -94,6 +95,7 @@ d)  finally calculate how big of proportion your number in c constitutes of the 
 
 
 .
+
 **Exercise 2**
 
 *Silene nutans* is a hermaphroditic plant that is
@@ -182,6 +184,7 @@ n
 -->
 
 .
+
 **Exercise 3**
 
 A young unexperienced biologist has collected data for the human SNP
@@ -282,6 +285,9 @@ HWChisq reports the allele frequency of the rarest allele. So please,
 don’t get confused when you interpret “AA”, “AB” and “BB” for the two
 samples. They have been swapped in the African sample
 -->
+
+.
+
 **Exercise 4**
 
 In this exercise, we will analyze datasets that consists of a larger
@@ -504,6 +510,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
