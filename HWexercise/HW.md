@@ -62,8 +62,8 @@ and here
   <img  align="right" src="HW1PA.png" alt="Phenylalanine" width=125 title="Phenylalanine">
  </figure>
 
- **Exercise 1**  In Denmark, each year 6 
-children are born that are homozygotes for
+ **Exercise 1**  
+In Denmark, each year 6 children are born that are homozygotes for
 deleterious alleles at the phenylkenuria (PKU) locus (Følling's
 disease [ Named after Asbjørn Følling, a Norwegian that discovered PKU in 1934.])
 These children are given a diet with a low concentration of
@@ -497,6 +497,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
