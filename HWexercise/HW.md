@@ -1,6 +1,6 @@
 # Hardy-Weinberg exercise
 
-**Hans R Siegismund**
+**Hans R Siegismund and Ida Moltke**
 
 The focus of these exercises is to
 
@@ -497,6 +497,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
