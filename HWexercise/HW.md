@@ -25,11 +25,10 @@ The focus of these exercises is to
         according to the null hypothesis
 
  
-**Note 1:** It is advisable to do all the calculations by hand to get used to it. 
+**Note 1:** Please do all the calculations for these exercises by hand first, so you know exactly how to do them. 
 
-**Note 2:** Once you are familiar with R you can redo exercise 2 and 3. If you want to do exercise 4 you can do it using 
-Jan Graffelman’s "HardyWeinberg" R package described in the
-paper “Exploring Diallelic Genetic Markers: The HardyWeinberg Package”,
+**Note 2:** Once you are familiar with R you can redo exercise 2 and 3 in R. If you want to do exercise 4 (requires R) you can do it using 
+Jan Graffelman’s "HardyWeinberg" R package described in the paper “Exploring Diallelic Genetic Markers: The HardyWeinberg Package”,
 which is available from the Comprehensive R Archive Network (CRAN) at
 <http://CRAN.R-project.org/package=HardyWeinberg>. NB This package is already installed on the teaching server! 
 So, please do not reinstall it. It takes some time, and we don't need 50 independent copies for all users.
@@ -80,7 +79,7 @@ total, 60,000 children are born.
 2)  How many carriers (healthy heterozygotes) are born each year?
 
 3)  What is the fraction of affected children where both parents don’t
-    have the disease? (*NB.* skip until you have solved exercise 2 and 3 and then return to it if you have more time by then).
+    have the disease? (*NB.* unless you solve this question within 5 minutes, please skip it until you have solved exercise 2 and 3 and then return to it if you have more time by then).
 
 Hint for question 3:
 One way to solve it is to step by step do as follows
@@ -510,6 +509,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
