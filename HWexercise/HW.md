@@ -308,7 +308,7 @@ In the Linux terminal you then run the following commands (which means you make 
 ```
 cd 
 mkdir exercises
-cd ~/exercises
+cd exercises
 mkdir HardyWeinberg
 cd HardyWeinberg
 cp /course/popgenmsc26/exercises/HardyWeinberg/CE* .
@@ -510,6 +510,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
