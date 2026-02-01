@@ -92,6 +92,7 @@ d)  finally calculate how big of proportion your number in c constitutes of the 
 
 
 **Exercise 2**
+
 *Silene nutans* is a hermaphroditic plant that is
 self-compatible (It can fertilize itself.). In a study of this plant, genetic variation at
 two life stages was recorded in a population: seedlings and adult
@@ -497,6 +498,7 @@ region of a single chromosome.
 <figure>
   <img  align="center" src="HW6QQ.png" alt="" width=1000 title="">
  </figure>
+
 
 
 
