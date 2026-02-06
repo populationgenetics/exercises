@@ -163,7 +163,8 @@ pcs <- as.data.frame(pca$x)
 
 # Custom colors matching the original colors on the map.
 palette(c('#E69F00', '#D55E00', '#56B4E9'))
-plot(pcs$PC1, pcs$PC2, col=popinfo$V1, pch=19, las=1, bty='L',
+colorvec <- as.numeric(factor(popinfo$V1))
+plot(pcs$PC1, pcs$PC2, col=colorvec, pch=19, las=1, bty='L',
 	main='PCA on 29 wild-born chimpanzees',
 	xlab=paste0('PC1 (', PC1_explained, '% of variance)'),
 	ylab=paste0('PC2 (', PC2_explained, '% of variance)'))
