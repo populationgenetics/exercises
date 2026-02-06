@@ -328,7 +328,7 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 <br />
 
 **Q10**
-- **Q10.1 Would the conclusion be different if you used the worst compared to the best?**
+- **Q10.1 Would the conclusion about population structure and admixture be different if you used the worst compared to the best?**
 
 <br />
 
