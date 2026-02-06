@@ -267,8 +267,8 @@ snp_k3_run5 <- as.matrix(read.table("pruneddata_K3_run5.Q"))
 barplot(t(snp_k3_run5), col=c(3,2,1), names.arg=sample_names, cex.names=0.8,
 	border=NA, main="K=3 - Run 5", las=2, ylab="Ancestry proportion")
 ```
-
-Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
+Next try to make the plot in the same way but with population labels instead of individual names.
+Save/screenshot both plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 <br />
 
