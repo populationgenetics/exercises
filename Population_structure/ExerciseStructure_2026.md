@@ -206,7 +206,7 @@ cd ~/exercises/structure/
 admixture -s 1 pruneddata.bed 3 > pruneddata_K3_run1.log
 
 # Look at output files
-ls -l
+ls -lah
 ```
 
 <br />
