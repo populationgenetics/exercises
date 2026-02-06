@@ -245,7 +245,7 @@ grep ^Loglikelihood: *K${K}*log | sort -k2
 
 **Q7**
 - **Q7.1 Which run-numbers have the 3 highest Loglikelihoods?**
-- **Q7.2 Has the model(s) converged? (*rule of thumb: it's converged if we have 3 runs within ± 1 loglikelihood unit*)**
+- **Q7.2 Have the analyses converged? (*rule of thumb: it's converged if we have 3 runs within ± 1 loglikelihood unit*)**
 - **Q7.3 Which run would you use as the result to plot?**
 
 <br />
@@ -286,7 +286,7 @@ Now, run admixture 10 times assuming only two ancestral populations (**K=2**). Y
 <br />
 
 **Q9**
-- **Q9.1 Did the model(s) converge?**
+- **Q9.1 Did the analyses converge?**
 - **Q9.2 Which model had the highest and which has the lowest loglikelihood?**
 
 <br />
@@ -337,12 +337,12 @@ Run admixture 10 times assuming 4 ancestral populations (K=4).
 <br />
 
 **Q11**
-- **Q11.1 Did the model(s) converge?**
+- **Q11.1 Did the analyses converge?**
 - **Q11.2 Which model had the highest and which has the lowest loglikelihood?**
 
 <br />
 
-It turns out that the model(s) eventually converges with the best fit at seed i=52. Run that single seed:
+It turns out that the analyses eventually converges (I ran it 100 times) with the best fit at seed i=52. Run that single seed:
 
 ```bash
 # Assumed number of ancestral populations 
@@ -389,7 +389,7 @@ barplot(t(snp_k4_run4), col=c(3,2,1,4), names.arg=sample_names, cex.names=0.8,
 Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no need to save the workspace).
 
 **Q12 Looking at all the results (PCA and admixture K=2, K=3, and K=4)**
-- **Q12.1 Do the admixture and PCA analysis correspond with the known geography?**
+- **Q12.1 Are the admixture and PCA analysis results consistent with the known geography?**
 - **Q12.2 Which number of ancestral populations do you find the most likely?**
 - **Q12.3 What are the possible explanations for the K=4 admixture results?**
 - **Q12.4 Does it look like we have admixed samples?**
@@ -399,8 +399,8 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 
 Let's now finally try to assess the fit of the models that we obtaining usign ADMIXTURE. To do so we first copy the program evalAdmix and a plotting script that help you plots the evalAdmix output to you structure exercise folder:
 ```bash
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/evalAdmix .
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/structure/visFuns.R .
+cp /course/popgenmsc26/exercises/structure/evalAdmix .
+cp /course/popgenmsc26/exercises/structure/visFuns.R .
 ```
 Second we want to run evalAdmix on the best solution from ADMXITURE for each of K=2-4. evalAdmix needs a few things specificed: the prefix of the files that contain the data (option -plink), the name of the P file from ADMIXTURE (option -fname), the name of the Q file from ADMIXTURE (option -qname) and the name you want the output file to have (option -o). So to assess the fit for K=2 (where the best run was run 1) we would run the command in the terminal:
 
