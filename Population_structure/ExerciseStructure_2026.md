@@ -59,7 +59,7 @@ cd structure
 cp /course/popgenmsc26/exercises/structure/pa/* .
 
 # Show a list of files i thus directory and thus of the files you downloaded
-ls -l
+ls -lah
 ```
 You have now downloaded a PLINK file-set consisting of
 
