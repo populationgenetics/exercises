@@ -133,7 +133,8 @@ jpeg(filename="WesternLowland.jpg")
 LDheatmap(as.matrix(lowland.dprime), title="Lowland Gorialla: LD (D')", 
     color=heat.colors(20), SNP.name = NULL, add.map=TRUE)
 dev.off()
-q()```
+q()
+```
 
 **NB**: the .jpg files are quite heavy and loading the output could take a long time. You can start to open the .jpg file with the commands
 
@@ -255,3 +256,4 @@ in humans?
 **Q12:** Would you also expect different patterns of LD in human
 populations (*e.g.* Chinese, Europeans, and Africans)? Where would 
 LD be highest and LD decay be slowest? Why?
+
