@@ -112,13 +112,13 @@ Now we will read in our data and apply the function above to each of the three p
 
 
 ```R
-library(snpMatrix)
+library(snpStats)
 
 # read genotype data using read.plink function form snpMatrix package
 data <- read.plink("pruneddata")
 
 # extract genotype matrix, convert to normal R integer matrix
-geno <- matrix(as.integer(data@.Data),nrow=nrow(data@.Data))
+geno <- matrix(as.integer(data$genotypes),nrow=nrow(data$genotypes))
 
 # original format is 0: missing, 1: hom minor, 2: het, 3: hom major
 # convert to NA: missing, 0: hom minor, 1: het, 2: hom major
@@ -376,4 +376,5 @@ Now let's look at some gene annotations at this location. Open the [chimpanzee g
 
 
 **Q9:** Can we conclude that selection on this gene has driven biological differentiation between the troglodytes and schweinfurthii chimpanzee subspecies?
+
 
