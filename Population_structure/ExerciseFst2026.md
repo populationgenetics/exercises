@@ -1,6 +1,6 @@
 # Exercises - measuring population differentiation and detecting signatures of selection using F<sub>ST</sub>
 
-## Genis Garcia Erill & Renzo Balboa
+## Genis Garcia Erill & Xiaodong Liu
 
 ## Program
 
@@ -376,5 +376,6 @@ Now let's look at some gene annotations at this location. Open the [chimpanzee g
 
 
 **Q9:** Can we conclude that selection on this gene has driven biological differentiation between the troglodytes and schweinfurthii chimpanzee subspecies?
+
 
 
