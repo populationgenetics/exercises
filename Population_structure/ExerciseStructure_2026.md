@@ -14,7 +14,7 @@
     
 ## Recommended reading
 
-  - ”An introduction to Population Genetics” page 99-103
+  - Nielsen & SLatkin's ”An introduction to Population Genetics” pages 99-103.
 
 ## Inferring chimpanzee population structure and admixture using exome data
 
