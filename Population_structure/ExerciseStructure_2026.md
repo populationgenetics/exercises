@@ -395,7 +395,7 @@ Save/screenshot the plot for later. Close R by typing `q()` and hit `Enter` (no 
 - **Q12.4 Does it look like we have admixed samples?**
 - **Q12.5 Can we conclude anything about admixture between the subspecies?**
 
-**Q13 Extra exercise: assessing the obtained models for K=2-4**:
+**Q13 Final exercise: assessing the obtained models for K=2-4**:
 
 Let's now finally try to assess the fit of the models that we obtaining usign ADMIXTURE. To do so we first copy the program evalAdmix and a plotting script that help you plots the evalAdmix output to you structure exercise folder:
 ```bash
