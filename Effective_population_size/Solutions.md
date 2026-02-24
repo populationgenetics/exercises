@@ -359,30 +359,33 @@ Let's in a few steps estimate the effective population sizes for these two popul
 2. Based on that what is the Watterson's estimate for &Theta; in the 2 different populations - YRI and CEU?
 <details>
     <summary>Answer: </summary>
-    Remember that Watterson's theta can be computed using [this equation]()
-    
+    Remember that Watterson's theta can be computed using 
+    <figure>
+      <img src="ThetaW.png" alt="" width=200>
+    </figure>
+    So using this formula, we get for YRI &Theta;<sub>w</sub> = 822324.5, and for CEU &Theta;<sub>w</sub> = 532943.5
 </details>
 
 3. The mutation rate per generation per locus in humans has been estimated to around 1.2 * 10<sup>-8</sup> (so for a sequence consisting of  1.000.000.000 sites, &mu; = 1.000.000.000 * 1.2 * 10<sup>-8</sup>  = 12). Use this and the fact that we can estimated N<sub>e</sub> as &Theta;/(4*&mu;) to estimate N<sub>e</sub> for the two populations.
 <details>
     <summary>Answer: </summary>
-There could be 2 reaons for this, 1. the census size increase happened only a short while ago, so it is not reflected in the effective populations sizes, and 2. even though the census sizes are large, there might only be much fewer individuals reproducing each year. 
+Substituting the &Theta;<sub>w</sub> and using the formula in this quesiton, we can compute N<sub>e</sub> for YRI and CEU as 17131.76 and 11102.99 respectively. 
 </details>
 
 4.  Are the N<sub>e</sub> higher or lower than you had expected?
 <details>
     <summary>Answer: </summary>
-There could be 2 reaons for this, 1. the census size increase happened only a short while ago, so it is not reflected in the effective populations sizes, and 2. even though the census sizes are large, there might only be much fewer individuals reproducing each year. 
+These N<sub>e</sub> are about what we would expect for humans, since we commonly use 20000 as the effective population size for all humans. 
 </details>
 
 5.  Does it make sense that YRI has a higher  N<sub>e</sub> than CEU? 
 <details>
     <summary>Answer: </summary>
-There could be 2 reaons for this, 1. the census size increase happened only a short while ago, so it is not reflected in the effective populations sizes, and 2. even though the census sizes are large, there might only be much fewer individuals reproducing each year. 
+Yes, these N<sub>e</sub> are computed using the genetic diversity, so it makes sense that CEU has a lower effective population size than YRI, as the out-of-africa bottleneck affected CEU, and led to a loss of genetic diversity. The YRI population is not affected by the bottleneck. 
 </details>
 
-6. If there is time estimate N<sub>e</sub> for GR (the Greenlandic populations) as well. How does that compare with N<sub>e</sub> for the other two populations? And does it make sense why?
+6. If there is time, estimate N<sub>e</sub> for GI (the Greenlandic populations) as well. How does that compare with N<sub>e</sub> for the other two populations? And does it make sense why?
 <details>
     <summary>Answer: </summary>
-There could be 2 reaons for this, 1. the census size increase happened only a short while ago, so it is not reflected in the effective populations sizes, and 2. even though the census sizes are large, there might only be much fewer individuals reproducing each year. 
+Greenlandic Inuit (GI) went through a major bottlneck recently, which led to a lot of diversity loss. So we would expect the N<sub>e</sub> for GI to be lower than for CEU or YRI, and it is. N<sub>e</sub> for GI comes out to be 7636.44. 
 </details>
