@@ -249,7 +249,7 @@ The effective population sizes are generally much smaller than the census poupla
 2. What could explain the differences between the census sizes and the N<sub>e</sub>? 
 <details>
     <summary>Answer: </summary>
-There could be 2 reaons for this, 1. the census size increase happened only a short while ago, so it is not reflected in the effective populations sizes, and 2. even though the census sizes are large, there might only be much fewer individuals reproducing each year. 
+There could be 2 reasons for this, 1. the census size increase happened only a short while ago, so it is not reflected in the effective populations sizes, and 2. even though the census sizes are large, there might only be much fewer individuals reproducing each year. 
 </details>
 
 <!--
@@ -337,7 +337,7 @@ bash ./do_everything
 ## Part 2: Estimating effective population size using Watterson's estimator of Theta
 Rasmus showed the following figure in his slides:
 
-![Alt text](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sfs1dx.png)
+![SFS from lecture](https://github.com/populationgenetics/exercises/blob/master/Effective_population_size/images/sfs1dx.png)
 
 Notice that in the upper right hand corner there is an estimate of the percentage of sites that are polymorphic in the five different populations based on 18 individuals per populations. We will here focus on two of these: 
 - YRI (Africans from Nigeria)
@@ -356,15 +356,11 @@ Let's in a few steps estimate the effective population sizes for these two popul
     GI:  1.520.000
 </details>
 
-2. Based on that what is the Watterson's estimate for &Theta; in the 2 different populations?
+2. Based on that what is the Watterson's estimate for &Theta; in the 2 different populations - YRI and CEU?
 <details>
     <summary>Answer: </summary>
-    Remember that Watterson's theta estimator can be found using 
-    ```
-    $$
-      \Theta_w = S/\sum_{k=1}^{n-1} 1/k
-    $$
-    ```
+    Remember that Watterson's theta can be computed using [this equation]()
+    
 </details>
 
 3. The mutation rate per generation per locus in humans has been estimated to around 1.2 * 10<sup>-8</sup> (so for a sequence consisting of  1.000.000.000 sites, &mu; = 1.000.000.000 * 1.2 * 10<sup>-8</sup>  = 12). Use this and the fact that we can estimated N<sub>e</sub> as &Theta;/(4*&mu;) to estimate N<sub>e</sub> for the two populations.
