@@ -21,7 +21,6 @@ The app will simulate the 22 autosomes ( like for Humans )
 <p align="center">
   <img src="im.png" alt="" width="800">
 </p>
-
 <br>
  
  - Note the simulated inbreeding coefficient for this individual. Why is it not the same as the F you entered?
@@ -42,39 +41,38 @@ The app will simulate the 22 autosomes ( like for Humans )
 
 Here is shown the IBD sharing between two individuals on chromosome 1. 
 
- <p align="center">
-   <img  align="left" src="fig1.png" alt="" width=800 title="">
- <br> 
- </p>  
+ 
+<p align="center">
+  <img src="fig1.png" alt="" width="800">
+</p>
+<br>
 
 
   - Assuming no previous inbreeding in the population what is the only relationship that can produce such IBD patterns?
   - Assuming both individuals has a rare recessive disorder, where on the chromosome might the disease gene be located?
-
-
-
   - Here is a figure of two distantly related individuals both with the same rare disorder. They share 0.3% of their genome IBD=1
  
- <p align="center">
-   <img  align="left" src="fig2.png" alt="" width=850 title="">
-<br />
- </p>  
+ 
+<p align="center">
+  <img src="fig2.png" alt="" width="800">
+</p>
+<br>
 
 
   - These individuals share two regions IBD. What assumption do we have to have in order to conclude that the disease causing locus is in one of these regions?
   - For relatedness mapping do you think it is best to have close or distantly related individuals?
   - Try to guess the number of generations that separate these two individuals?
-  - They are actually separated by 14 generations. Try to see if you can get a similar pattern using simulations https://popgen.dk/shiny/anders/popgen2016/Rgenome/
-  - - If slow then run locally (see below)
-  - What explains the difference between your simulations and above plot?
-
-
-
-## run locally 
-Open R or R studio and then run
+  - They are actually separated by 14 generations. Try to see if you can get a similar pattern using simulations
+### run simulations
+Open R or R studio on emily and then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
 runUrl("https://popgen.dk/shiny/anders/popgenCourse/Rgenome.tar.gz")
 ```
-  
+A slower options is to use https://popgen.dk/shiny/anders/popgen2016/Rgenome/ NB!. The link does not work if you are using the KU VPN. 
+  - What explains the difference between your simulations and above plot?
+
+
+
+
