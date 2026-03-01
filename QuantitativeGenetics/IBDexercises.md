@@ -5,37 +5,36 @@ You have gotten access to DNA from an individual and using genetic markers acros
   - - Hint 1: Look at the “Expectations of inbreeding coefficient from pedigrees” slides from earlier
 
 
+### To to simulate inbreeding
+open R on your labtop, or on  or emily Rstudio server. Then run
+```R
+# if shiny is not ins
+if (!require("shiny")) install.packages("shiny")
+runUrl("https://popgen.dk/shiny/anders/popgenCourse/Fgenome.tar.gz")
+```
+A slower options is to use https://popgen.dk/shiny/anders/popgenCourse/Fgenome/  NB!. The link does not work if you are using the KU VPN. 
 
- - Go to https://popgen.dk/shiny/anders/popgenCourse/Fgenome/ to simulate the 22 autosomes for a Human.
- - - NB!. The link does not work if you are using the KU VPN. 
- - - If it is slow to respond you can use a local version(see below)
- - - Try to simulate an individuals from this simple pedigree (use the expected F from such a pedigree, don’t use “a”)
+The app will simulate the 22 autosomes ( like for Humans )
+ - - Try to simulate an individuals from this simple pedigree. This can be done by choosing the expected F from such a pedigree ( keep “a” as zero). 
 
 
- <p align="center">
-   <img  align="left" src="im.png" alt="" width=800 title="">
- <br> 
- </p>  
+<p align="center">
+  <img src="im.png" alt="" width="800">
+</p>
+
+<br>
  
  - Note the simulated inbreeding coefficient for this individual. Why is it not the same as the F you entered?
  - - Note the length of the inbreeding tracts. What determines how long they are?
  - - Note the number of chromosomes that do not have inbreeding tracts. Try to draw how this might happen
- - - Try to get an idea of the range of possible inbreeding coefficients by trying multiple simulations (still using the same F)
+ - - Try to get an idea of the range of possible inbreeding coefficients by running multiple simulations (still using the same F)
  - - Look in table https://www.researchgate.net/profile/Alan-Bittles-2/publication/38114212/figure/tbl1/AS:601713388052509@1520471059919/Human-genetic-relationships.png  of simple consanguineous pedigrees.  Does your range overlap with the expected inbreeding coefficients?
   
  - Try a few simulations of some of the other simple pedigrees and try to see which pedigrees could explain your estimated inbreeding value of 0.062?
  - If you infer the inbreeding tracks of your individuals the results will look like this https://github.com/populationgenetics/exercises/blob/master/QuantitativeGenetics/FforInd.png. Is this consistent with your suggested pedigrees? Or which other explanations could there be for the estimated F?
 
 
-## run locally 
-open R on you desktop (not the server). Then run
-```R
-# if shiny is not ins
-if (!require("shiny")) install.packages("shiny")
-runUrl("https://popgen.dk/shiny/anders/popgenCourse/Fgenome.tar.gz")
-```
-  
- 
+
  
  
  
