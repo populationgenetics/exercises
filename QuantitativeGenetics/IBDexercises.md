@@ -10,6 +10,7 @@ open R on your labtop, or on  or emily Rstudio server. Then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
+library(shiny)
 runUrl("https://popgen.dk/shiny/anders/popgenCourse/Fgenome.tar.gz")
 ```
 A slower options is to use https://popgen.dk/shiny/anders/popgenCourse/Fgenome/  NB!. The link does not work if you are using the KU VPN. 
@@ -68,6 +69,7 @@ Open R or R studio on emily and then run
 ```R
 # if shiny is not ins
 if (!require("shiny")) install.packages("shiny")
+library(shiny)
 runUrl("https://popgen.dk/shiny/anders/popgenCourse/Rgenome.tar.gz")
 ```
 A slower options is to use https://popgen.dk/shiny/anders/popgen2016/Rgenome/ NB!. The link does not work if you are using the KU VPN. 
