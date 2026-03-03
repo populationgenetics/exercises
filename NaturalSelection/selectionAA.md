@@ -43,10 +43,8 @@ Open R and load data
 ## in R 
 ```R
 ## paste the following code in R ( you do not need to understand it)
-.libPaths( c( .libPaths(), "~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/Rlib/") )
-setwd("~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/selection/selectionScan")
-source("server.R")
-
+setwd("/davidData/data/course/popgenmsc26/exercises/selection/selectionScan/")
+ source("server.R")
 ```
 
 **Exercise**
