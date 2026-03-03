@@ -36,13 +36,14 @@ Try to go to the LCT loci.
  - What can you conclude on the performance of Tajima’s D
 
 # Part 2
-`
+
+- Log in to emily using ssh and open R ( remember to login with graphics )
+- - Alternatively use Rstudio Server (url on absalon on todays module)
 
 
-Open R and load data
 ## in R 
 ```R
-## paste the following code in R ( you do not need to understand it)
+## paste the following code in R to load the data and fundions
 setwd("/davidData/data/course/popgenmsc26/exercises/selection/selectionScan/")
  source("server.R")
 ```
