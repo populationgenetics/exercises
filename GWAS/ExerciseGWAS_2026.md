@@ -222,7 +222,12 @@ Run the above command and plot the results by typing:
 Rscript data/plink.plot.R plink.mds data/gwa.fam
 ```
 
-The resulting plot should now be in the file plink.mds.pdf, which you can open with the pdf viewer evince (so by typing "evince plink.mds.pdf"). It shows the first two dimensions and each individual is represented by a point, which is colored according to the individual's disease status. 
+The resulting plot should now be in the file plink.mds.pdf, which you can open by typing:
+
+```bash
+display plink.mds.pdf 
+```
+It shows the first two dimensions and each individual is represented by a point, which is colored according to the individual's disease status. 
 
 * Clustering of cases and controls is an indication of batch bias. Do you see such clustering?
 * What else could explain this clustering?
