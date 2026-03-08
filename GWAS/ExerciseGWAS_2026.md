@@ -76,7 +76,7 @@ Then make a folder called GWAS for this exercise, copy the relavant data into th
 ```bash
 mkdir GWAS 
 cd GWAS
-cp ~/groupdirs/SCIENCE-BIO-Popgen_Course/exercises/GWAS/gwasdata.tar.gz .
+cp /course/popgenmsc26/exercises/GWAS/gwasdata.tar.gz .
 tar -xf gwasdata.tar.gz
 rm gwasdata.tar.gz
 ```
